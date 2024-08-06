@@ -44,11 +44,11 @@ return {
         opts.desc = "Show line diagnostics"
         keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
-        opts.desc = "Go to previous diagnostic"
-        keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        opts.desc = "Go to previous problem"
+        keymap.set("n", "g1", vim.diagnostic.goto_prev, opts)
 
-        opts.desc = "Go to next diagnostic"
-        keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        opts.desc = "Go to next problem"
+        keymap.set("n", "g2", vim.diagnostic.goto_next, opts)
 
         opts.desc = "Show documentation for what is under cursor"
         keymap.set("n", "K", vim.lsp.buf.hover, opts)
