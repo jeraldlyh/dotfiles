@@ -29,3 +29,19 @@ keymap.set("n", "<leader>fa", "<cmd>TSToolsFixAll<cr>", { desc = "Fix all" })
 -- package
 keymap.set("n", "<leader>pl", "<cmd>Lazy install<cr>", { desc = "Open Lazy" })
 keymap.set("n", "<leader>pm", "<cmd>Mason<cr>", { desc = "Open Mason" })
+
+-- session
+keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" })
+keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" })
+
+-- comment divider
+keymap.set("n", "<leader>cb", "<cmd>CommentDividerBox<cr>", { desc = "Comment box" })
+
+-- formatting
+keymap.set({ "n", "v" }, "<leader>mp", function()
+  require("conform").format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 1000,
+  })
+end, { desc = "Format file or range (in visual mode)" })
