@@ -34,7 +34,7 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 -- split windows
-opt.splitright = true 
+opt.splitright = true
 opt.splitbelow = true
 
 -- turn off swapfile

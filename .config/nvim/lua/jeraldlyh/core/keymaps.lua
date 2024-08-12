@@ -89,3 +89,5 @@ keymap.set("i", "<S-Up>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 keymap.set("i", "<S-Down>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
 keymap.set("v", "<S-Up>", ":MoveBlock(-1)<CR>", { desc = "Move block up" })
 keymap.set("v", "<S-Down>", ":MoveBlock(1)<CR>", { desc = "Move block down" })
+
+-- folds (find config in nvim-ufo.lua)
