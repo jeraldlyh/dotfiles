@@ -10,7 +10,6 @@ return {
       build = "make install_jsregexp",
     },
     "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
   },
   config = function()

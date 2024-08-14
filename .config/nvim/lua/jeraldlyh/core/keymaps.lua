@@ -25,7 +25,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<cr>", { desc = "Open current buffer
 
 -- package
 keymap.set("n", "<leader>pl", "<cmd>Lazy install<cr>", { desc = "Open Lazy" })
-keymap.set("n", "<leader>pm", "<cmd>Mason<cr>", { desc = "Open Mason" })
+keymap.set("n", "<leader>pM", "<cmd>Mason<cr>", { desc = "Open Mason" })
 
 -- session
 keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" })
@@ -63,6 +63,7 @@ keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find rece
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find word" })
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
 keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
+keymap.set("n", "<leader>fn", "<cmd>Noice history<cr>", { desc = "Find notification history" })
 keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 keymap.set("v", "<leader>f", function()
   function vim.getVisualSelection()
@@ -91,3 +92,6 @@ keymap.set("v", "<S-Up>", ":MoveBlock(-1)<CR>", { desc = "Move block up" })
 keymap.set("v", "<S-Down>", ":MoveBlock(1)<CR>", { desc = "Move block down" })
 
 -- folds (find config in nvim-ufo.lua)
+
+-- notifications
+keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
