@@ -8,6 +8,17 @@ return {
   },
   config = function()
     local treesitter = require("nvim-treesitter.configs")
+    local parserConfig = require("nvim-treesitter.parsers").get_parser_configs()
+
+    -- https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-2091384
+    parserConfig.gotmpl = {
+      install_info = {
+        url = "https://github.com/ngalaiko/tree-sitter-go-template",
+        files = { "src/parser.c" },
+      },
+      filetype = "gotmpl",
+      used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
+    }
 
     treesitter.setup({
       highlight = {
@@ -35,6 +46,7 @@ return {
         "query",
         "vimdoc",
         "python",
+        "yaml",
       },
       incremental_selection = {
         enable = true,
