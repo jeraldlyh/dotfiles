@@ -95,3 +95,33 @@ keymap.set("v", "<S-Down>", ":MoveBlock(1)<CR>", { desc = "Move block down" })
 
 -- notifications
 keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
+
+-- harpoon
+keymap.set("n", "<leader>ha", function()
+  require("harpoon"):list():add()
+end, { desc = "Add harpoon" })
+keymap.set("n", "<leader>ho", function()
+  local harpoon = require("harpoon")
+
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "Open harpoons" })
+
+keymap.set("n", "<leader>1", function()
+  require("harpoon"):list():select(1)
+end, { desc = "Go to harpoon 1" })
+keymap.set("n", "<leader>2", function()
+  require("harpoon"):list():select(2)
+end, { desc = "Go to harpoon 2" })
+keymap.set("n", "<leader>3", function()
+  require("harpoon"):list():select(3)
+end, { desc = "Go to harpoon 3" })
+keymap.set("n", "<leader>4", function()
+  require("harpoon"):list():select(4)
+end, { desc = "Go to harpoon 4" })
+
+keymap.set("n", "<C-S-P>", function()
+  require("harpoon"):list():prev()
+end, { desc = "Go to previous mark" })
+keymap.set("n", "<C-S-N>", function()
+  require("harpoon"):list():next()
+end, { desc = "Go to next mark" })
