@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
-    local lazy_status = require("lazy.status") 
+    local lazy_status = require("lazy.status")
 
     local colors = {
       blue = "#65D1FF",
@@ -54,6 +54,17 @@ return {
         theme = custom_theme,
       },
       sections = {
+        lualine_c = {
+          {
+            "harpoon2",
+            icon = "󰀱 ",
+            indicators = { "1", "2", "3", "4" },
+            active_indicators = { "[1]", "[2]", "[3]", "[4]" },
+            _separator = " ",
+            color_active = { fg = "#42c777" },
+            no_harpoon = "Harpoon not loaded",
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,
@@ -61,7 +72,6 @@ return {
             color = { fg = "#ff9e64" },
           },
           { "encoding" },
-          { "fileformat" },
           { "filetype" },
         },
       },
