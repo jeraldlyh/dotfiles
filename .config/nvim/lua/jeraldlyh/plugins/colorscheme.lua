@@ -9,6 +9,9 @@ return {
           Directory = { bold = true },
           ErrorMsg = { italic = true, bold = true },
         },
+        options = {
+          cursorline = true,
+        },
       })
 
       vim.cmd([[colorscheme onedark]])
