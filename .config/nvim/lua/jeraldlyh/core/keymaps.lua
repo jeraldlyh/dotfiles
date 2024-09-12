@@ -151,8 +151,8 @@ keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<cr>", { desc = "Collapse fi
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file explorer" })
 
 -- cold folding
-keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+keymap.set("n", "zR", function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
+keymap.set("n", "zM", function() require("ufo").closeAllFolds() end, { desc = "Close all folds" })
 keymap.set("n", "zK", function()
   local winId = require("ufo").peekFoldedLinesUnderCursor()
 
