@@ -54,6 +54,8 @@ return {
         theme = custom_theme,
       },
       sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           {
             "harpoon2",
@@ -66,6 +68,7 @@ return {
           },
         },
         lualine_x = {
+          { "filename", path = 1 },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
@@ -74,6 +77,8 @@ return {
           { "encoding" },
           { "filetype" },
         },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
     })
   end,

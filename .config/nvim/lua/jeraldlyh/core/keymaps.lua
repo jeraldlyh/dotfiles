@@ -109,8 +109,6 @@ keymap.set("n", "g2", function()
   vim.diagnostic.goto_next()
 end, { desc = "Next problem" })
 
--- folds (find config in nvim-ufo.lua)
-
 -- notifications
 keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
 
@@ -151,8 +149,12 @@ keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<cr>", { desc = "Collapse fi
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file explorer" })
 
 -- cold folding
-keymap.set("n", "zR", function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
-keymap.set("n", "zM", function() require("ufo").closeAllFolds() end, { desc = "Close all folds" })
+keymap.set("n", "zR", function()
+  require("ufo").openAllFolds()
+end, { desc = "Open all folds" })
+keymap.set("n", "zM", function()
+  require("ufo").closeAllFolds()
+end, { desc = "Close all folds" })
 keymap.set("n", "zK", function()
   local winId = require("ufo").peekFoldedLinesUnderCursor()
 
@@ -160,3 +162,6 @@ keymap.set("n", "zK", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "Peek fold" })
+
+-- utils
+keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
