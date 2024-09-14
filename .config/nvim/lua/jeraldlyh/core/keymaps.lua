@@ -165,3 +165,4 @@ end, { desc = "Peek fold" })
 
 -- utils
 keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
+keymap.set("n", "<leader>as", "<cmd>ASToggle<cr>", { desc = "Toggle auto save" })
