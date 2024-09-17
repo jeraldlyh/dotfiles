@@ -1,6 +1,7 @@
 return {
   "okuuva/auto-save.nvim",
   cmd = "ASToggle",
+  enabled = false,
   event = "InsertLeave",
   opts = {
     execution_message = {
@@ -20,7 +21,7 @@ return {
       return false
     end,
     write_all_buffers = false,
-    debounce_delay = 1000,
+    debounce_delay = 250,
     noautocmd = false,
     lockmarks = false,
   },
