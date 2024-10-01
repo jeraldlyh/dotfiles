@@ -166,3 +166,9 @@ end, { desc = "Peek fold" })
 -- utils
 keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
 keymap.set("n", "<leader>as", "<cmd>ASToggle<cr>", { desc = "Toggle auto save" })
+keymap.set(
+  "n",
+  "<leader>rb",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word in buffer" }
+)
