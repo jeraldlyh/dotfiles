@@ -54,6 +54,9 @@ return {
             ["<C-f>"] = ts_select_dir_for_grep,
           },
         },
+        file_ignore_patterns = {
+          "venv",
+        },
       },
     })
     telescope.load_extension("fzf")

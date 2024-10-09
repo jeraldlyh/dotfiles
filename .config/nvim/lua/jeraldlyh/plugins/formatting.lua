@@ -18,11 +18,12 @@ return {
         lua = { "stylua" },
         python = { "isort", "black" },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      },
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { timeout_ms = 1000, async = false, lsp_fallback = true }
+      end,
     })
   end,
 }
