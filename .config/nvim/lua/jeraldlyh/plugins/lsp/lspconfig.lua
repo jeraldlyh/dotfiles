@@ -68,6 +68,10 @@ return {
 
     mason_lspconfig.setup_handlers({
       function(server_name)
+        if server_name == "jdtls" then
+          return
+        end
+
         -- https://github.com/neovim/nvim-lspconfig/pull/3232
         if server_name == "tsserver" then
           server_name = "ts_ls"
