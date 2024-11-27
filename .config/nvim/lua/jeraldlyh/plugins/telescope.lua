@@ -14,11 +14,11 @@ return {
 
     local ts_select_dir_for_grep = function(prompt_bufnr)
       local action_state = require("telescope.actions.state")
-      local fb = require("telescope").extensions.file_browser
+      local file_browser = require("telescope").extensions.file_browser
       local live_grep = require("telescope.builtin").live_grep
       local current_line = action_state.get_current_line()
 
-      fb.file_browser({
+      file_browser.file_browser({
         files = false,
         depth = false,
         attach_mappings = function(prompt_bufnr)
@@ -42,7 +42,14 @@ return {
 
     telescope.setup({
       defaults = {
-        path_display = { "smart" },
+        path_display = function(opts, path)
+          local tail = require("telescope.utils").path_tail(path)
+          path = string.format("%s (%s)", tail, path)
+
+          local highlights = { { { 0, #path }, "Comment" } }
+
+          return path, highlights
+        end,
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
