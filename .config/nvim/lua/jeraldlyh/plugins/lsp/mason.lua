@@ -26,9 +26,7 @@ return {
         "cssls",
         "tailwindcss",
         "lua_ls",
-        "emmet_ls",
         "helm_ls",
-        "jdtls",
         "pyright",
       },
     })
