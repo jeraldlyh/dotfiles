@@ -1,10 +1,33 @@
+setup_zsh_autosuggestions() {
+    local plugin_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+
+    if [ -d "$plugin_dir" ]; then
+        echo "zsh-autosuggestions is already installed"
+    else
+        echo "Cloning zsh-autosuggestions..."
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$plugin_dir" 
+        echo "zsh-autosuggestions installed successfully"
+    fi
+}
+
+setup_zsh_plugins() {
+  echo "Setting up zsh plugins..."
+  setup_zsh_autosuggestions
+  echo "Plugins setup successfully"
+}
+
+setup_zsh_plugins
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 ENABLE_CORRECTION="true"
 
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
