@@ -25,7 +25,6 @@ return {
         "html",
         "cssls",
         "tailwindcss",
-        "lua_ls",
         "helm_ls",
         "pyright",
       },
