@@ -12,6 +12,34 @@ return {
     local lspkind = require("lspkind")
     local cmp_tailwind = require("tailwindcss-colorizer-cmp")
 
+    local icons = {
+      Text = "󰉿",
+      Method = "m",
+      Function = "󰊕",
+      Constructor = "",
+      Field = "",
+      Variable = "󰆧",
+      Class = "󰌗",
+      Interface = "",
+      Module = "",
+      Property = "",
+      Unit = "",
+      Value = "󰎠",
+      Enum = "",
+      Keyword = "󰌋",
+      Snippet = "",
+      Color = "󰏘",
+      File = "󰈙",
+      Reference = "",
+      Folder = "󰉋",
+      EnumMember = "",
+      Constant = "󰇽",
+      Struct = "",
+      Event = "",
+      Operator = "󰆕",
+      TypeParameter = "󰊄",
+    }
+
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
@@ -36,10 +64,19 @@ return {
         { name = "path" },
       }),
       formatting = {
+        fields = { "abbr", "kind", "menu" },
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
           before = function(entry, vim_item)
+            vim_item.kind = string.format("%s", icons[vim_item.kind])
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
+            })[entry.source.name]
+
             cmp_tailwind.formatter(entry, vim_item)
             return vim_item
           end,
