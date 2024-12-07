@@ -5,10 +5,12 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
+    "roobert/tailwindcss-colorizer-cmp.nvim",
   },
   config = function()
     local cmp = require("cmp")
     local lspkind = require("lspkind")
+    local cmp_tailwind = require("tailwindcss-colorizer-cmp")
 
     cmp.setup({
       completion = {
@@ -37,6 +39,10 @@ return {
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
+          before = function(entry, vim_item)
+            cmp_tailwind.formatter(entry, vim_item)
+            return vim_item
+          end,
         }),
       },
     })
