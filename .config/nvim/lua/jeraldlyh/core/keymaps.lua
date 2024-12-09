@@ -136,13 +136,6 @@ keymap.set("n", "<leader>4", function()
   require("harpoon"):list():select(4)
 end, { desc = "Go to harpoon 4" })
 
-keymap.set("n", "<C-S-P>", function()
-  require("harpoon"):list():prev()
-end, { desc = "Go to previous mark" })
-keymap.set("n", "<C-S-N>", function()
-  require("harpoon"):list():next()
-end, { desc = "Go to next mark" })
-
 -- file explorer
 keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
 keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", { desc = "Toggle file explorer on current file" })
@@ -180,3 +173,4 @@ keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace word in buffer" }
 )
+keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
