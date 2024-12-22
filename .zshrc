@@ -31,18 +31,17 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Git 
 alias gph="git push"
 alias gpl="git pull"
 alias gco="git checkout"
 alias gb="git branch -a"
 alias gcm="git commit -am $1"
+
+# Custom aliases
 alias npmviewlink="npm ls -g --depth=0 --link=true"
 alias gprune="$HOME/gitprune.sh"
-alias cs443="ssh -X jeraldlim.2020@118.189.242.72 -p 57151"
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-alias cs302="j mainlab && ssh -i cs302-lab.pem ec2-user@52.15.231.208"
-alias is113="cd /Applications/MAMP/htdocs && code ."
 
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
