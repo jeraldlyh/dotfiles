@@ -27,9 +27,10 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<cr>", { desc = "Open current buffer
 keymap.set("n", "<leader>pl", "<cmd>Lazy install<cr>", { desc = "Open Lazy" })
 keymap.set("n", "<leader>pM", "<cmd>Mason<cr>", { desc = "Open Mason" })
 
--- session
-keymap.set("n", "<leader>wr", "<cmd>SessionRestore<cr>", { desc = "Restore session for cwd" })
-keymap.set("n", "<leader>ws", "<cmd>SessionSave<cr>", { desc = "Save session for auto session root dir" })
+-- auto-session
+keymap.set("n", "<leader>wr", "<cmd>SessionRestore<cr>", { desc = "Restore session" })
+keymap.set("n", "<leader>ws", "<cmd>SessionSave<cr>", { desc = "Save session" })
+keymap.set("n", "<leader>wt", "<cmd>SessionToggleAutoSave<cr>", { desc = "Toggle auto save for session" })
 
 -- comment divider
 keymap.set("n", "<leader>cb", "<cmd>CommentDividerBox<cr>", { desc = "Comment box" })
