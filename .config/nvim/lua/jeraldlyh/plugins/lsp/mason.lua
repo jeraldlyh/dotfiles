@@ -27,6 +27,7 @@ return {
         "tailwindcss",
         "helm_ls",
         "pyright",
+        "eslint",
       },
     })
 
@@ -37,7 +38,6 @@ return {
         "isort",
         "black",
         "pylint",
-        "eslint_d",
       },
     })
   end,
