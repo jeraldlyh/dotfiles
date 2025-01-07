@@ -1,3 +1,16 @@
+setup_autojump() {
+    local plugin_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/autojump"
+
+    if [ -d "$plugin_dir" ]; then
+        echo "autojump is already installed"
+    else
+        echo "Cloning autojump..."
+        git clone https://github.com/wting/autojump.git "$plugin_dir" 
+        cd "$plugin_dir" && ./install.py
+        echo "autojump installed successfully"
+    fi
+}
+
 setup_zsh_autosuggestions() {
     local plugin_dir="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
@@ -12,6 +25,7 @@ setup_zsh_autosuggestions() {
 
 setup_zsh_plugins() {
   echo "Setting up zsh plugins..."
+  setup_autojump
   setup_zsh_autosuggestions
   echo "Plugins setup successfully"
 }
@@ -27,6 +41,7 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   zsh-autosuggestions
+  autojump
 )
 
 source $ZSH/oh-my-zsh.sh
