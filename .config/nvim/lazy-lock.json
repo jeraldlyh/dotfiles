@@ -1,7 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "advanced-git-search.nvim": { "branch": "main", "commit": "69a41a3351d89e8be597fe5682265d8c99b8b12c" },
-  "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "auto-save.nvim": { "branch": "main", "commit": "5fe9ab0c42f0457f2a973e814a6352b8eeb04730" },
   "auto-session": { "branch": "main", "commit": "3cd531ce4d46fb156268ddedf5f3e6822ef26af7" },
   "bufferline.nvim": { "branch": "main", "commit": "5726c4e291224181903e960119a11e20ac677a0a" },
@@ -11,8 +10,9 @@
   "comment-divider.nvim": { "branch": "main", "commit": "d1c658cba8e0abf76ddc15de3c44f972e2ef90ff" },
   "conform.nvim": { "branch": "master", "commit": "70019124aa4f2e6838be9fbd2007f6d13b27a96d" },
   "copilot.vim": { "branch": "release", "commit": "87038123804796ca7af20d1b71c3428d858a9124" },
+  "dashboard-nvim": { "branch": "master", "commit": "ae309606940d26d8c9df8b048a6e136b6bbec478" },
   "dressing.nvim": { "branch": "master", "commit": "3a45525bb182730fe462325c99395529308f431e" },
-  "gitsigns.nvim": { "branch": "main", "commit": "b544bd62623ca1b483d8b9bfb6d65805f112a320" },
+  "gitsigns.nvim": { "branch": "main", "commit": "2eaa30537365f6889c850bd46ef6f18ddf8fac70" },
   "harpoon": { "branch": "harpoon2", "commit": "e76cb03c420bb74a5900a5b3e1dde776156af45f" },
   "harpoon-lualine": { "branch": "master", "commit": "eae10bc6bddddbc73daa0956ba4ee5cc29cf9a49" },
   "indent-blankline.nvim": { "branch": "master", "commit": "259357fa4097e232730341fa60988087d189193a" },

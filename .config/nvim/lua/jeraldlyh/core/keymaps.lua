@@ -158,6 +158,9 @@ keymap.set("n", "zK", function()
   end
 end, { desc = "Peek fold" })
 
+-- dashboard
+keymap.set("n", "<leader>db", "<cmd>Dashboard<cr>", { desc = "Open dashboard" })
+
 -- utils
 keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
 keymap.set("n", "<leader>rf", function()
