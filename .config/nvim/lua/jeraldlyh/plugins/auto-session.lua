@@ -7,4 +7,5 @@ return {
       suppressed_dirs = { "~/" },
     })
   end,
+  enabled = false,
 }
