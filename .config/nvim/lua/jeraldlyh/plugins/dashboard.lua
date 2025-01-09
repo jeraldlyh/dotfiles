@@ -14,6 +14,18 @@ return {
             action = ":e " .. vim.fn.stdpath("config"),
             key = "d",
           },
+          {
+            desc = "update Lazy",
+            group = "Number",
+            action = ":Lazy update",
+            key = "l",
+          },
+          {
+            desc = "update Mason",
+            group = "Number",
+            action = ":MasonUpdate",
+            key = "m",
+          },
         },
       },
     })
