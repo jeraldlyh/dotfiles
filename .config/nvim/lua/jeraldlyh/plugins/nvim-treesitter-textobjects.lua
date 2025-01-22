@@ -67,4 +67,5 @@ return {
     vim.keymap.set({ "n", "x", "o" }, "t", tsRepeatMove.builtin_t)
     vim.keymap.set({ "n", "x", "o" }, "T", tsRepeatMove.builtin_T)
   end,
+  enabled = false,
 }
