@@ -3,5 +3,4 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   opts = {},
-  enabled = false,
 }
