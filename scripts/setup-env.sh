@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export OPENAI_API_KEY="<INSERT YOUR API KEY HERE>"
+export ANTHROPIC_API_KEY="<INSERT YOUR API KEY HERE>"
+
+echo "Environment variables set"

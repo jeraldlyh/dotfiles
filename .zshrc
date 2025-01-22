@@ -30,7 +30,19 @@ setup_zsh_plugins() {
   echo "Plugins setup successfully"
 }
 
+setup_environment_variables() {
+  if [ ! -d "$HOME/dotfiles/scripts" ]; then
+    echo "Missing scripts directory"
+
+  else
+    ~/dotfiles/scripts/setup-env.sh
+  fi
+}
+
 setup_zsh_plugins
+setup_zsh_autosuggestions
+setup_autojump
+setup_environment_variables
 
 export ZSH="$HOME/.oh-my-zsh"
 
