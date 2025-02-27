@@ -12,7 +12,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
-    local ts_select_dir_for_grep = function(prompt_bufnr)
+    local ts_select_dir_for_grep = function()
       local action_state = require("telescope.actions.state")
       local file_browser = require("telescope").extensions.file_browser
       local live_grep = require("telescope.builtin").live_grep
@@ -21,7 +21,7 @@ return {
       file_browser.file_browser({
         files = false,
         depth = false,
-        attach_mappings = function(prompt_bufnr)
+        attach_mappings = function()
           require("telescope.actions").select_default:replace(function()
             local entry_path = action_state.get_selected_entry().Path
             local dir = entry_path:is_dir() and entry_path or entry_path:parent()
@@ -42,6 +42,42 @@ return {
 
     telescope.setup({
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--follow", -- Follow symbolic links
+          "--hidden", -- Search for hidden files
+          "--no-heading", -- Don't group matches by each file
+          "--with-filename", -- Print the file path with the matched lines
+          "--line-number", -- Show line numbers
+          "--column", -- Show column numbers
+          "--smart-case", -- Smart case search
+
+          -- Exclude some patterns from search
+          "--glob=!**/.git/*",
+          "--glob=!**/.idea/*",
+          "--glob=!**/.vscode/*",
+          "--glob=!**/build/*",
+          "--glob=!**/dist/*",
+          "--glob=!**/yarn.lock",
+          "--glob=!**/package-lock.json",
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+            find_command = {
+              "rg",
+              "--files",
+              "--hidden",
+              "--glob=!**/.git/*",
+              "--glob=!**/.idea/*",
+              "--glob=!**/.vscode/*",
+              "--glob=!**/build/*",
+              "--glob=!**/dist/*",
+              "--glob=!**/yarn.lock",
+              "--glob=!**/package-lock.json",
+            },
+          },
+        },
         path_display = function(opts, path)
           local tail = require("telescope.utils").path_tail(path)
           path = string.format("%s (%s)", tail, path)
