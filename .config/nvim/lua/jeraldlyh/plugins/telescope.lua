@@ -95,6 +95,7 @@ return {
           },
           n = {
             ["<C-f>"] = ts_select_dir_for_grep,
+            ["<C-i>"] = actions.smart_send_to_qflist + actions.open_qflist,
           },
         },
         file_ignore_patterns = {
