@@ -59,23 +59,24 @@ alias gcm="git commit -am $1"
 # Custom aliases
 alias npmviewlink="npm ls -g --depth=0 --link=true"
 alias gprune="$HOME/gitprune.sh"
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias brew='brew'
 
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export MVN_DIR="/opt/apache-maven-3.8.6/bin"
 export NVM_DIR="$HOME/.nvm"
 export TEX_DIR="/Library/TeX/texbin"
-export CONDA_DIR="/opt/homebrew/anaconda3/bin"
 export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DIR}
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+source /Users/jerald/.docker/init-zsh.sh || true # Added by Docker Desktop
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+
 . "/Users/jerald/.acme.sh/acme.sh.env"
 
-source /Users/jerald/.docker/init-zsh.sh || true # Added by Docker Desktop
