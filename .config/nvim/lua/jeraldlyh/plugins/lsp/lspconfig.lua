@@ -95,6 +95,22 @@ return {
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
         })
       end,
+      ["basedpyright"] = function()
+        lspconfig["basedpyright"].setup({
+          capabilities = capabilities,
+          settings = {
+            basedpyright = {
+              settings = {
+                disableOrganizeImports = true,
+              },
+              analysis = {
+                typeCheckingMode = "basic",
+                ignore = { "*" },
+              },
+            },
+          },
+        })
+      end,
     })
   end,
 }

@@ -25,7 +25,7 @@ return {
         "cssls",
         "tailwindcss",
         "helm_ls",
-        "pyright",
+        "basedpyright",
         "eslint",
       },
     })
@@ -34,9 +34,7 @@ return {
       ensure_installed = {
         "prettier",
         "stylua",
-        "isort",
-        "black",
-        "pylint",
+        "ruff",
       },
     })
   end,
