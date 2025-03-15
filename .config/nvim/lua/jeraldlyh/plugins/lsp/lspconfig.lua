@@ -4,15 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    {
-      "folke/lazydev.nvim",
-      ft = "lua",
-      opts = {
-        library = {
-          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        },
-      },
-    },
+    "williamboman/mason.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -105,7 +97,27 @@ return {
               },
               analysis = {
                 typeCheckingMode = "basic",
-                ignore = { "*" },
+              },
+            },
+          },
+        })
+      end,
+      ["ruff"] = function()
+        lspconfig["ruff"].setup({
+          capabilities = capabilities,
+          init_options = {
+            configuration = {
+              settings = {
+                configurationPreference = "filesystemFirst",
+                lineLength = 100,
+                fixAll = true,
+                organizeImports = true,
+                lint = {
+                  enabled = true,
+                },
+              },
+              format = {
+                ["quote-style"] = "double",
               },
             },
           },
