@@ -19,10 +19,6 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<cr>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<cr>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<cr>", { desc = "Open current buffer in new tab" })
 
--- typescript-tools.nvim
-keymap.set("n", "<leader>oi", "<cmd>TSToolsOrganizeImports<cr>", { desc = "Organize imports" })
-keymap.set("n", "<leader>fa", "<cmd>TSToolsFixAll<cr>", { desc = "Fix all" })
-
 -- package
 keymap.set("n", "<leader>pl", "<cmd>Lazy install<cr>", { desc = "Open Lazy" })
 keymap.set("n", "<leader>pM", "<cmd>Mason<cr>", { desc = "Open Mason" })
