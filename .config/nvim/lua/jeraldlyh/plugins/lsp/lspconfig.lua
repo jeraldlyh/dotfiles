@@ -97,6 +97,7 @@ return {
               },
               analysis = {
                 typeCheckingMode = "basic",
+                ignore = { "*" },
               },
             },
           },
