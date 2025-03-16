@@ -118,7 +118,7 @@ return {
                 },
               },
               format = {
-                ["quote-style"] = "double",
+                ["quote-style"] = "single",
               },
             },
           },

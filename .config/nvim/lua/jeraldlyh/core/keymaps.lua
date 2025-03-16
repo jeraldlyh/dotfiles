@@ -32,13 +32,13 @@ keymap.set("n", "<leader>wt", "<cmd>SessionToggleAutoSave<cr>", { desc = "Toggle
 keymap.set("n", "<leader>cb", "<cmd>CommentDividerBox<cr>", { desc = "Comment box" })
 
 -- formatting
-keymap.set({ "n", "v" }, "<leader>mp", function()
+keymap.set("n", "<leader>fm", function()
   require("conform").format({
     lsp_fallback = true,
-    async = false,
+    async = true,
     timeout_ms = 1000,
   })
-end, { desc = "Format file or range (in visual mode)" })
+end, { desc = "Format buffer" })
 
 -- git
 keymap.set("n", "g3", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Next hunk" })
