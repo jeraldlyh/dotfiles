@@ -59,7 +59,6 @@ alias gcm="git commit -am $1"
 # Custom aliases
 alias npmviewlink="npm ls -g --depth=0 --link=true"
 alias gprune="$HOME/gitprune.sh"
-alias brew='brew'
 
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -72,11 +71,18 @@ export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DI
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+# Docker
 source /Users/jerald/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
-. "/Users/jerald/.acme.sh/acme.sh.env"
-
+# pnpm
+export PNPM_HOME="/Users/jerald/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
