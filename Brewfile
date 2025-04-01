@@ -1,6 +1,7 @@
 # Taps
 tap "neovim/neovim"
 tap "qmk/qmk"
+tap "koekeishiya/formulae"
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -22,6 +23,7 @@ brew "tmux"
 brew "git"
 brew "lazygit"
 brew "pnpm"
+brew "yabai" # Tile manager
 
 # Keyboard
 brew "qmk/qmk/qmk" # Firmware
