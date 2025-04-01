@@ -1,0 +1,77 @@
+{
+  "title": "Browser",
+  "rules": [
+    {
+      "description": "Arc (Go back in page)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "h",
+            "modifiers": { "mandatory": ["left_control", "left_command"] }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Arc (Go forward in page)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": ["left_control", "left_command"] }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Go to next tab",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "k",
+            "modifiers": { "mandatory": ["left_control", "left_command"] }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Go to previous tab",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "j",
+            "modifiers": { "mandatory": ["left_control", "left_command"] }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["left_control", "left_shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
