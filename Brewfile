@@ -1,7 +1,7 @@
 # Taps
 tap "neovim/neovim"
 tap "qmk/qmk"
-tap "koekeishiya/formulae"
+tap "nikitabobko/tap"
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -23,7 +23,6 @@ brew "tmux"
 brew "git"
 brew "lazygit"
 brew "pnpm"
-brew "yabai" # Tile manager
 
 # Keyboard
 brew "qmk/qmk/qmk" # Firmware
@@ -34,7 +33,8 @@ cask "telegram"
 cask "whatsapp"
 cask "spotify"
 cask "discord"
-cask "rectangle" # Tile manager
+cask "aerospace" # Tile manager
+# cask "rectangle" # Tile manager
 cask "karabiner-elements" # Keyboard remapper
 cask "vial" # Keyboard GUI firmware
 cask "maccy" # Clipboard manager

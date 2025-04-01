@@ -4,4 +4,4 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/tmux ~/.config/tmux
-ln -s ~/dotfiles/.config/yabai ~/.config/yabai
+ln -s ~/dotfiles/.config/aerospace/aerospace.toml ~/.aerospace.toml
