@@ -80,6 +80,58 @@
           "type": "basic"
         }
       ]
+    },
+    {
+      "description": "Citrix (Shift Window to the Left)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "f15"
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["right_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Citrix (Shift Window to the Right)",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer\\.mac$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "from": {
+            "key_code": "f16"
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["right_command"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
     }
   ]
 }
