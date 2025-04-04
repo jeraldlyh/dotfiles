@@ -23,11 +23,11 @@ on-focus-changed = ['move-mouse window-lazy-center']
 accordion-padding = 20
 
 [gaps]
-inner.horizontal = 10
+inner.horizontal = 5
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-outer.top =        [{ monitor."^dell$" = 5 }, 40]
+outer.top =        [{ monitor."^dell$" = 5 }, 45]
 outer.right =      10
 
 [mode.main.binding]
@@ -69,6 +69,7 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating tiling', 'mode main'] 
+s = ['exec-and-forget sketchybar --reload', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
