@@ -7,18 +7,17 @@ sketchybar --set $NAME \
 LOCATION="Singapore"
 REGION=""
 
-# Line below replaces spaces with +
+# Replace spaces with +
 LOCATION_ESCAPED="${LOCATION// /+}+${REGION// /+}"
-WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?0pq&format=j1&lang=en")
+WEATHER_DATA=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=%c%f")
 
-# Fallback if empty
-if [ -z $WEATHER_JSON ]; then
+# echo "https://wttr.in/$LOCATION_ESCAPED?0pq&format=j1&lang=en"
+if [[  -z "$WEATHER_DATA" || "$WEATHER_DATA" =~ "try" ]]; then
   sketchybar --set $NAME label="$LOCATION"
-  return
+  exit
 fi
 
-TEMPERATURE=$(echo $WEATHER_JSON | jq '.current_condition[0].temp_C' | tr -d '"')
-WEATHER_DESCRIPTION=$(echo $WEATHER_JSON | jq '.current_condition[0].lang_ko[0].value' | tr -d '"' | sed 's/\(.\{16\}\).*/\1.../')
+LABEL="$(echo "${WEATHER_DATA:3:-1}")"
+ICON="$(echo "${WEATHER_DATA:0:1}")"
 
-sketchybar --set $NAME \
-  label="$TEMPERATURE$(echo '°')C • $WEATHER_DESCRIPTION"
+sketchybar --set $NAME label="$LABEL" icon="$ICON" 
