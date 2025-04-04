@@ -105,6 +105,18 @@ run = 'layout floating'
 if.app-id = 'ru.keepcoder.Telegram'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.electron.dockerdesktop'
+run = ['layout floating', 'move-node-to-workspace T']
+
+[[on-window-detected]]
+if.app-id = 'com.postmanlabs.mac'
+run = ['layout floating', 'move-node-to-workspace T']
+
 [workspace-to-monitor-force-assignment]
 M = '^built-in retina display$'
 N = ['secondary', '^dell$']
