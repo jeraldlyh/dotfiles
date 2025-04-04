@@ -2,6 +2,7 @@
 tap "neovim/neovim"
 tap "qmk/qmk"
 tap "nikitabobko/tap"
+tap "FelixKratz/formulae"
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -24,6 +25,9 @@ brew "git"
 brew "lazygit"
 brew "pnpm"
 
+# MacOS
+brew "sketchybar"
+
 # Keyboard
 brew "qmk/qmk/qmk" # Firmware
 
@@ -41,3 +45,5 @@ cask "maccy" # Clipboard manager
 
 # Font
 cask "font-meslo-lg-nerd-font"
+cask "font-sf-pro"
+cask "font-sketchybar-app-font"

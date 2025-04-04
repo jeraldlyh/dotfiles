@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+FONT="SF Pro"
+PADDING=3
+
+# Start CPU helper
+HELPER=git.sketchybar.helper
+killall helper
+cd $HOME/.config/sketchybar/helper && make
+$HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+
+default=(
+  updates=when_shown
+  icon.font="$FONT:Bold:14.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=$PADDING
+  icon.padding_right=$PADDING
+  label.font="$FONT:Semibold:13.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=$PADDING
+  label.padding_right=$PADDING
+  padding_right=$PADDING
+  padding_left=$PADDING
+  background.height=30
+  background.corner_radius=9
+  popup.background.border_width=1
+  popup.background.corner_radius=9
+  popup.background.border_color=$POPUP_BORDER_COLOR
+  popup.background.color=$POPUP_BACKGROUND_COLOR
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+)
+sketchybar --default "${default[@]}"
+
+# Left
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# Right
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/volume.sh"
+
+source "$ITEM_DIR/cpu.sh"
+# source "$ITEM_DIR/weather.sh"
+
+sketchybar --hotload on
+
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
+sketchybar --update
