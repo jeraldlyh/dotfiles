@@ -2,7 +2,7 @@
 
 # curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.32/icon_map.sh -o ~/.config/sketchybar/plugins/icon_map_fn.sh
 
-function __icon_map() {
+function icon_map() {
     case "$1" in
    "Live")
         icon_result=":ableton:"
@@ -790,5 +790,5 @@ function __icon_map() {
     esac
 }
 
-__icon_map "$1"
+icon_map "$1"
 echo "$icon_result"
