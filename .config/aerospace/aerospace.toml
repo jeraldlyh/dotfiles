@@ -1,5 +1,11 @@
 after-login-command = []
-after-startup-command = ['workspace M']
+after-startup-command = ['exec-and-forget sketchybar', 'workspace M']
+
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
+]
 
 start-at-login = true
 
@@ -14,10 +20,6 @@ key-mapping.preset = 'qwerty'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
-[workspace-to-monitor-force-assignment]
-M = '^built-in retina display$'
-N = ['secondary', '^dell$']
-
 accordion-padding = 20
 
 [gaps]
@@ -25,7 +27,7 @@ inner.horizontal = 10
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-outer.top =        10
+outer.top =        [{ monitor."^dell$" = 5 }, 40]
 outer.right =      10
 
 [mode.main.binding]
@@ -91,9 +93,17 @@ if.app-id = 'com.citrix.receiver.nomas'
 run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
 run = 'layout floating'
+
+[workspace-to-monitor-force-assignment]
+M = '^built-in retina display$'
+N = ['secondary', '^dell$']
