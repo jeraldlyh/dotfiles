@@ -72,6 +72,7 @@ source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/volume.sh"
 
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/separator.sh" "right"
 source "$ITEM_DIR/weather.sh"
 
 sketchybar --hotload on
