@@ -77,5 +77,4 @@ source "$ITEM_DIR/memory.sh"
 source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/network.sh"
 
-sketchybar --hotload on
 sketchybar --update
