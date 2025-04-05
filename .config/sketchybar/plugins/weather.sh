@@ -4,7 +4,7 @@ sketchybar --set $NAME \
   label="Loading..." \
   icon.color=0xff5edaff
 
-WEATHER_DATA=$(curl -s "https://wttr.in/Singapore?format=%c+%f")
+WEATHER_DATA=$(curl -s "https://wttr.in/Singapore?format=%c+%t")
 
 if [[ -z "$WEATHER_DATA" || "$WEATHER_DATA" =~ "try" ]]; then
   sketchybar --set $NAME label="N/A" icon.y_offset=0
