@@ -63,7 +63,7 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Center
-source "$ITEM_DIR/spotify.sh"
+# source "$ITEM_DIR/spotify.sh" # NOTE: CPU spikes whenever a new song is played
 
 # Right
 source "$ITEM_DIR/weather.sh"
