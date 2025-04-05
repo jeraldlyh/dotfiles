@@ -96,8 +96,6 @@ end, { desc = "Find word in selection" })
 -- move
 keymap.set("n", "<leader>k", ":MoveLine(-1)<cr>", { desc = "Move line up" })
 keymap.set("n", "<leader>j", ":MoveLine(1)<cr>", { desc = "Move line down" })
-keymap.set("i", "<leader>k", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" })
-keymap.set("i", "<leader>j", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" })
 keymap.set("v", "<leader>k", ":MoveBlock(-1)<cr>", { desc = "Move block up" })
 keymap.set("v", "<leader>j", ":MoveBlock(1)<cr>", { desc = "Move block down" })
 keymap.set("n", "g1", function()

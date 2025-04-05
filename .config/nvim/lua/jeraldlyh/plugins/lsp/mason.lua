@@ -28,6 +28,7 @@ return {
         "basedpyright",
         "eslint",
         "ruff",
+        "bashls",
       },
     })
 
