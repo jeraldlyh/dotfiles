@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/icons.sh"
 
 cpu=(
   update_freq=5
   icon="$CPU"
-  icon.color="$YELLOW"
   icon.padding_left=10
-  label.color="$YELLOW"
   label.padding_right=10
   background.padding_right=5
   background.color=$BACKGROUND_1

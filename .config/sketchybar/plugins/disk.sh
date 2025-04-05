@@ -1,3 +1,22 @@
 #!/usr/bin/env bash
 
-sketchybar --set "$NAME" label="$(df -lh | grep "/System/Volumes/Data" | awk '{ printf ("%02.0f\n", $5) }')%"
+source "$CONFIG_DIR/colors.sh"
+
+USAGE=$(df -lh | grep "/System/Volumes/Data" | awk '{ gsub("%", "", $5); print $5 }')
+
+case ${USAGE%.*} in
+  [0-2][0-9])
+    COLOR="$WHITE"
+    ;;
+  [3-6][0-9])
+    COLOR="$YELLOW"
+    ;;
+  [7-9][0-9]|100)
+    COLOR="$RED"
+    ;;
+esac
+
+sketchybar --set "$NAME" \
+  label="$USAGE%" \
+  icon.color="$COLOR" \
+  label.color="$COLOR"
