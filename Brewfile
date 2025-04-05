@@ -9,6 +9,7 @@ brew "coreutils" # Those that come with macOS are outdated
 brew "jq"
 brew "fzf"
 brew "ripgrep"
+brew "ifstat"
 
 # Development
 brew "zsh"

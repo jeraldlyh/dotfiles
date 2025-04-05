@@ -9,11 +9,11 @@ ITEM_DIR="$CONFIG_DIR/items"
 FONT="SF Pro"
 PADDING=3
 
-# Start CPU helper
-HELPER=git.sketchybar.helper
-killall helper
-cd $HOME/.config/sketchybar/helper && make
-$HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
+# # Start CPU helper
+# HELPER=git.sketchybar.helper
+# killall helper
+# cd $HOME/.config/sketchybar/helper && make
+# $HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
 
 # Unload the macOS on screen indicator overlay for volume change
 launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
@@ -40,7 +40,7 @@ default=(
   icon.color=$ICON_COLOR
   icon.padding_left=$PADDING
   icon.padding_right=$PADDING
-  label.font="$FONT:Semibold:13.0"
+  label.font="$FONT:Bold:12.0"
   label.color=$LABEL_COLOR
   label.padding_left=$PADDING
   label.padding_right=$PADDING
@@ -66,14 +66,16 @@ source "$ITEM_DIR/front_app.sh"
 source "$ITEM_DIR/spotify.sh"
 
 # Right
+source "$ITEM_DIR/weather.sh"
 source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/volume.sh"
-
+source "$ITEM_DIR/separator.sh" "stats_separator" "right"
+source "$ITEM_DIR/disk.sh"
+source "$ITEM_DIR/memory.sh"
 source "$ITEM_DIR/cpu.sh"
-source "$ITEM_DIR/separator.sh" "right"
-source "$ITEM_DIR/weather.sh"
+source "$ITEM_DIR/network.sh"
 
 sketchybar --hotload on
 sketchybar --update

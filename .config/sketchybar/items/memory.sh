@@ -3,9 +3,9 @@
 source "$CONFIG_DIR/colors.sh"
 source "$CONFIG_DIR/icons.sh"
 
-cpu=(
+memory=(
   update_freq=5
-  icon="$CPU"
+  icon="$MEMORY"
   icon.color="$YELLOW"
   icon.padding_left=10
   label.color="$YELLOW"
@@ -14,8 +14,8 @@ cpu=(
   background.color=$BACKGROUND_1
   background.border_color=$BACKGROUND_2
   background.drawing=on
-  script="$PLUGIN_DIR/cpu.sh"
+  script="$PLUGIN_DIR/memory.sh"
 )
 
-sketchybar --add item cpu right \
-            --set cpu "${cpu[@]}" 
+sketchybar --add item memory right \
+           --set memory "${memory[@]}" 

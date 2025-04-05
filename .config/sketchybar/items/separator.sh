@@ -3,12 +3,11 @@
 separator=(
   icon=│
   icon.font="$FONT:Heavy:16.0"
-  padding_left=8
-  padding_right=8
+  padding_left=4
+  padding_right=4
   label.drawing=off
-  display=active
   icon.color=$WHITE
 )
 
-sketchybar --add item separator "$1" \
-           --set separator "${separator[@]}" 
+sketchybar --add item "$1" "$2" \
+           --set "$1" "${separator[@]}" 
