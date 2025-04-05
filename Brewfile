@@ -10,6 +10,7 @@ brew "jq"
 brew "fzf"
 brew "ripgrep"
 brew "ifstat"
+brew "fd" # For python venv-selector.nvim
 
 # Development
 brew "zsh"
