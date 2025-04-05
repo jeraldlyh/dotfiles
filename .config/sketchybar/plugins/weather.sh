@@ -16,4 +16,4 @@ LABEL=$(echo "$WEATHER_DATA" | cut -d' ' -f2-)
 
 ICON=$(echo "$ICON" | sed 's/️//g')  # Removes invisible variation selector if present
 
-sketchybar --set $NAME label="$LABEL" icon="$ICON" icon.y_offset=2
+sketchybar --set $NAME label="$LABEL" icon="$ICON" icon.y_offset=2 label.padding_left=0
