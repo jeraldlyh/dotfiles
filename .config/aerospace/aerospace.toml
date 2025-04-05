@@ -102,7 +102,7 @@ if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
+if.app-id = 'com.hnc.Discord'
 run = 'layout floating'
 
 [[on-window-detected]]
