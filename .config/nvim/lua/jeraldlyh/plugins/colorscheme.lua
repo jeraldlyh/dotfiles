@@ -10,7 +10,9 @@ return {
           ErrorMsg = { italic = true, bold = true },
         },
         options = {
-          cursorline = true,
+          cursorline = false,
+          transparency = true,
+          lualine_transparency = true,
         },
       })
 

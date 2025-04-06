@@ -6,46 +6,46 @@ return {
     local lazy_status = require("lazy.status")
 
     local colors = {
-      blue = "#65D1FF",
-      green = "#3EFFDC",
-      violet = "#FF61EF",
-      yellow = "#FFDA7B",
-      red = "#FF4A4A",
-      fg = "#c3ccdc",
-      bg = "#112638",
-      inactive_bg = "#2c3043",
+      darkgray = "#16161d",
+      gray = "#c3ccdc",
+      innerbg = nil,
+      outerbg = "#16161D",
+      normal = "#7e9cd8",
+      insert = "#98bb6c",
+      visual = "#ffa066",
+      replace = "#e46876",
+      command = "#e6c384",
     }
-
     local custom_theme = {
-      normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+      inactive = {
+        a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
       },
       visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
       },
       replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
+        a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
       },
-      inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+      normal = {
+        a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
+      },
+      insert = {
+        a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
+      },
+      command = {
+        a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
+        b = { fg = colors.gray, bg = colors.outerbg },
+        c = { fg = colors.gray, bg = colors.innerbg },
       },
     }
 

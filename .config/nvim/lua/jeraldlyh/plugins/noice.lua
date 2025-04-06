@@ -5,7 +5,7 @@ return {
     "MunifTanjim/nui.nvim",
     {
       "rcarriga/nvim-notify",
-      opts = { top_down = false },
+      opts = { top_down = false, background_colour = "#000000" },
     },
   },
   config = function()
