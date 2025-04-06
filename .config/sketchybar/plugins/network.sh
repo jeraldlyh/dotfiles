@@ -11,7 +11,10 @@ DOWNLOAD_FORMAT=$(awk -v d="$DOWNLOAD" 'BEGIN { printf(d > 999 ? "%.1f Mbps" : "
 UPLOAD_FORMAT=$(awk -v u="$UPLOAD" 'BEGIN { printf(u > 999 ? "%.1f Mbps" : "%.0f kbps", u > 999 ? u/1000 : u) }')
 
 case $DOWNLOAD in
-  [0-9]|[1-9][0-9])
+  [0])
+    DOWNLOAD_COLOR="$WHITE"
+    ;;
+  [1-9]|[1-9][0-9])
     DOWNLOAD_COLOR="$GREEN"
     ;;
   [1-9][0-9][0-9]|1000)
@@ -23,7 +26,10 @@ case $DOWNLOAD in
 esac
 
 case $UPLOAD in
-  [0-9]|[1-9][0-9])
+  [0])
+    UPLOAD_COLOR="$WHITE"
+    ;;
+  [1-9]|[1-9][0-9])
     UPLOAD_COLOR="$GREEN"
     ;;
   [1-9][0-9][0-9]|1000)

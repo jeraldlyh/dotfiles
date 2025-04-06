@@ -6,7 +6,7 @@ FREE_PERCENT=$(memory_pressure | grep "System-wide memory free percentage:" | aw
 USAGE=$((100 - FREE_PERCENT))
 
 case ${USAGE} in
-  [0-2][0-9])  
+  [0-9]|1[0-9]|2[0-9])
     COLOR="$WHITE"
     ;;
   [3-6][0-9]) 

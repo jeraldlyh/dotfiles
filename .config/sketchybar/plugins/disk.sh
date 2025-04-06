@@ -5,7 +5,7 @@ source "$CONFIG_DIR/colors.sh"
 USAGE=$(df -lh | grep "/System/Volumes/Data" | awk '{ gsub("%", "", $5); print $5 }')
 
 case ${USAGE%.*} in
-  [0-2][0-9])
+  [0-9]|1[0-9]|2[0-9])
     COLOR="$WHITE"
     ;;
   [3-6][0-9])
