@@ -12,6 +12,9 @@ brew "ripgrep"
 brew "ifstat"
 brew "fd" # For python venv-selector.nvim
 brew "bash" # Update bash to 5.x
+brew "btop"
+brew "bat"
+brew "wget"
 
 # Development
 brew "zsh"
