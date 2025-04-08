@@ -25,6 +25,7 @@ alias npmviewlink="npm ls -g --depth=0 --link=true"
 alias gprune="$HOME/dotfiles/scripts/gitprune.sh"
 
 alias ls="eza --color=always --long --git --icons=always --no-user --no-time"
+alias cp="cp --interactive"
 
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
