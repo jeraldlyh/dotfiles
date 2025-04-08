@@ -15,6 +15,7 @@ brew "bash" # Update bash to 5.x
 brew "btop"
 brew "bat"
 brew "wget"
+brew "eza"
 
 # Development
 brew "zsh"

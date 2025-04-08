@@ -48,16 +48,17 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Git 
+# Aliases
 alias gph="git push"
 alias gpl="git pull"
 alias gco="git checkout"
 alias gb="git branch -a"
 alias gcm="git commit -am $1"
 
-# Custom aliases
 alias npmviewlink="npm ls -g --depth=0 --link=true"
 alias gprune="$HOME/dotfiles/scripts/gitprune.sh"
+
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -67,7 +68,7 @@ export TEX_DIR="/Library/TeX/texbin"
 export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DIR}
 
 # Docker
-source /Users/jerald/.docker/init-zsh.sh || true # Added by Docker Desktop
+source /Users/jerald/.docker/init-zsh.sh || true
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -80,17 +81,4 @@ eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 
 # fzf
-eval "$(fzf --zsh)"
-
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-
-_fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
-}
+source ~/dotfiles/.config/fzf/config.sh
