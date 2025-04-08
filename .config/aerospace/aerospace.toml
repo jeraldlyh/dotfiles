@@ -44,21 +44,21 @@ ctrl-alt-j = 'move down'
 ctrl-alt-k = 'move up'
 ctrl-alt-l = 'move right'
 
-alt-shift-y = 'resize smart -50'
-alt-shift-u = 'resize smart +50'
-alt-shift-f = 'fullscreen'
+ctrl-alt-cmd-shift-y = 'resize smart -50'
+ctrl-alt-cmd-shift-u = 'resize smart +50'
+ctrl-alt-cmd-shift-f = 'fullscreen'
 
-alt-b = 'workspace B' # Browser
-alt-t = 'workspace T' # Terminal
-alt-m = 'workspace M' # Music
-alt-w = 'workspace W' # Main Monitor
-alt-s = 'workspace S' # Second Monitor
+ctrl-alt-cmd-b = 'workspace B' # Browser
+ctrl-alt-cmd-t = 'workspace T' # Terminal
+ctrl-alt-cmd-m = 'workspace M' # Music
+ctrl-alt-cmd-w = 'workspace W' # Main Monitor
+ctrl-alt-cmd-s = 'workspace S' # Second Monitor
 
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-m = 'move-node-to-workspace S'
-alt-shift-w = 'move-node-to-workspace M'
-alt-shift-s = 'move-node-to-workspace N'
+ctrl-alt-cmd-shift-b = 'move-node-to-workspace B'
+ctrl-alt-cmd-shift-t = 'move-node-to-workspace T'
+ctrl-alt-cmd-shift-m = 'move-node-to-workspace M'
+ctrl-alt-cmd-shift-w = 'move-node-to-workspace W'
+ctrl-alt-cmd-shift-s = 'move-node-to-workspace S'
 
 # alt-tab = 'workspace-back-and-forth'
 # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -116,6 +116,10 @@ run = ['layout floating', 'move-node-to-workspace T']
 [[on-window-detected]]
 if.app-id = 'com.postmanlabs.mac'
 run = ['layout floating', 'move-node-to-workspace T']
+
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
 M = '^built-in retina display$'
