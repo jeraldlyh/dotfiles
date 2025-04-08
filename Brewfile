@@ -19,6 +19,7 @@ brew "eza"
 
 # Development
 brew "zsh"
+brew "zsh-autosuggestions"
 brew "autojump"
 brew "neovim"
 brew "nvm"
