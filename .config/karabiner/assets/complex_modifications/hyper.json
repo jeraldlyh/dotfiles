@@ -1,0 +1,23 @@
+{
+  "title": "Hyper Key",
+  "rules": [
+    {
+      "description": "Activate Hyper Key if left_alt + left_command is pressed",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_command",
+            "modifiers": { "mandatory": ["left_alt"] }
+          },
+          "to": [
+            {
+              "key_code": "left_option",
+              "modifiers": ["left_command", "left_control"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
