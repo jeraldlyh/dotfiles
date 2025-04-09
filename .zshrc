@@ -14,6 +14,9 @@ ENABLE_CORRECTION="true"
 
 source "$ZSH/oh-my-zsh.sh"
 
+plugins=(git zsh-autosuggestions autojump)
+
+
 # Aliases
 alias gph="git push"
 alias gpl="git pull"
@@ -43,6 +46,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
+
+# autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 source "$HOME/.docker/init-zsh.sh"
 source "$HOME/dotfiles/.config/fzf/config.sh"
