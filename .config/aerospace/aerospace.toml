@@ -27,7 +27,7 @@ inner.horizontal = 5
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     5
-outer.top =        [{ monitor."^dell$" = 50 }, 10]
+outer.top =        [{ monitor."^dell|HP E27d G4$" = 50 }, 10]
 outer.right =      10
 
 [mode.main.binding]
