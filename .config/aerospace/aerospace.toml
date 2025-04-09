@@ -110,6 +110,14 @@ if.app-id = 'net.whatsapp.WhatsApp'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'today.vial'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.electron.dockerdesktop'
 run = ['layout floating', 'move-node-to-workspace T']
 
