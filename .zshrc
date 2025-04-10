@@ -52,4 +52,5 @@ eval "$(pyenv virtualenv-init -)"
 
 source "$HOME/.docker/init-zsh.sh"
 source "$HOME/dotfiles/.config/fzf/config.sh"
+source "$HOME/dotfiles/.config/obsidian/config.sh"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

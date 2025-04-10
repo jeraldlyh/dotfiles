@@ -50,6 +50,7 @@ cask "aerospace" # Tile manager
 cask "karabiner-elements" # Keyboard remapper
 cask "vial" # Keyboard GUI firmware
 cask "maccy" # Clipboard manager
+cask "obsidian"
 
 # Font
 cask "font-meslo-lg-nerd-font"

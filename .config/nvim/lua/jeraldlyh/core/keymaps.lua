@@ -172,3 +172,6 @@ keymap.set(
   { desc = "Replace word in buffer" }
 )
 keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
+
+-- obsidian
+keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr>", { desc = "Create new note" })

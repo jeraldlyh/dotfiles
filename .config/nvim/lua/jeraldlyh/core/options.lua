@@ -5,6 +5,7 @@ local opt = vim.opt
 -- line numbers
 opt.number = true
 opt.relativenumber = true
+opt.conceallevel = 0
 
 -- tabs & indentation
 opt.tabstop = 2
