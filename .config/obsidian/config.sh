@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+FILE_PATH="$HOME/iCloud/vaults/notes"
+
 print_usage() {
   >&2 echo "Creates a new file in the dailies directory and opens it with nvim."
   >&2 echo 
@@ -7,7 +9,7 @@ print_usage() {
   >&2 echo "  on <file_name>"
 }
 
-function on() {
+function daily() {
   if [ -z "$1" ]; then
     >&2 echo "File name is required."
     print_usage
@@ -20,19 +22,46 @@ function on() {
     return 1
   fi
 
+  daily_folder="$FILE_PATH/dailies"
   file_name="$(date "+%Y-%m-%d")_${file_name}.md"
-  file_path="$HOME/iCloud/vaults/notes/dailies"
 
-  if [ -f "$file_path/$file_name" ]; then
-    nvim "$file_path/$file_name"
+  if [ -f "$daily_folder/$file_name" ]; then
+    cd "$daily_folder" && nvim
     return 0
   fi
 
-  touch "$file_path/$file_name" >> /dev/null 2>&1
+  touch "$daily_folder/$file_name" >> /dev/null 2>&1
 
   if [ $? -ne 0 ]; then
-    &>2 echo "Failed to create file: $file_path/$file_name"
+    >&2 echo "Failed to create file: $daily_folder/$file_name"
     return 1
   fi
-  nvim "$file_path/$file_name"
+  cd "$daily_folder" && nvim
+}
+
+function weekly() {
+  current_date=$(date +%Y-%m-%d)
+  current_day_of_week=$(date +%u)
+
+  days_to_subtract=$((current_day_of_week - 1))
+
+  current_epoch=$(date -u +%s)
+  week_start_epoch=$((current_epoch - days_to_subtract * 86400))
+  week_start_date=$(date -u -r "$week_start_epoch" +%Y-%m-%d)
+
+  weekly_folder="$FILE_PATH/weeklies"
+  file_name="$week_start_date.md"
+
+  if [ -f "$weekly_folder/$file_name" ]; then
+    cd "$weekly_folder" && nvim
+    return 0
+  fi
+
+  touch "$weekly_folder/$file_name" >> /dev/null 2>&1
+
+  if [ $? -ne 0 ]; then
+    >&2 echo "Failed to create file: $weekly_folder/$file_name"
+    return 1
+  fi
+  cd "$weekly_folder" && nvim
 }
