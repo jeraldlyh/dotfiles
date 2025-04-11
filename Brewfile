@@ -41,6 +41,7 @@ brew "qmk/qmk/qmk" # Firmware
 
 # Applications
 cask "iterm2"
+cask "kitty"
 cask "telegram"
 cask "whatsapp"
 cask "spotify"
