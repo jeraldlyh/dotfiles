@@ -14,6 +14,9 @@ case ${USAGE%.*} in
   [7-9][0-9]|100)
     COLOR="$RED"
     ;;
+  *)
+    COLOR="$BLACK"
+    ;;
 esac
 
 sketchybar --set "$NAME" \
