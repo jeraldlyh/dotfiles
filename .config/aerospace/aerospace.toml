@@ -90,6 +90,10 @@ if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
 if.app-id = 'com.citrix.receiver.nomas'
 run = 'move-node-to-workspace W'
 
