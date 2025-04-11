@@ -174,4 +174,17 @@ keymap.set(
 keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
 
 -- obsidian
-keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr>", { desc = "Create new note" })
+keymap.set("n", "<leader>od", ":ObsidianTemplate daily<cr>", { desc = "Create new daily note" })
+vim.keymap.set("n", "<leader>ow", function()
+  vim.cmd("ObsidianTemplate weekly")
+  vim.defer_fn(function()
+    local filename = vim.fn.expand("%:t:r")
+    local lnum = vim.fn.search("^# title")
+
+    if lnum > 0 then
+      vim.fn.setline(lnum, "# " .. filename)
+    else
+      vim.fn.append(0, "# " .. filename)
+    end
+  end, 100)
+end, { desc = "Create new weekly note" })
