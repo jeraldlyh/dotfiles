@@ -28,7 +28,7 @@ bar=(
   padding_left=10
   corner_radius=9
   y_offset=3
-  margin=10
+  margin=5
   blur_radius=20
   notch_width=0
 )
