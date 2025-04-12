@@ -11,11 +11,8 @@ case ${USAGE%.*} in
   [3-6][0-9])
     COLOR="$YELLOW"
     ;;
-  [7-9][0-9]|100)
-    COLOR="$RED"
-    ;;
   *)
-    COLOR="$BLACK"
+    COLOR="$RED"
     ;;
 esac
 

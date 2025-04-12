@@ -20,11 +20,8 @@ case $DOWNLOAD in
   [1-9][0-9][0-9]|1000)
     DOWNLOAD_COLOR="$YELLOW"
     ;;
-  [1-9][0-9][0-9][0-9]|10000)
-    DOWNLOAD_COLOR="$RED"
-    ;;
   *)
-    DOWNLOAD_COLOR="$BLACK"
+    DOWNLOAD_COLOR="$RED"
     ;;
 esac
 
@@ -38,11 +35,8 @@ case $UPLOAD in
   [1-9][0-9][0-9]|1000)
     UPLOAD_COLOR="$YELLOW"
     ;;
-  [1-9][0-9][0-9][0-9]|10000)
-    UPLOAD_COLOR="$RED"
-    ;;
   *)
-    UPLOAD_COLOR="$BLACK"
+    UPLOAD_COLOR="$RED"
     ;;
 esac
 
