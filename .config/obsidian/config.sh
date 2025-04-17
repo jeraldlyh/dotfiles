@@ -23,7 +23,7 @@ function daily() {
   fi
 
   daily_folder="$FILE_PATH/dailies"
-  file_name="$(date "+%Y-%m-%d")_${file_name}.md"
+  file_name="$(date "+%Y-%m-%d")_$1.md"
 
   if [ -f "$daily_folder/$file_name" ]; then
     cd "$daily_folder" && nvim
