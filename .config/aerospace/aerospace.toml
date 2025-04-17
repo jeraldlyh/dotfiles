@@ -27,7 +27,7 @@ inner.horizontal = 5
 inner.vertical =   10
 outer.left =       5
 outer.bottom =     5
-outer.top =        [{ monitor."^dell|HP E27d G4$" = 50 }, 10]
+outer.top =        [{ monitor."^dell|HP E27d G4$" = 50 }, 5]
 outer.right =      5
 
 [mode.main.binding]
@@ -69,7 +69,7 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating tiling', 'mode main'] 
-s = ['exec-and-forget sketchybar --reload', 'mode main']
+s = ['exec-and-forget brew services restart sketchybar', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
@@ -98,30 +98,6 @@ if.app-id = 'com.citrix.receiver.nomas'
 run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'today.vial'
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-id = 'com.electron.dockerdesktop'
 run = ['layout floating', 'move-node-to-workspace T']
 
@@ -130,7 +106,7 @@ if.app-id = 'com.postmanlabs.mac'
 run = ['layout floating', 'move-node-to-workspace T']
 
 [[on-window-detected]]
-if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+if.app-name-regex-substring = 'Karabiner|Finder|Passwords|WhatsApp|Telegram|Discord|Vial|Preview|Photos'
 run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
