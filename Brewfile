@@ -47,7 +47,7 @@ cask "whatsapp"
 cask "spotify"
 cask "discord"
 cask "aerospace" # Tile manager
-# cask "rectangle" # Tile manager
+cask "rectangle" # Tile manager
 cask "karabiner-elements" # Keyboard remapper
 cask "vial" # Keyboard GUI firmware
 cask "maccy" # Clipboard manager
