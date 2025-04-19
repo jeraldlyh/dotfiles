@@ -106,7 +106,15 @@ if.app-id = 'com.postmanlabs.mac'
 run = ['layout floating', 'move-node-to-workspace T']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Karabiner|Finder|Passwords|WhatsApp|Telegram|Discord|Vial|Preview|Photos'
+if.app-name-regex-substring = 'Finder|Passwords|Preview|Photos|FaceTime'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'WhatsApp|Telegram|Discord'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Karabiner|Vial'
 run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
