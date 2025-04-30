@@ -32,6 +32,7 @@ brew "tmux"
 brew "git"
 brew "lazygit"
 brew "pnpm"
+brew "ffmpeg"
 
 # MacOS
 brew "sketchybar"
