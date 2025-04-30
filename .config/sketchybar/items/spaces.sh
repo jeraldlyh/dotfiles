@@ -2,7 +2,14 @@
 
 sketchybar --add event aerospace_workspace_change
 
-for monitor in $(aerospace list-monitors | awk '{print $1}'); do
+declare -A monitors
+while IFS=" " read -r monitor_id display_id; do
+  monitors["$monitor_id"]="$display_id"
+done < <(aerospace list-monitors --format '%{monitor-id} %{monitor-appkit-nsscreen-screens-id}')
+
+
+# for monitor in $(aerospace list-monitors | awk '{print $1}'); do
+for monitor in "${monitors[@]}"; do
   for sid in $(aerospace list-workspaces --monitor $monitor); do
     apps=$(aerospace list-windows --workspace $sid | awk -F '|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
