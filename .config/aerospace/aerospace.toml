@@ -1,5 +1,5 @@
 after-login-command = []
-after-startup-command = ['exec-and-forget sketchybar', 'workspace M']
+after-startup-command = ['exec-and-forget sketchybar', 'workspace B']
 
 exec-on-workspace-change = [
   '/bin/bash',
@@ -24,10 +24,10 @@ accordion-padding = 20
 
 [gaps]
 inner.horizontal = 5
-inner.vertical =   10
+inner.vertical =   5
 outer.left =       5
 outer.bottom =     5
-outer.top =        [{ monitor."^dell|HP E27d G4$" = 50 }, 5]
+outer.top =        [{ monitor."^dell|HP E27d G4$" = 45 }, 5]
 outer.right =      5
 
 [mode.main.binding]
@@ -47,6 +47,7 @@ ctrl-alt-l = 'move right'
 ctrl-alt-cmd-shift-y = 'resize smart -50'
 ctrl-alt-cmd-shift-u = 'resize smart +50'
 ctrl-alt-cmd-shift-f = 'fullscreen'
+ctrl-alt-enter = 'fullscreen'
 
 ctrl-alt-cmd-b = 'workspace B' # Browser
 ctrl-alt-cmd-t = 'workspace T' # Terminal
@@ -106,7 +107,7 @@ if.app-id = 'com.postmanlabs.mac'
 run = ['layout floating', 'move-node-to-workspace T']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Passwords|Preview|Photos|FaceTime'
+if.app-name-regex-substring = 'Finder|Passwords|Preview|Photos|FaceTime|Notes|QuickTime Player'
 run = ['layout floating']
 
 [[on-window-detected]]
@@ -118,5 +119,4 @@ if.app-name-regex-substring = 'Karabiner|Vial'
 run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
-M = '^built-in retina display$'
-N = ['secondary', '^dell$']
+S = ['secondary']
