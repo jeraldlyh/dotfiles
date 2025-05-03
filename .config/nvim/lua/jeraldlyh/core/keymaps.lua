@@ -23,81 +23,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<cr>", { desc = "Open current buffer
 keymap.set("n", "<leader>pl", "<cmd>Lazy install<cr>", { desc = "Open Lazy" })
 keymap.set("n", "<leader>pM", "<cmd>Mason<cr>", { desc = "Open Mason" })
 
--- auto-session
-keymap.set("n", "<leader>wr", "<cmd>SessionRestore<cr>", { desc = "Restore session" })
-keymap.set("n", "<leader>ws", "<cmd>SessionSave<cr>", { desc = "Save session" })
-keymap.set("n", "<leader>wt", "<cmd>SessionToggleAutoSave<cr>", { desc = "Toggle auto save for session" })
-
--- comment divider
-keymap.set("n", "<leader>cb", "<cmd>CommentDividerBox<cr>", { desc = "Comment box" })
-
--- formatting
-keymap.set("n", "<leader>fm", function()
-  require("conform").format({
-    lsp_fallback = true,
-    async = true,
-    timeout_ms = 1000,
-  })
-end, { desc = "Format buffer" })
-
--- git
-keymap.set("n", "g3", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Next hunk" })
-keymap.set("n", "g4", "<cmd>Gitsigns next_hunk<cr>", { desc = "Previous hunk" })
-keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open Lazy git" })
-keymap.set("n", "<leader>gd", "<cmd>Gitsign diffthis<cr>", { desc = "View diff" })
-keymap.set("n", "<leader>gD", "<cmd>Gitsign diffthis ~<cr>", { desc = "View diff (~)" })
-keymap.set("n", "<leader>gB", "<cmd>Gitsign toggle_current_line_blame<cr>", { desc = "Toggle blame" })
-keymap.set("n", "<leader>gb", "<cmd>Gitsign blame_line {full = true}<cr>", { desc = "Blame line" })
-keymap.set("n", "<leader>gs", function()
-  require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, { desc = "Stage hunk" })
-keymap.set("n", "<leader>gr", function()
-  require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, { desc = "Reset hunk" })
-keymap.set("n", "<leader>gS", "<cmd>Gitsign stage_buffer<cr>", { desc = "Stage buffer" })
-keymap.set("n", "<leader>gR", "<cmd>Gitsign reset_buffer<cr>", { desc = "Reset buffer" })
-keymap.set("n", "<leader>gu", "<cmd>Gitsign undo_stage_hunk<cr>", { desc = "Undo stage hunk" })
-keymap.set("n", "<leader>gp", "<cmd>Gitsign preview_hunk<cr>", { desc = "Preview hunk" })
-
--- advanced git search
-keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsign select_hunk<cr>", { desc = "Gitsigns select hunk" })
-
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find recent files" })
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find word" })
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
-keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
-keymap.set("n", "<leader>fn", "<cmd>Noice history<cr>", { desc = "Find notification history" })
-keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-keymap.set("n", "<leader>fB", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
-keymap.set("n", "<leader>fc", "<cmd>AdvancedGitSearch search_log_content<cr>", { desc = "Find commits (repo)" })
-keymap.set("n", "<leader>fC", "<cmd>AdvancedGitSearch search_log_content_file<cr>", { desc = "Find commits (file)" })
-keymap.set("n", "<leader>fS", "<cmd>Telescope git_status<cr>", { desc = "Find git status" })
-keymap.set("v", "<leader>f", function()
-  function vim.getVisualSelection()
-    vim.cmd('noau normal! "vy"')
-    local text = vim.fn.getreg("v")
-    vim.fn.setreg("v", {})
-
-    text = string.gsub(text, "\n", "")
-    if #text > 0 then
-      return text
-    else
-      return ""
-    end
-  end
-
-  local text = vim.getVisualSelection()
-  require("telescope.builtin").live_grep({ default_text = text })
-end, { desc = "Find word in selection" })
-
--- move
-keymap.set("n", "<leader>k", ":MoveLine(-1)<cr>", { desc = "Move line up" })
-keymap.set("n", "<leader>j", ":MoveLine(1)<cr>", { desc = "Move line down" })
-keymap.set("v", "<leader>k", ":MoveBlock(-1)<cr>", { desc = "Move block up" })
-keymap.set("v", "<leader>j", ":MoveBlock(1)<cr>", { desc = "Move block down" })
+-- diagnostics
 keymap.set("n", "g1", function()
   vim.diagnostic.goto_prev()
 end, { desc = "Prev problem" })
@@ -105,58 +31,15 @@ keymap.set("n", "g2", function()
   vim.diagnostic.goto_next()
 end, { desc = "Next problem" })
 
--- notifications
-keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
-
--- harpoon
-keymap.set("n", "<leader>ha", function()
-  require("harpoon"):list():add()
-end, { desc = "Add harpoon" })
-keymap.set("n", "<leader>ho", function()
-  local harpoon = require("harpoon")
-
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "Open harpoons" })
-
-keymap.set("n", "<leader>1", function()
-  require("harpoon"):list():select(1)
-end, { desc = "Go to harpoon 1" })
-keymap.set("n", "<leader>2", function()
-  require("harpoon"):list():select(2)
-end, { desc = "Go to harpoon 2" })
-keymap.set("n", "<leader>3", function()
-  require("harpoon"):list():select(3)
-end, { desc = "Go to harpoon 3" })
-keymap.set("n", "<leader>4", function()
-  require("harpoon"):list():select(4)
-end, { desc = "Go to harpoon 4" })
-
--- file explorer
-keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
-keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<cr>", { desc = "Toggle file explorer on current file" })
-keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<cr>", { desc = "Collapse file explorer" })
-keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file explorer" })
-
--- cold folding
-keymap.set("n", "zR", function()
-  require("ufo").openAllFolds()
-end, { desc = "Open all folds" })
-keymap.set("n", "zM", function()
-  require("ufo").closeAllFolds()
-end, { desc = "Close all folds" })
-keymap.set("n", "zK", function()
-  local winId = require("ufo").peekFoldedLinesUnderCursor()
-
-  if not winId then
-    vim.lsp.buf.hover()
-  end
-end, { desc = "Peek fold" })
-
--- dashboard
-keymap.set("n", "<leader>db", "<cmd>Dashboard<cr>", { desc = "Open dashboard" })
-
 -- utils
+keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
 keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
+keymap.set(
+  "n",
+  "<leader>rb",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word in buffer" }
+)
 keymap.set("n", "<leader>rf", function()
   if vim.g.disable_autoformat then
     vim.g.disable_autoformat = false
@@ -164,27 +47,3 @@ keymap.set("n", "<leader>rf", function()
     vim.g.disable_autoformat = true
   end
 end, { desc = "Toggle save on format" })
-keymap.set("n", "<leader>as", "<cmd>ASToggle<cr>", { desc = "Toggle auto save" })
-keymap.set(
-  "n",
-  "<leader>rb",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word in buffer" }
-)
-keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
-
--- obsidian
-keymap.set("n", "<leader>od", ":ObsidianTemplate daily<cr>", { desc = "Create new daily note" })
-vim.keymap.set("n", "<leader>ow", function()
-  vim.cmd("ObsidianTemplate weekly")
-  vim.defer_fn(function()
-    local filename = vim.fn.expand("%:t:r")
-    local lnum = vim.fn.search("^# title")
-
-    if lnum > 0 then
-      vim.fn.setline(lnum, "# " .. filename)
-    else
-      vim.fn.append(0, "# " .. filename)
-    end
-  end, 100)
-end, { desc = "Create new weekly note" })

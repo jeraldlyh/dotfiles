@@ -3,6 +3,8 @@ return {
   dependencies = { { "nvim-tree/nvim-web-devicons" } },
   event = "VimEnter",
   config = function()
+    local keymap = vim.keymap
+
     require("dashboard").setup({
       theme = "hyper",
       config = {
@@ -29,5 +31,7 @@ return {
         },
       },
     })
+
+    keymap.set("n", "<leader>db", "<cmd>Dashboard<cr>", { desc = "Open dashboard" })
   end,
 }

@@ -9,6 +9,8 @@ return {
     },
   },
   config = function()
+    local keymap = vim.keymap
+
     require("noice").setup({
       routes = {
         {
@@ -38,5 +40,7 @@ return {
         lsp_doc_border = true,
       },
     })
+
+    keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
   end,
 }

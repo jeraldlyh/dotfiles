@@ -11,6 +11,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local keymap = vim.keymap
 
     local ts_select_dir_for_grep = function()
       local action_state = require("telescope.actions.state")
@@ -87,5 +88,40 @@ return {
         vim.wo.wrap = true
       end,
     })
+
+    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find recent files" })
+    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find word" })
+    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
+    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
+    keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
+    keymap.set("n", "<leader>fn", "<cmd>Noice history<cr>", { desc = "Find notification history" })
+    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+    keymap.set("n", "<leader>fB", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
+    keymap.set("n", "<leader>fc", "<cmd>AdvancedGitSearch search_log_content<cr>", { desc = "Find commits (repo)" })
+    keymap.set(
+      "n",
+      "<leader>fC",
+      "<cmd>AdvancedGitSearch search_log_content_file<cr>",
+      { desc = "Find commits (file)" }
+    )
+    keymap.set("n", "<leader>fS", "<cmd>Telescope git_status<cr>", { desc = "Find git status" })
+    keymap.set("v", "<leader>f", function()
+      function vim.getVisualSelection()
+        vim.cmd('noau normal! "vy"')
+        local text = vim.fn.getreg("v")
+        vim.fn.setreg("v", {})
+
+        text = string.gsub(text, "\n", "")
+        if #text > 0 then
+          return text
+        else
+          return ""
+        end
+      end
+
+      local text = vim.getVisualSelection()
+      require("telescope.builtin").live_grep({ default_text = text })
+    end, { desc = "Find word in selection" })
   end,
 }

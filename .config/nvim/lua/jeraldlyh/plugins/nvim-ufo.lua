@@ -11,6 +11,9 @@ return {
       vim.o.foldlevelstart = 99
     end,
     config = function(_, opts)
+      local ufo = require("ufo")
+      local keymap = vim.keymap
+
       -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1514537245
       local handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
@@ -49,7 +52,21 @@ return {
         return { "lsp", "indent" }
       end
 
-      require("ufo").setup(opts)
+      ufo.setup(opts)
+
+      keymap.set("n", "zR", function()
+        ufo.openAllFolds()
+      end, { desc = "Open all folds" })
+      keymap.set("n", "zM", function()
+        ufo.closeAllFolds()
+      end, { desc = "Close all folds" })
+      keymap.set("n", "zK", function()
+        local winId = ufo.peekFoldedLinesUnderCursor()
+
+        if not winId then
+          vim.lsp.buf.hover()
+        end
+      end, { desc = "Peek fold" })
     end,
   },
 }
