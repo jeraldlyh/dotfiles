@@ -42,27 +42,24 @@ return {
     end
 
     telescope.setup({
-      pickers = {
-        live_grep = {
-          file_ignore_patterns = { "node_modules", ".git", ".venv" },
-          additional_args = function(_)
-            return { "--hidden" }
-          end,
-        },
-        find_files = {
-          hidden = true,
-          file_ignore_patterns = { "node_modules", ".git", ".venv" },
-        },
-      },
-      path_display = function(opts, path)
-        local tail = require("telescope.utils").path_tail(path)
-        path = string.format("%s (%s)", tail, path)
-
-        local highlights = { { { 0, #path }, "Comment" } }
-
-        return path, highlights
-      end,
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob=!**/.git/*",
+          "--glob=!**/.idea/*",
+          "--glob=!**/.vscode/*",
+          "--glob=!**/build/*",
+          "--glob=!**/dist/*",
+          "--glob=!**/yarn.lock",
+          "--glob=!**/package-lock.json",
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
@@ -76,15 +73,40 @@ return {
           },
         },
       },
+      pickers = {
+        find_files = {
+          hidden = true,
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--glob=!**/.git/*",
+            "--glob=!**/.idea/*",
+            "--glob=!**/.vscode/*",
+            "--glob=!**/build/*",
+            "--glob=!**/dist/*",
+            "--glob=!**/yarn.lock",
+            "--glob=!**/package-lock.json",
+          },
+        },
+      },
       extensions = {
         "fzf",
       },
+      path_display = function(opts, path)
+        local tail = require("telescope.utils").path_tail(path)
+        path = string.format("%s (%s)", tail, path)
+
+        local highlights = { { { 0, #path }, "Comment" } }
+
+        return path, highlights
+      end,
     })
     telescope.load_extension("fzf")
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "TelescopePreviewerLoaded",
-      callback = function(args)
+      callback = function()
         vim.wo.wrap = true
       end,
     })
