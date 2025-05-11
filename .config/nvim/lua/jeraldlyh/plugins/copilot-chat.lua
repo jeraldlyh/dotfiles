@@ -135,7 +135,7 @@ local function list_chat_history()
       scoring_function = function(_, entryOne, entryTwo)
         local mtimeOne = entryOne.mtime or 0
         local mtimeTwo = entryTwo.mtime or 0
-        return mtimeTwo - mtimeOne
+        return mtimeOne - mtimeTwo
       end,
     }),
     previewer = require("telescope.previewers").new_buffer_previewer({
@@ -181,7 +181,6 @@ return {
         log_level = "warn",
         history_path = chat_history_dir,
         prompts = load_prompts(vim.fn.stdpath("config") .. "/prompts"),
-        auto_follow_cursor = false,
         selection = false, -- Have no predefined context by default
         mappings = {
           complete = { insert = "" },
