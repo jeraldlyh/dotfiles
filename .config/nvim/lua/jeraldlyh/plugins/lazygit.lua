@@ -1,5 +1,6 @@
 return {
   "kdheepak/lazygit.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
   cmd = {
     "LazyGit",
     "LazyGitConfig",
@@ -7,7 +8,10 @@ return {
     "LazyGitFilter",
     "LazyGitFilterCurrentFile",
   },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
+  lazy = false,
+  config = function()
+    local keymap = vim.keymap
+
+    keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open Lazy git" })
+  end,
 }
