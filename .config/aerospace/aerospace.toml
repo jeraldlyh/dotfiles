@@ -95,7 +95,11 @@ if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
-if.app-id = 'com.citrix.receiver.nomas'
+if.app-name-regex-substring = 'Citrix Workspace'
+run = ['layout floating', 'move-node-to-workspace W']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Citrix Viewer'
 run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
