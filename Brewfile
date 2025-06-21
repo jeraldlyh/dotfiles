@@ -20,12 +20,12 @@ brew "eza"
 # Development
 brew "zsh"
 brew "zsh-autosuggestions"
+brew "zsh-vi-mode"
 brew "autojump"
 brew "neovim"
 brew "nvm"
 brew "pyenv"
 brew "pyenv-virtualenv"
-brew "firebase-cli"
 brew "node"
 brew "htop"
 brew "tmux"
@@ -33,6 +33,11 @@ brew "git"
 brew "lazygit"
 brew "pnpm"
 brew "ffmpeg"
+
+# Third-party tools
+brew "stripe-cli"
+brew "firebase-cli"
+cask "ngrok"
 
 # MacOS
 brew "sketchybar"

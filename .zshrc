@@ -54,7 +54,7 @@ source "$HOME/.docker/init-zsh.sh"
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
