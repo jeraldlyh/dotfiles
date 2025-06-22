@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SOURCE_FOLDER="$1"
+DESTINATION_FOLDER="$HOME/iCloud/Github"
+
+if [[ ! -d $SOURCE_FOLDER ]]; then
+  >&2 echo "Error: '$SOURCE_FOLDER' is not a directory."
+  exit 1
+fi
+
+if [[ ! -d $DESTINATION_FOLDER ]]; then
+  >&2 echo "Error: '$DESTINATION_FOLDER' is not a directory."
+  exit 1
+fi
+
+echo "Backing up *.env* files from '$SOURCE_FOLDER' to '$DESTINATION_FOLDER'..."
+count=0
+
+while IFS= read -r -d "" env_file; do
+  relative_path="${env_file#$SOURCE_FOLDER/}"
+  destination_path="$DESTINATION_FOLDER/$relative_path"
+
+  mkdir -p "$(dirname "$destination_path")"
+
+  # Preserve timestamps and permissions
+  cp -p -- "$env_file" "$destination_path"
+
+  echo "✔  $(printf '%s\n' "$relative_path")"
+  count=$((count + 1))
+done < <(
+  find "$SOURCE_FOLDER" \
+    -type d -name node_modules -prune -o \
+    -type f -name ".env*" -print0
+  )
+
+echo "Synced $count .env* files from '$SOURCE_FOLDER' to '$DESTINATION_FOLDER'."

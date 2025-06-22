@@ -25,7 +25,7 @@ alias gb="git branch -a"
 alias gcm="git commit -am $1"
 
 alias npmviewlink="npm ls -g --depth=0 --link=true"
-alias gprune="$HOME/dotfiles/scripts/gitprune.sh"
+alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
 
 alias ls="eza --color=always --long --git --icons=always --no-user --no-time"
 alias cp="cp --interactive"
