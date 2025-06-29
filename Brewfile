@@ -3,6 +3,7 @@ tap "neovim/neovim"
 tap "qmk/qmk"
 tap "nikitabobko/tap"
 tap "FelixKratz/formulae"
+tap "netbirdio/tap"
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -33,8 +34,7 @@ brew "git"
 brew "lazygit"
 brew "pnpm"
 brew "ffmpeg"
-
-# Third-party tools
+brew "gh"
 brew "stripe-cli"
 brew "firebase-cli"
 cask "ngrok"
@@ -58,6 +58,9 @@ cask "karabiner-elements" # Keyboard remapper
 cask "vial" # Keyboard GUI firmware
 cask "maccy" # Clipboard manager
 cask "obsidian"
+
+# Homelab
+cask "netbird-ui"
 
 # Font
 cask "font-meslo-lg-nerd-font"
