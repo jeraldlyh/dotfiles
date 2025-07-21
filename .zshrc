@@ -12,10 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 ENABLE_CORRECTION="true"
 
-source "$ZSH/oh-my-zsh.sh"
-
 plugins=(git zsh-autosuggestions autojump)
-
 
 # Aliases
 alias gph="git push"
@@ -55,6 +52,7 @@ source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source "$ZSH/oh-my-zsh.sh"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
