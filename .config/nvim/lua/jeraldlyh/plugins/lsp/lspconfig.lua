@@ -66,64 +66,80 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        if server_name == "jdtls" then
-          return
-        end
+    mason_lspconfig.setup({
+      automatic_installation = true,
+      automatic_enable = true,
+      ensure_installed = {
+        "html",
+        "cssls",
+        "tailwindcss",
+        "helm_ls",
+        "basedpyright",
+        "eslint",
+        "ruff",
+        "bashls",
+        "dockerls",
+        "docker_compose_language_service",
+      },
+      handlers = {
+        function(server_name)
+          if server_name == "jdtls" then
+            return
+          end
 
-        -- https://github.com/neovim/nvim-lspconfig/pull/3232
-        if server_name == "tsserver" then
-          server_name = "ts_ls"
-        end
+          -- https://github.com/neovim/nvim-lspconfig/pull/3232
+          if server_name == "tsserver" then
+            server_name = "ts_ls"
+          end
 
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["emmet_ls"] = function()
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
-        })
-      end,
-      ["basedpyright"] = function()
-        lspconfig["basedpyright"].setup({
-          capabilities = capabilities,
-          settings = {
-            basedpyright = {
-              settings = {
-                disableOrganizeImports = true,
-              },
-              analysis = {
-                typeCheckingMode = "basic",
-                ignore = { "*" },
-              },
-            },
-          },
-        })
-      end,
-      ["ruff"] = function()
-        lspconfig["ruff"].setup({
-          capabilities = capabilities,
-          init_options = {
-            configuration = {
-              settings = {
-                configurationPreference = "filesystemFirst",
-                lineLength = 100,
-                fixAll = true,
-                organizeImports = true,
-                lint = {
-                  enabled = true,
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        ["emmet_ls"] = function()
+          lspconfig["emmet_ls"].setup({
+            capabilities = capabilities,
+            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+          })
+        end,
+        ["basedpyright"] = function()
+          lspconfig["basedpyright"].setup({
+            capabilities = capabilities,
+            settings = {
+              basedpyright = {
+                settings = {
+                  disableOrganizeImports = true,
+                },
+                analysis = {
+                  typeCheckingMode = "basic",
+                  ignore = { "*" },
                 },
               },
-              format = {
-                ["quote-style"] = "single",
+            },
+          })
+        end,
+        ["ruff"] = function()
+          lspconfig["ruff"].setup({
+            capabilities = capabilities,
+            init_options = {
+              configuration = {
+                settings = {
+                  configurationPreference = "filesystemFirst",
+                  lineLength = 100,
+                  fixAll = true,
+                  organizeImports = true,
+                  lint = {
+                    enabled = true,
+                  },
+                },
+                format = {
+                  ["quote-style"] = "single",
+                },
               },
             },
-          },
-        })
-      end,
+          })
+        end,
+      },
     })
   end,
 }
