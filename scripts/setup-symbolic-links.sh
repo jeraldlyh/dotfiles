@@ -7,3 +7,4 @@ ln -s ~/dotfiles/.config/tmux ~/.config/tmux
 ln -s ~/dotfiles/.config/aerospace/aerospace.toml ~/.aerospace.toml
 ln -s ~/dotfiles/.config/bat ~/.config/bat
 ln -s ~/dotfiles/.config/kitty ~/.config/kitty
+ln -s ~/dotfiles/.config/karabiner ~/.config/karabiner
