@@ -30,7 +30,6 @@ return {
       },
       ui = { enable = false },
       mappings = {
-        default = true,
         ["gf"] = {
           action = function()
             return obsidian.util.gf_passthrough()
