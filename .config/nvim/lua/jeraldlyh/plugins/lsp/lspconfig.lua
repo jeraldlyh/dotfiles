@@ -38,12 +38,6 @@ return {
         opts.desc = "Rename symbol"
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-        opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
-        opts.desc = "Show line diagnostics"
-        keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
         opts.desc = "Go to previous problem"
         keymap.set("n", "g1", vim.diagnostic.goto_prev, opts)
 

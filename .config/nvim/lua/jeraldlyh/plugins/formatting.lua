@@ -26,12 +26,12 @@ return {
       end,
     })
 
-    keymap.set("n", "<leader>fm", function()
-      conform.format({
-        lsp_fallback = true,
-        async = true,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format buffer" })
+    -- keymap.set("n", "<leader>fm", function()
+    --   conform.format({
+    --     lsp_fallback = true,
+    --     async = true,
+    --     timeout_ms = 1000,
+    --   })
+    -- end, { desc = "Format buffer" })
   end,
 }

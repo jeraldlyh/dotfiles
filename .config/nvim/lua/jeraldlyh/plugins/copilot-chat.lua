@@ -36,10 +36,11 @@ local function save_chat(response)
 end
 
 local function reset_chat()
-  local copilot = require("CopilotChat")
-  copilot.save(vim.g.copilot_chat_title)
+  -- local copilot = require("CopilotChat")
+  --
+  -- copilot.save(vim.g.copilot_chat_title)
+  -- copilot.reset()
 
-  copilot.reset()
   vim.g.copilot_chat_title = nil
 end
 
@@ -183,20 +184,17 @@ return {
         prompts = load_prompts(vim.fn.stdpath("config") .. "/prompts"),
         selection = false, -- Have no predefined context by default
         mappings = {
-          complete = { insert = "" },
+          complete = { insert = "<S-Tab>" },
           reset = {
             insert = "<C-l>",
             normal = "<C-l>",
-            callback = function()
-              reset_chat()
-            end,
+            callback = reset_chat,
+          },
+          show_diff = {
+            full_diff = true,
           },
         },
-        callback = function(response)
-          save_chat(response)
-
-          return response
-        end,
+        callback = save_chat,
       })
 
       vim.api.nvim_create_autocmd("BufEnter", {

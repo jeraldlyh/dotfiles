@@ -9,6 +9,6 @@ return {
   lazy = false,
   branch = "regexp",
   keys = {
-    { "<leader>vs", "<cmd>VenvSelect<cr>" },
+    { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select Python virtual environment" },
   },
 }
