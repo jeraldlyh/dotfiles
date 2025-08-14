@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "franco-ruggeri/codecompanion-lualine.nvim" },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
@@ -69,6 +69,13 @@ return {
         },
         lualine_x = {
           { "filename", path = 1 },
+          {
+            "codecompanion",
+            icon = "",
+            color = { fg = "#7e9cd8" },
+            spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+            done_symbol = "✓",
+          },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,

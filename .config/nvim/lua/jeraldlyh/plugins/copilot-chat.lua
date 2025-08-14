@@ -1,4 +1,4 @@
-local chat_history_dir = vim.fn.expand("~/iCloud/ai")
+local chat_history_dir = vim.fn.expand("~/iCloud/ai/copilot-chat")
 
 local function read_prompt_file(filename)
   local config_dir = tostring(vim.fn.stdpath("config"))
@@ -165,15 +165,13 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" },
       { "nvim-lua/plenary.nvim", branch = "master" },
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = { file_types = { "markdown", "copilot-chat" } },
-        ft = { "markdown", "copilot-chat" },
-      },
+      "github/copilot.vim",
+      "nvim-telescope/telescope.nvim",
+      "MeanderingProgrammer/render-markdown.nvim",
     },
     build = "make tiktoken",
+    enabled = false,
     config = function()
       local copilot = require("CopilotChat")
       local keymap = vim.keymap
@@ -197,20 +195,11 @@ return {
         callback = save_chat,
       })
 
-      vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-*",
-        callback = function()
-          if vim.bo.filetype == "copilot-chat" then
-            vim.bo.filetype = "markdown"
-          end
-        end,
-      })
-
-      keymap.set("n", "<leader>co", copilot.open, { desc = "Open Copilot chat" })
-      keymap.set("n", "<leader>cr", reset_chat, { desc = "Reset Copilot chat" })
-      keymap.set("n", "<leader>cm", copilot.select_model, { desc = "Select Copilot models" })
-      keymap.set("n", "<leader>cp", copilot.select_prompt, { desc = "Select Copilot prompts" })
-      keymap.set("n", "<leader>ch", list_chat_history, { desc = "Show Copilot chat history" })
+      -- keymap.set("n", "<leader>co", copilot.open, { desc = "Open Copilot chat" })
+      -- keymap.set("n", "<leader>cr", reset_chat, { desc = "Reset Copilot chat" })
+      -- keymap.set("n", "<leader>cm", copilot.select_model, { desc = "Select Copilot models" })
+      -- keymap.set("n", "<leader>cp", copilot.select_prompt, { desc = "Select Copilot prompts" })
+      -- keymap.set("n", "<leader>ch", list_chat_history, { desc = "Show Copilot chat history" })
     end,
   },
 }

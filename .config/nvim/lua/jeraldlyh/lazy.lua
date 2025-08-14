@@ -5,13 +5,16 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", 
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "jeraldlyh.plugins" }, { import = "jeraldlyh.plugins.lsp" } }, {
+require("lazy").setup({
+  { import = "jeraldlyh.plugins" },
+  { import = "jeraldlyh.plugins.lsp" },
+}, {
   checker = {
     enabled = true,
     notify = false,
