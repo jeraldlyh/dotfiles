@@ -8,9 +8,13 @@ keymap.set("n", "<C-q>", ":q<cr>", { desc = "Quit" })
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+keymap.set("n", "<leader>sH", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close current split" })
+keymap.set("n", "<leader>sh", "<cmd>vertical resize -5<cr>", { desc = "Decrease width" })
+keymap.set("n", "<leader>sl", "<cmd>vertical resize +5<cr>", { desc = "Increase width" })
+keymap.set("n", "<leader>sj", "<cmd>resize +5<cr>", { desc = "Increase height" })
+keymap.set("n", "<leader>sk", "<cmd>resize -5<cr>", { desc = "Decrease height" })
 
 -- tabs
 keymap.set("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "Open new tab" })
