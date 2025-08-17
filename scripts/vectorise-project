@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ ! -d ".vectorcode" ]; then
+  echo "Initializing vectorcode..."
+  vectorcode init
+fi
+
+ROOT_FILES=$(git ls-files | grep -v '/')
+FOLDERS=$(git ls-files | grep / | cut -d/ -f1 | sort -u)
+
+echo "Vectorising the following root files:"
+echo "$ROOT_FILES"
+for file in $ROOT_FILES; do
+    echo "Vectorising $file..."
+    vectorcode vectorise "$file"
+done
+
+echo "Vectorising the following top-level folders:"
+echo "$FOLDERS"
+for folder in $FOLDERS; do
+    echo "Vectorising $folder..."
+    vectorcode vectorise "$folder"
+done
+
+echo "Vectorisation complete."

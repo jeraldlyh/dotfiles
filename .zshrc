@@ -1,12 +1,3 @@
-setup_environment_variables() {
-  if [ ! -d "$HOME/dotfiles/scripts" ]; then
-    echo "Missing scripts directory"
-  else
-    ~/dotfiles/scripts/setup-env.sh
-  fi
-}
-setup_environment_variables
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -32,7 +23,9 @@ export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export MVN_DIR="/opt/apache-maven-3.8.6/bin"
 export NVM_DIR="$HOME/.nvm"
 export TEX_DIR="/Library/TeX/texbin"
-export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DIR}
+export LOCAL_BIN_DIR="$HOME/.local/bin"
+export DOTFILE_DIR="$HOME/dotfiles/scripts"
+export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DIR}:${LOCAL_BIN_DIR}:${DOTFILE_DIR}
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
