@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 ENABLE_CORRECTION="true"
 
-plugins=(git zsh-autosuggestions autojump)
+plugins=(git zsh-autosuggestions autojump zsh-vi-mode)
 
 # Aliases
 alias gph="git push"
@@ -25,7 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 export TEX_DIR="/Library/TeX/texbin"
 export LOCAL_BIN_DIR="$HOME/.local/bin"
 export DOTFILE_DIR="$HOME/dotfiles/scripts"
-export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:$PATH:${VSCODE_DIR}:${LOCAL_BIN_DIR}:${DOTFILE_DIR}
+export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:${VSCODE_DIR}:${LOCAL_BIN_DIR}:${DOTFILE_DIR}:$PATH
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -43,8 +43,6 @@ eval "$(pyenv virtualenv-init -)"
 source "$HOME/.docker/init-zsh.sh"
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source "$ZSH/oh-my-zsh.sh"
 
 # pnpm

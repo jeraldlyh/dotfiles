@@ -20,8 +20,6 @@ brew "eza"
 
 # Development
 brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-vi-mode"
 brew "autojump"
 brew "neovim"
 brew "nvm"
