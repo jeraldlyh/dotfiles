@@ -11,10 +11,16 @@ reload_workspace_icon() {
 
   icon_strip=" "
   if [ "${apps}" != "" ]; then
+    declare -A seen_apps=()
+
     while read -r app
     do
-      icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-    done <<< "${apps}"
+      if [[ -n "$app" && -z "${seen_apps[$app]}" ]]; then
+        icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh $app)"
+        seen_apps["$app"]=1
+      fi
+    done <<< "$apps"
+    unset seen_apps
   else
     icon_strip="—"
   fi
