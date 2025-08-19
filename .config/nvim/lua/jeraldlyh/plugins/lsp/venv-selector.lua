@@ -8,7 +8,11 @@ return {
   },
   lazy = false,
   branch = "regexp",
-  keys = {
-    { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select Python virtual environment" },
-  },
+  config = function()
+    require("venv-selector").setup({
+      select_command = "telescope",
+    })
+
+    vim.keymap.set("n", "<leader>vs", "<cmd>VenvSelect<cr>", { desc = "Select Python virtual environment" })
+  end,
 }

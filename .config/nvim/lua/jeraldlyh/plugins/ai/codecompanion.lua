@@ -18,6 +18,11 @@ return {
         inline = { adapter = "copilot" },
       },
       display = {
+        chat = {
+          window = {
+            width = 0.3,
+          },
+        },
         diff = {
           enabled = true,
           close_chat_at = 240,
