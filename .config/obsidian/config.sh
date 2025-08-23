@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-FILE_PATH="$HOME/iCloud/vaults/notes"
+FILE_PATH="$HOME/iCloud/Vault"
 
 print_usage() {
   >&2 echo "Creates a new file in the dailies directory and opens it with nvim."
   >&2 echo 
   >&2 echo "Usage:"
-  >&2 echo "  on <file_name>"
+  >&2 echo "  daily <file_name>"
 }
 
 function daily() {
@@ -23,7 +23,7 @@ function daily() {
   fi
 
   daily_folder="$FILE_PATH/dailies"
-  file_name="$(date "+%Y-%m-%d")_$1.md"
+  file_name="$1.md"
 
   if [ -f "$daily_folder/$file_name" ]; then
     cd "$daily_folder" && nvim

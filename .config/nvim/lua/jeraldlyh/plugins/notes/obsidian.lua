@@ -10,11 +10,11 @@ return {
 
     obsidian.setup({
       workspaces = {
-        { name = "personal", path = "~/iCloud/vaults" },
+        { name = "personal", path = "~/iCloud/Vault" },
       },
       completion = { nvim_cmp = true, min_chars = 2, default = true },
       daily_notes = {
-        folder = "notes/dailies",
+        folder = "dailies",
         date_format = "%Y-%m-%d",
         alias_format = "%B %-d, %Y",
         default_tags = { "daily" },

@@ -35,7 +35,7 @@ return {
             "followwrap",
             "linematch:120",
           },
-          provider = "default",
+          provider = "split",
         },
       },
       extensions = {
