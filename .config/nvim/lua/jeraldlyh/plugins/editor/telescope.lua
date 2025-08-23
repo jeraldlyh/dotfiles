@@ -3,20 +3,19 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local telescope_builtin = require("telescope.builtin")
     local keymap = vim.keymap
 
-    local ts_select_dir_for_grep = function()
+    local select_dir_for_grep = function()
       local action_state = require("telescope.actions.state")
       local file_browser = require("telescope").extensions.file_browser
-      local live_grep = require("telescope.builtin").live_grep
+      local live_grep = telescope_builtin.live_grep
       local current_line = action_state.get_current_line()
 
       file_browser.file_browser({
@@ -41,6 +40,25 @@ return {
       })
     end
 
+    local select_glob_for_grep = function()
+      local input = vim.fn.input("Glob pattern (e.g. lua,json or telescope.lua,output.json): ")
+      local vimgrep_arguments = vim.deepcopy(require("telescope.config").values.vimgrep_arguments)
+
+      if input ~= "" then
+        for pattern in string.gmatch(input, "([^,]+)") do
+          local trimmed = vim.trim(pattern)
+          table.insert(vimgrep_arguments, "--glob")
+
+          if string.find(trimmed, "%.") then
+            table.insert(vimgrep_arguments, trimmed)
+          else
+            table.insert(vimgrep_arguments, "*." .. trimmed)
+          end
+        end
+      end
+      telescope_builtin.live_grep({ vimgrep_arguments = vimgrep_arguments })
+    end
+
     telescope.setup({
       defaults = {
         vimgrep_arguments = {
@@ -62,14 +80,20 @@ return {
         },
         mappings = {
           i = {
+            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+            ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            ["<C-f>"] = ts_select_dir_for_grep,
+            ["<C-i>"] = actions.smart_send_to_qflist + actions.open_qflist,
+            ["<C-f>"] = select_dir_for_grep,
+            ["<C-g>"] = select_glob_for_grep,
           },
           n = {
-            ["<C-f>"] = ts_select_dir_for_grep,
+            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+            ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             ["<C-i>"] = actions.smart_send_to_qflist + actions.open_qflist,
+            ["<C-f>"] = select_dir_for_grep,
+            ["<C-g>"] = select_glob_for_grep,
           },
         },
       },
@@ -90,9 +114,6 @@ return {
           },
         },
       },
-      extensions = {
-        "fzf",
-      },
       path_display = function(opts, path)
         local tail = require("telescope.utils").path_tail(path)
         path = string.format("%s (%s)", tail, path)
@@ -102,7 +123,6 @@ return {
         return path, highlights
       end,
     })
-    telescope.load_extension("fzf")
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "TelescopePreviewerLoaded",
@@ -113,20 +133,13 @@ return {
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find word" })
+    keymap.set("n", "<leader>fs", select_glob_for_grep, { desc = "Find word" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
     keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
     keymap.set("n", "<leader>fn", "<cmd>Noice history<cr>", { desc = "Find notification history" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>fB", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
-    keymap.set("n", "<leader>fc", "<cmd>AdvancedGitSearch search_log_content<cr>", { desc = "Find commits (repo)" })
-    keymap.set(
-      "n",
-      "<leader>fC",
-      "<cmd>AdvancedGitSearch search_log_content_file<cr>",
-      { desc = "Find commits (file)" }
-    )
     keymap.set("n", "<leader>fS", "<cmd>Telescope git_status<cr>", { desc = "Find git status" })
     keymap.set("v", "<leader>f", function()
       function vim.getVisualSelection()

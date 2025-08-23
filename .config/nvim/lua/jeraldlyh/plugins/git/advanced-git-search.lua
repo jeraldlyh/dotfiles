@@ -1,7 +1,13 @@
 return {
   "aaronhallaert/advanced-git-search.nvim",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "tpope/vim-fugitive",
+    "tpope/vim-rhubarb",
+  },
   config = function()
-    require("telescope").setup({
+    local telescope = require("telescope")
+    telescope.setup({
       extensions = {
         advanced_git_search = {
           browse_command = "GBrowse {commit_hash}",
@@ -20,11 +26,14 @@ return {
         },
       },
     })
-    require("telescope").load_extension("advanced_git_search")
+    telescope.load_extension("advanced_git_search")
+
+    vim.keymap.set("n", "<leader>fc", "<cmd>AdvancedGitSearch search_log_content<cr>", { desc = "Find commits (repo)" })
+    vim.keymap.set(
+      "n",
+      "<leader>fC",
+      "<cmd>AdvancedGitSearch search_log_content_file<cr>",
+      { desc = "Find commits (file)" }
+    )
   end,
-  dependencies = {
-    "nvim-telescope/telescope.nvim",
-    "tpope/vim-fugitive",
-    "tpope/vim-rhubarb",
-  },
 }
