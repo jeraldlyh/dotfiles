@@ -10,16 +10,4 @@ if [ "$SENDER" = "front_app_switched" ]; then
     icon.background.image.padding_right=4 \
     icon.background.image="app.$INFO" \
     icon.background.image.scale=0.8
-
-  apps=$AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR
-  icon=" "
-  if [ "${apps}" != "" ]; then
-    while read -r app
-    do
-      icon+=" $($CONFIG_DIR/plugins/icon_map.sh "$app")"
-    done <<< "${apps}"
-  else
-    icon=" —"
-  fi
-  sketchybar --set space.$AEROSPACE_FOCUSED_MONITOR_NO label="$icon"
 fi

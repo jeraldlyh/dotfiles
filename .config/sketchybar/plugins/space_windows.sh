@@ -9,8 +9,8 @@ AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty
 reload_workspace_icon() {
   apps=$(aerospace list-windows --workspace "$@" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-  icon_strip=" "
-  if [ "${apps}" != "" ]; then
+  icon_strip=""
+  if [ -n "${apps}" ]; then
     declare -A seen_apps=()
 
     while read -r app

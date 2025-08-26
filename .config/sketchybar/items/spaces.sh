@@ -13,8 +13,8 @@ for monitor in "${monitors[@]}"; do
   for sid in $(aerospace list-workspaces --monitor $monitor); do
     apps=$(aerospace list-windows --workspace $sid | awk -F '|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-    icon_strip=" "
-    if [ "$apps" != "" ]; then
+    icon_strip=""
+    if [ -n "$apps" ]; then
       declare -A seen_apps=()
 
       while read -r app
