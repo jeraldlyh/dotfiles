@@ -10,6 +10,7 @@ print_usage() {
 }
 
 function daily() {
+
   if [ -z "$1" ]; then
     >&2 echo "File name is required."
     print_usage
@@ -22,8 +23,9 @@ function daily() {
     return 1
   fi
 
+  current_date=$(date +%Y-%m-%d)
   daily_folder="$FILE_PATH/dailies"
-  file_name="$1.md"
+  file_name="${current_date}_$1.md"
 
   if [ -f "$daily_folder/$file_name" ]; then
     cd "$daily_folder" && nvim
