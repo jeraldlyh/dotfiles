@@ -13,6 +13,12 @@ return {
     local keymap = vim.keymap
 
     codecompanion.setup({
+      adapters = {
+        opts = {
+          allow_insecure = vim.env.PROXY_SERVER ~= nil,
+          proxy = vim.env.PROXY_SERVER or nil,
+        },
+      },
       strategies = {
         chat = { adapter = "copilot" },
         inline = { adapter = "copilot" },
