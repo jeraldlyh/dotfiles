@@ -11,6 +11,7 @@ return {
   config = function()
     local codecompanion = require("codecompanion")
     local keymap = vim.keymap
+    local providers = require("codecompanion.providers")
 
     codecompanion.setup({
       adapters = {
@@ -22,7 +23,20 @@ return {
       },
       strategies = {
         chat = { adapter = "copilot" },
-        inline = { adapter = "copilot" },
+        inline = {
+          adapter = "copilot",
+          keymaps = {
+            accept_change = {
+              modes = { n = "ga" },
+              description = "Accept the suggested change",
+            },
+            reject_change = {
+              modes = { n = "gr" },
+              opts = { nowait = true },
+              description = "Reject the suggested change",
+            },
+          },
+        },
       },
       display = {
         chat = {
@@ -32,17 +46,51 @@ return {
         },
         diff = {
           enabled = true,
-          close_chat_at = 240,
-          layout = "vertical",
-          opts = {
-            "internal",
-            "filler",
-            "closeoff",
-            "algorithm:patience",
-            "followwrap",
-            "linematch:120",
+          provider = providers.diff,
+          provider_opts = {
+            inline = {
+              layout = "buffer",
+              diff_signs = {
+                signs = {
+                  text = "▌",
+                  reject = "✗",
+                  highlight_groups = {
+                    addition = "DiagnosticOk",
+                    deletion = "DiagnosticError",
+                    modification = "DiagnosticWarn",
+                  },
+                },
+                icons = {
+                  accepted = " ",
+                  rejected = " ",
+                },
+                colors = {
+                  accepted = "DiagnosticOk",
+                  rejected = "DiagnosticError",
+                },
+              },
+              opts = {
+                context_lines = 3,
+                dim = 25,
+                full_width_removed = true,
+                show_keymap_hints = true,
+                show_removed = true,
+              },
+            },
+            split = {
+              close_chat_at = 240,
+              layout = "vertical",
+              opts = {
+                "internal",
+                "filler",
+                "closeoff",
+                "algorithm:histogram",
+                "indent-heuristic",
+                "followwrap",
+                "linematch:120",
+              },
+            },
           },
-          provider = "split",
         },
       },
       extensions = {
