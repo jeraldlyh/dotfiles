@@ -5,19 +5,6 @@ ENABLE_CORRECTION="true"
 
 plugins=(git zsh-autosuggestions autojump zsh-vi-mode)
 
-# Aliases
-alias gph="git push"
-alias gpl="git pull"
-alias gco="git checkout"
-alias gb="git branch -a"
-alias gcm="git commit -am $1"
-
-alias npmviewlink="npm ls -g --depth=0 --link=true"
-alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
-
-alias ls="eza --color=always --long --git --icons=always --no-user --no-time"
-alias cp="cp --interactive"
-
 export HOMEBREW_DIR="/opt/homebrew/bin"
 export VSCODE_DIR="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export MVN_DIR="/opt/apache-maven-3.8.6/bin"
@@ -51,3 +38,16 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# Aliases
+alias gph="git push"
+alias gpl="git pull"
+alias gco="git checkout"
+alias gb="git branch -a"
+alias gcm="git commit -am $1"
+
+alias npmviewlink="npm ls -g --depth=0 --link=true"
+alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
+
+alias ls="eza --color=always --long --git --icons=always --time=modified"
+alias cp="cp --interactive"
