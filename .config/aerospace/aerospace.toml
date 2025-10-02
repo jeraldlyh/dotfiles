@@ -111,7 +111,7 @@ if.app-id = 'com.postmanlabs.mac'
 run = ['layout floating', 'move-node-to-workspace T']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Passwords|Preview|Photos|FaceTime|Notes|QuickTime Player|Wireguard|Moonlight'
+if.app-name-regex-substring = 'Finder|Passwords|Preview|Photos|FaceTime|Notes|QuickTime Player|Wireguard|Moonlight|Electron'
 run = ['layout floating']
 
 [[on-window-detected]]
