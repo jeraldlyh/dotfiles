@@ -17,6 +17,7 @@ return {
         opts = {
           allow_insecure = vim.env.PROXY_SERVER ~= nil,
           proxy = vim.env.PROXY_SERVER or nil,
+          show_model_choices = true,
         },
       },
       strategies = {
