@@ -16,8 +16,8 @@ return {
     codecompanion.setup({
       adapters = {
         opts = {
-          allow_insecure = vim.env.PROXY_SERVER ~= nil,
-          proxy = vim.env.PROXY_SERVER or nil,
+          allow_insecure = vim.env.COPILOT_PROXY_SERVER ~= nil,
+          proxy = vim.env.COPILOT_PROXY_SERVER or nil,
           show_model_choices = true,
         },
       },
