@@ -51,3 +51,10 @@ keymap.set("n", "<leader>rf", function()
     vim.g.disable_autoformat = true
   end
 end, { desc = "Toggle save on format" })
+
+vim.keymap.set("n", "pi", function()
+  local char = vim.fn.getcharstr()
+  local motion = "i" .. char
+
+  vim.cmd("normal! v" .. motion .. '"0p')
+end, { desc = "Paste inside object (word, quotes, etc.)" })
