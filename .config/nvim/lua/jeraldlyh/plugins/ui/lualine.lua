@@ -83,6 +83,17 @@ return {
           },
           { "encoding" },
           { "filetype" },
+          {
+            "lsp_status",
+            icon = "",
+            symbols = {
+              spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+              done = "✓",
+              separator = " ",
+            },
+            ignore_lsp = { "GitHub Copilot" },
+            show_name = true,
+          },
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
