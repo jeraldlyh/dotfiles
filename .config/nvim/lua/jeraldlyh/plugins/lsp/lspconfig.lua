@@ -7,9 +7,7 @@ return {
     "williamboman/mason.nvim",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -52,88 +50,143 @@ return {
       end,
     })
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    vim.diagnostic.config({
+      virtual_text = true,
+      update_in_insert = false,
+      underline = true,
+      severity_sort = true,
+      float = {
+        focusable = true,
+        style = "minimal",
+        border = "rounded",
+        source = true,
+        header = "",
+        prefix = "",
+      },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.HINT] = " ",
+          [vim.diagnostic.severity.INFO] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.ERROR] = " ",
+        },
+      },
+    })
 
     mason_lspconfig.setup({
       automatic_installation = true,
-      automatic_enable = true,
+      automatic_enable = false,
       ensure_installed = {
-        "html",
-        "cssls",
-        "tailwindcss",
-        "helm_ls",
-        "basedpyright",
-        "eslint",
-        "ruff",
         "bashls",
+        "cssls",
         "dockerls",
         "docker_compose_language_service",
+        "eslint",
+        "helm_ls",
+        "html",
+        "lua_ls",
+        "ruff",
+        "stylua",
+        "tailwindcss",
+        "vtsls",
       },
-      handlers = {
-        function(server_name)
-          if server_name == "jdtls" then
-            return
-          end
+    })
 
-          -- https://github.com/neovim/nvim-lspconfig/pull/3232
-          if server_name == "tsserver" then
-            server_name = "ts_ls"
-          end
-
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        ["emmet_ls"] = function()
-          lspconfig["emmet_ls"].setup({
-            capabilities = capabilities,
-            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
-          })
-        end,
-        ["basedpyright"] = function()
-          lspconfig["basedpyright"].setup({
-            capabilities = capabilities,
-            settings = {
-              basedpyright = {
-                settings = {
-                  disableOrganizeImports = true,
-                },
-                analysis = {
-                  typeCheckingMode = "basic",
-                  ignore = { "*" },
-                },
-              },
-            },
-          })
-        end,
-        ["ruff"] = function()
-          lspconfig["ruff"].setup({
-            capabilities = capabilities,
-            init_options = {
-              configuration = {
-                settings = {
-                  configurationPreference = "filesystemFirst",
-                  lineLength = 100,
-                  fixAll = true,
-                  organizeImports = true,
-                  lint = {
-                    enabled = true,
-                  },
-                },
-                format = {
-                  ["quote-style"] = "single",
-                },
-              },
-            },
-          })
-        end,
+    vim.lsp.config.pylsp = {
+      settings = {
+        pylsp = {
+          signature = {
+            formatter = "ruff",
+          },
+          plugins = {
+            autopep8 = { enabled = false },
+            flake8 = { enabled = false },
+            mccabe = { enabled = false },
+            pycodestyle = { enabled = false },
+            pylint = { enabled = false },
+            pyflakes = { enabled = false },
+            yapf = { enabled = false },
+            black = { enabled = false },
+          },
+        },
       },
+    }
+    vim.lsp.enable("pylsp")
+
+    vim.lsp.config.ruff = {
+      init_options = {
+        settings = {
+          lineLength = 100,
+          fixAll = true,
+          organizeImports = true,
+          lint = { enabled = false },
+          format = {
+            ["quote-style"] = "single",
+          },
+        },
+      },
+    }
+    vim.lsp.enable("ruff")
+
+    vim.lsp.config.vtsls = {
+      on_attach = function(_, bufnr)
+        local function organize_imports()
+          vim.lsp.buf.code_action({
+            context = { only = { "source.organizeImports" }, diagnostics = {} },
+            apply = true,
+          })
+          vim.lsp.buf.format({ async = true })
+        end
+
+        keymap.set("n", "<leader>oi", organize_imports, { desc = "Organize imports", buffer = bufnr })
+      end,
+      settings = {
+        typescript = {
+          inlayHints = {
+            enumMemberValues = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            parameterNames = { enabled = "literals" },
+            parameterTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            variableTypes = { enabled = true },
+          },
+          format = {
+            convertTabsToSpaces = true,
+            indentSize = 2,
+            tabSize = 2,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            enumMemberValues = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            parameterNames = { enabled = "literals" },
+            parameterTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            variableTypes = { enabled = true },
+          },
+          format = {
+            convertTabsToSpaces = true,
+            indentSize = 2,
+            tabSize = 2,
+          },
+        },
+      },
+    }
+    vim.lsp.enable("vtsls")
+
+    vim.lsp.enable({
+      "ts_ls",
+      "bashls",
+      "cssls",
+      "dockerls",
+      "docker_compose_language_service",
+      "eslint",
+      "helm_ls",
+      "html",
+      "lua_ls",
+      "stylua",
+      "tailwindcss",
     })
   end,
 }
