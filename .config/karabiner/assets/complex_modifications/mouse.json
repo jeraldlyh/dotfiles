@@ -2,12 +2,12 @@
   "title": "Mouse",
   "rules": [
     {
-      "description": "Trigger left mouse click on quick tap of left_command",
+      "description": "Trigger left mouse click on quick tap of left_control",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_command",
+            "key_code": "left_control",
             "modifiers": {
               "optional": ["any"]
             }
@@ -22,7 +22,7 @@
           ],
           "to": [
             {
-              "key_code": "left_command"
+              "key_code": "left_control"
             }
           ]
         }
