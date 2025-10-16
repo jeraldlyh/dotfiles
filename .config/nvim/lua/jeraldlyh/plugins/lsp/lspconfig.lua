@@ -86,6 +86,7 @@ return {
         "html",
         "lua_ls",
         "ruff",
+        "pylsp",
         "stylua",
         "tailwindcss",
         "vtsls",
