@@ -1,11 +1,19 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  branch = "master",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
+    {
+      "aaronhallaert/advanced-git-search.nvim",
+      dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "tpope/vim-fugitive",
+        "tpope/vim-rhubarb",
+      },
+    },
   },
   config = function()
     local telescope = require("telescope")
@@ -115,7 +123,24 @@ return {
           },
         },
       },
-      path_display = function(opts, path)
+      extensions = {
+        advanced_git_search = {
+          browse_command = "GBrowse {commit_hash}",
+          diff_plugin = "fugitive",
+          git_flags = {},
+          git_diff_flags = {},
+          git_log_flags = {},
+          show_builtin_git_pickers = false,
+          entry_default_author_or_date = "author",
+          keymaps = {
+            toggle_date_author = "<C-w>",
+            open_commit_in_browser = "<C-o>",
+            copy_commit_hash = "<C-y>",
+            show_entire_commit = "<C-e>",
+          },
+        },
+      },
+      path_display = function(_, path)
         local tail = require("telescope.utils").path_tail(path)
         path = string.format("%s (%s)", tail, path)
 
@@ -124,6 +149,7 @@ return {
         return path, highlights
       end,
     })
+    telescope.load_extension("advanced_git_search")
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "TelescopePreviewerLoaded",
@@ -142,7 +168,7 @@ return {
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>fB", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
     keymap.set("n", "<leader>fS", "<cmd>Telescope git_status<cr>", { desc = "Find git status" })
-    keymap.set("v", "<leader>f", function()
+    keymap.set("v", "<leader>fs", function()
       function vim.getVisualSelection()
         vim.cmd('noau normal! "vy"')
         local text = vim.fn.getreg("v")
@@ -159,5 +185,13 @@ return {
       local text = vim.getVisualSelection()
       require("telescope.builtin").live_grep({ default_text = text })
     end, { desc = "Find word in selection" })
+    keymap.set("n", "<leader>fc", "<cmd>AdvancedGitSearch search_log_content<cr>", { desc = "Find commits (repo)" })
+    keymap.set(
+      "n",
+      "<leader>fC",
+      "<cmd>AdvancedGitSearch search_log_content_file<cr>",
+      { desc = "Find commits (file)" }
+    )
+    keymap.set("v", "<leader>fr", "<cmd>Telescope git_bcommits_range<cr>", { desc = "Find commits for range" })
   end,
 }
