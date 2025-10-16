@@ -19,7 +19,14 @@ return {
     keymap.set("n", "<leader>gR", "<cmd>Gitsign reset_buffer<cr>", { desc = "Reset buffer" })
     keymap.set("n", "<leader>gu", "<cmd>Gitsign undo_stage_hunk<cr>", { desc = "Undo stage hunk" })
     keymap.set("n", "<leader>gp", "<cmd>Gitsign preview_hunk<cr>", { desc = "Preview hunk" })
+    keymap.set("n", "<leader>gt", function()
+      local config = require("gitsigns.config").config
+      local enable = not config.word_diff
 
-    keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsign select_hunk<cr>", { desc = "Gitsigns select hunk" })
+      gitsigns.toggle_word_diff(enable)
+      gitsigns.toggle_deleted(enable)
+      gitsigns.toggle_linehl(enable)
+      gitsigns.toggle_numhl(enable)
+    end, { desc = "Toggle inline diff" })
   end,
 }
