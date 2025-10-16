@@ -132,7 +132,7 @@ return {
     keymap.set("n", "<leader>co", codecompanion.toggle, { desc = "Toggle AI chat" })
     keymap.set("n", "<leader>ct", codecompanion.actions, { desc = "Show AI actions" })
     keymap.set("v", "<leader>ca", function()
-      codecompanion.chat({ strategy = "chat", selection = true })
+      codecompanion.add({})
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
     end, { desc = "Add visual selected to chat" })
     keymap.set({ "n", "v" }, "<leader>ci", ":CodeCompanion<cr>", { desc = "Inline chat" })
