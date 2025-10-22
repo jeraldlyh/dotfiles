@@ -47,5 +47,6 @@ return {
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<cr>", { desc = "Collapse file explorer" })
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file explorer" })
     keymap.set("n", "<leader>ep", nvim_tree_api.tree.change_root_to_node, { desc = "Change directory" })
+    keymap.set("n", "<C-v>", nvim_tree_api.node.open.vertical, { desc = "Open in vertical split" })
   end,
 }
