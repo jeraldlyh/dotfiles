@@ -93,89 +93,6 @@ return {
       },
     })
 
-    vim.lsp.config.pylsp = {
-      settings = {
-        pylsp = {
-          signature = {
-            formatter = "ruff",
-          },
-          plugins = {
-            autopep8 = { enabled = false },
-            flake8 = { enabled = false },
-            mccabe = { enabled = false },
-            pycodestyle = { enabled = false },
-            pylint = { enabled = false },
-            pyflakes = { enabled = false },
-            yapf = { enabled = false },
-            black = { enabled = false },
-          },
-        },
-      },
-    }
-    vim.lsp.enable("pylsp")
-
-    vim.lsp.config.ruff = {
-      init_options = {
-        settings = {
-          lineLength = 100,
-          fixAll = true,
-          organizeImports = true,
-          lint = { enabled = false },
-          format = {
-            ["quote-style"] = "single",
-          },
-        },
-      },
-    }
-    vim.lsp.enable("ruff")
-
-    vim.lsp.config.vtsls = {
-      on_attach = function(_, bufnr)
-        local function organize_imports()
-          vim.lsp.buf.code_action({
-            context = { only = { "source.organizeImports" }, diagnostics = {} },
-            apply = true,
-          })
-          vim.lsp.buf.format({ async = true })
-        end
-
-        keymap.set("n", "<leader>oi", organize_imports, { desc = "Organize imports", buffer = bufnr })
-      end,
-      settings = {
-        typescript = {
-          inlayHints = {
-            enumMemberValues = { enabled = true },
-            functionLikeReturnTypes = { enabled = true },
-            parameterNames = { enabled = "literals" },
-            parameterTypes = { enabled = true },
-            propertyDeclarationTypes = { enabled = true },
-            variableTypes = { enabled = true },
-          },
-          format = {
-            convertTabsToSpaces = true,
-            indentSize = 2,
-            tabSize = 2,
-          },
-        },
-        javascript = {
-          inlayHints = {
-            enumMemberValues = { enabled = true },
-            functionLikeReturnTypes = { enabled = true },
-            parameterNames = { enabled = "literals" },
-            parameterTypes = { enabled = true },
-            propertyDeclarationTypes = { enabled = true },
-            variableTypes = { enabled = true },
-          },
-          format = {
-            convertTabsToSpaces = true,
-            indentSize = 2,
-            tabSize = 2,
-          },
-        },
-      },
-    }
-    vim.lsp.enable("vtsls")
-
     vim.lsp.enable({
       "ts_ls",
       "bashls",
@@ -186,8 +103,11 @@ return {
       "helm_ls",
       "html",
       "lua_ls",
+      "pylsp",
       "stylua",
       "tailwindcss",
+      "ruff",
+      "vtsls",
     })
   end,
 }
