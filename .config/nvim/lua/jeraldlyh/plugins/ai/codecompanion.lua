@@ -15,14 +15,16 @@ return {
 
     codecompanion.setup({
       adapters = {
-        opts = {
-          allow_insecure = vim.env.COPILOT_PROXY_SERVER ~= nil,
-          proxy = vim.env.COPILOT_PROXY_SERVER or nil,
-          show_model_choices = true,
+        http = {
+          opts = {
+            allow_insecure = vim.env.COPILOT_PROXY_SERVER ~= nil,
+            proxy = vim.env.COPILOT_PROXY_SERVER or nil,
+            show_model_choices = true,
+          },
         },
       },
       strategies = {
-        chat = { adapter = "copilot" },
+        chat = { adapter = "copilot", model = "gpt-4o" },
         inline = {
           adapter = "copilot",
           keymaps = {
