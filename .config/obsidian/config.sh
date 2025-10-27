@@ -28,7 +28,7 @@ function daily() {
   file_name="${current_date}_$1.md"
 
   if [ -f "$daily_folder/$file_name" ]; then
-    cd "$daily_folder" && nvim
+    nvim "$daily_folder/$file_name"
     return 0
   fi
 
@@ -38,7 +38,7 @@ function daily() {
     >&2 echo "Failed to create file: $daily_folder/$file_name"
     return 1
   fi
-  cd "$daily_folder" && nvim
+  nvim "$daily_folder/$file_name"
 }
 
 function weekly() {
@@ -55,7 +55,7 @@ function weekly() {
   file_name="$week_start_date.md"
 
   if [ -f "$weekly_folder/$file_name" ]; then
-    cd "$weekly_folder" && nvim
+    nvim "$weekly_folder/$file_name"
     return 0
   fi
 
@@ -65,5 +65,5 @@ function weekly() {
     >&2 echo "Failed to create file: $weekly_folder/$file_name"
     return 1
   fi
-  cd "$weekly_folder" && nvim
+  nvim "$weekly_folder/$file_name"
 }
