@@ -3,7 +3,7 @@
 set -euo pipefail
 
 SOURCE_FOLDER="$1"
-DESTINATION_FOLDER="$HOME/iCloud/Github"
+DESTINATION_FOLDER="$HOME/iCloud/Credentials/Github"
 
 if [[ ! -d $SOURCE_FOLDER ]]; then
   >&2 echo "Error: '$SOURCE_FOLDER' is not a directory."
