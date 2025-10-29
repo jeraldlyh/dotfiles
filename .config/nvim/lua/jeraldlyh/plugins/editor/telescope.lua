@@ -89,7 +89,7 @@ return {
         },
         mappings = {
           i = {
-            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+            -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
@@ -98,7 +98,7 @@ return {
             ["<C-g>"] = select_glob_for_grep,
           },
           n = {
-            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+            -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
             ["<C-i>"] = actions.smart_send_to_qflist + actions.open_qflist,
             ["<C-f>"] = select_dir_for_grep,
