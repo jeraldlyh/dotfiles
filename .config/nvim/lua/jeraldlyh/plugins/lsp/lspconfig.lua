@@ -90,6 +90,7 @@ return {
         "stylua",
         "tailwindcss",
         "vtsls",
+        "yamlls",
       },
     })
 
@@ -108,6 +109,7 @@ return {
       "tailwindcss",
       "ruff",
       "vtsls",
+      "yamlls",
     })
   end,
 }

@@ -10,30 +10,30 @@ return {
     local treesitter = require("nvim-treesitter.configs")
 
     treesitter.setup({
-      highlight = {
-        enable = true,
-      },
+      highlight = { enable = true },
       indent = { enable = true },
-      autotag = {
-        enable = false,
-      },
+      autotag = { enable = false },
       ensure_installed = {
-        "json",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "markdown",
         "bash",
-        "vim",
+        "css",
         "dockerfile",
-        "query",
-        "vimdoc",
+        "helm",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
         "python",
+        "query",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
         "yaml",
       },
+      sync_install = true,
+      auto_install = true,
+      ignore_install = {},
+      modules = {},
       incremental_selection = {
         enable = true,
         keymaps = {
