@@ -34,6 +34,7 @@ fi
 # source "$HOME/.docker/init-zsh.sh"
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
+source "$HOME/dotfiles/.config/nvim/config.sh"
 source "$ZSH/oh-my-zsh.sh"
 
 # pnpm

@@ -21,6 +21,7 @@ return {
         "html",
         "javascript",
         "json",
+        "kulala_http",
         "markdown",
         "python",
         "query",

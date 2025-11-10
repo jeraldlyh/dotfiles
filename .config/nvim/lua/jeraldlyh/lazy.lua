@@ -17,6 +17,7 @@ require("lazy").setup({
   { import = "jeraldlyh.plugins.editor" },
   { import = "jeraldlyh.plugins.formatter" },
   { import = "jeraldlyh.plugins.git" },
+  { import = "jeraldlyh.plugins.http" },
   { import = "jeraldlyh.plugins.lsp" },
   { import = "jeraldlyh.plugins.notes" },
   { import = "jeraldlyh.plugins.ui" },
