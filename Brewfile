@@ -17,6 +17,7 @@ brew "btop"
 brew "bat"
 brew "wget"
 brew "eza"
+brew "imagemagick" # For neovim image preview
 
 # Development
 brew "zsh"
