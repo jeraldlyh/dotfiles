@@ -5,6 +5,12 @@ return {
     input = {
       enabled = true,
     },
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    },
     image = {
       enabled = true,
       formats = {
