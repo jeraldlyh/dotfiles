@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FILE_PATH="$HOME/iCloud/Vault"
+OBSIDIAN_FILE_PATH="$HOME/iCloud/Vault"
 
 print_usage() {
   >&2 echo "Creates a new file in the dailies directory and opens it with nvim."
@@ -24,7 +24,7 @@ function daily() {
   fi
 
   current_date=$(date +%Y-%m-%d)
-  daily_folder="$FILE_PATH/dailies"
+  daily_folder="$OBSIDIAN_FILE_PATH/dailies"
   file_name="${current_date}_$1.md"
 
   if [ -f "$daily_folder/$file_name" ]; then
@@ -51,7 +51,7 @@ function weekly() {
   week_start_epoch=$((current_epoch - days_to_subtract * 86400))
   week_start_date=$(date -u -r "$week_start_epoch" +%Y-%m-%d)
 
-  weekly_folder="$FILE_PATH/weeklies"
+  weekly_folder="$OBSIDIAN_FILE_PATH/weeklies"
   file_name="$week_start_date.md"
 
   if [ -f "$weekly_folder/$file_name" ]; then
