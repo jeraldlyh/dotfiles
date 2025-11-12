@@ -68,7 +68,7 @@ return {
           },
         },
         lualine_x = {
-          { "filename", path = 1 },
+          { "filename", path = 0 },
           {
             "codecompanion",
             icon = "",
