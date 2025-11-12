@@ -4,10 +4,6 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "folke/snacks.nvim",
-    {
-      "rcarriga/nvim-notify",
-      opts = { top_down = false, background_colour = "#000000" },
-    },
   },
   config = function()
     local keymap = vim.keymap
@@ -44,7 +40,7 @@ return {
 
     local snacks = require("snacks")
     keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
-    keymap.set("n", "<leader>nh", function()
+    keymap.set("n", "<leader>fh", function()
       snacks.picker.notifications()
     end, { desc = "Notification history" })
   end,

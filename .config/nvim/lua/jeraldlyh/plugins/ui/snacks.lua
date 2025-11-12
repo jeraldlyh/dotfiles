@@ -11,6 +11,9 @@ return {
         enabled = false,
       },
     },
+    notifier = {
+      enabled = true,
+    },
     picker = {
       enabled = true,
       matcher = {
@@ -61,8 +64,6 @@ return {
           finder = "files",
           format = "file",
           show_empty = true,
-          hidden = true,
-          ignored = true,
           follow = false,
           supports_live = true,
         })
@@ -86,8 +87,6 @@ return {
           show_empty = true,
           live = true,
           supports_live = true,
-          hidden = true,
-          ignored = true,
         })
       end,
       desc = "Find string",
