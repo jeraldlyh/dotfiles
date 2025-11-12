@@ -17,6 +17,9 @@ return {
     lazygit = {
       enabled = true,
     },
+    gitbrowser = {
+      enabled = true,
+    },
     picker = {
       enabled = true,
       matcher = {
@@ -152,6 +155,18 @@ return {
         require("snacks").lazygit.open()
       end,
       desc = "Open Lazy git",
+    },
+    {
+      "<leader>gy",
+      function()
+        Snacks.gitbrowse({
+          open = function(url)
+            vim.fn.setreg("+", url)
+          end,
+          notify = false,
+        })
+      end,
+      { desc = "Git copy URL" },
     },
   },
 }
