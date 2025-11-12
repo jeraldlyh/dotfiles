@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
+    "folke/snacks.nvim",
     {
       "rcarriga/nvim-notify",
       opts = { top_down = false, background_colour = "#000000" },
@@ -41,6 +42,10 @@ return {
       },
     })
 
+    local snacks = require("snacks")
     keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
+    keymap.set("n", "<leader>nh", function()
+      snacks.picker.notifications()
+    end, { desc = "Notification history" })
   end,
 }

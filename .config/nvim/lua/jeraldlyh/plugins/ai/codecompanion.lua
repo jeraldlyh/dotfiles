@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    "folke/snacks.nvim",
     "neovim/nvim-lspconfig",
     "ravitemer/codecompanion-history.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
@@ -104,7 +104,7 @@ return {
             save_chat_keymap = "sc",
             auto_save = true,
             expiration_days = 0,
-            picker = "telescope",
+            picker = "snacks",
             chat_filter = nil,
             auto_generate_title = true,
             title_generation_opts = {
