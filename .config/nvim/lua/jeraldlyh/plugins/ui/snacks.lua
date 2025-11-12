@@ -14,6 +14,9 @@ return {
     notifier = {
       enabled = true,
     },
+    lazygit = {
+      enabled = true,
+    },
     picker = {
       enabled = true,
       matcher = {
@@ -137,18 +140,18 @@ return {
       desc = "Find buffers",
     },
     {
-      "<leader>fk",
-      function()
-        require("snacks").picker.keymaps()
-      end,
-      desc = "Find keymaps",
-    },
-    {
       "<leader>fS",
       function()
         require("snacks").picker.git_status()
       end,
       desc = "Find git status",
+    },
+    {
+      "<leader>gg",
+      function()
+        require("snacks").lazygit.open()
+      end,
+      desc = "Open Lazy git",
     },
   },
 }
