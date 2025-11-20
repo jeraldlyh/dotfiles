@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 ENABLE_CORRECTION="true"
+RPROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}]%{$reset_color%}'
 
 plugins=(git zsh-autosuggestions autojump zsh-vi-mode)
 
@@ -56,3 +57,4 @@ alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
 
 alias ls="eza --color=always --long --git --icons=always --time=modified"
 alias cp="cp --interactive"
+
