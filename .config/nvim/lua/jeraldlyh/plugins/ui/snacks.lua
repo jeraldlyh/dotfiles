@@ -106,7 +106,7 @@ return {
         require("snacks").picker.grep_word({
           finder = "grep",
           regex = false,
-          args = { "--word-regexp", "--no-ignore" },
+          args = { "--word-regexp" },
           format = "file",
           search = function(picker)
             return picker:word()
