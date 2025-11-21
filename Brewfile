@@ -18,6 +18,7 @@ brew "bat"
 brew "wget"
 brew "eza"
 brew "imagemagick" # For neovim image preview
+brew "websocat" # For websockets
 
 # Development
 brew "zsh"
