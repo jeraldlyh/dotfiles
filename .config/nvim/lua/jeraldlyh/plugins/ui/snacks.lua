@@ -23,6 +23,9 @@ return {
     gitbrowser = {
       enabled = true,
     },
+    scratch = {
+      enabled = true,
+    },
     picker = {
       enabled = true,
       matcher = {
@@ -69,93 +72,98 @@ return {
     {
       "<leader>ff",
       function()
-        require("snacks").picker.files({
-          finder = "files",
-          format = "file",
-          show_empty = true,
-          follow = false,
-          supports_live = true,
-        })
+        Snacks.picker.files()
       end,
       desc = "Find files",
     },
     {
       "<leader>fr",
       function()
-        require("snacks").picker.recent()
+        Snacks.picker.recent()
       end,
       desc = "Find recent files",
     },
     {
       "<leader>fs",
       function()
-        require("snacks").picker.grep({
-          finder = "grep",
-          regex = true,
-          format = "file",
-          show_empty = true,
-          live = true,
-          supports_live = true,
-        })
+        Snacks.picker.grep()
       end,
       desc = "Find string",
     },
     {
       "<leader>fw",
       function()
-        require("snacks").picker.grep_word({
-          finder = "grep",
-          regex = false,
-          args = { "--word-regexp" },
-          format = "file",
-          search = function(picker)
-            return picker:word()
-          end,
-          live = false,
-          supports_live = true,
-        })
+        Snacks.picker.grep_word()
       end,
       desc = "Find word under cursor",
     },
     {
       "<leader>fc",
       function()
-        require("snacks").picker.git_log()
+        Snacks.picker.git_log()
       end,
       desc = "Find commits (repo)",
     },
     {
       "<leader>fC",
       function()
-        require("snacks").picker.git_log_file()
+        Snacks.picker.git_log_file()
       end,
       desc = "Find commits (file)",
     },
     {
       "<leader>fl",
       function()
-        require("snacks").picker.git_log_line()
+        Snacks.picker.git_log_line()
       end,
       desc = "Find commits (line)",
     },
     {
       "<leader>fb",
       function()
-        require("snacks").picker.buffers()
+        Snacks.picker.buffers()
       end,
       desc = "Find buffers",
     },
     {
       "<leader>fS",
       function()
-        require("snacks").picker.git_status()
+        Snacks.picker.git_status()
       end,
       desc = "Find git status",
     },
     {
+      "<leader>fz",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Find smart",
+    },
+    {
+      "<leader>fm",
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = "Find command history",
+    },
+    {
+      "<leader>sp",
+      function()
+        Snacks.scratch()
+      end,
+      desc = "Open scratch buffer",
+    },
+    {
+      "<leader>ss",
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = "Select scratch buffer",
+    },
+    {
       "<leader>gg",
       function()
-        require("snacks").lazygit.open()
+        Snacks.lazygit.open()
       end,
       desc = "Open Lazy git",
     },
@@ -169,7 +177,14 @@ return {
           notify = false,
         })
       end,
-      { desc = "Git copy URL" },
+      desc = "Git copy URL",
+    },
+    {
+      "<leader>go",
+      function()
+        Snacks.gitbrowse.open()
+      end,
+      desc = "Git open in browser",
     },
   },
 }

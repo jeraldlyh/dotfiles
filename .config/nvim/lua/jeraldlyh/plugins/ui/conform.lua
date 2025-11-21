@@ -3,7 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-    local keymap = vim.keymap
 
     conform.setup({
       formatters_by_ft = {
@@ -27,21 +26,21 @@ return {
       end,
     })
 
-    keymap.set("n", "<leader>fm", function()
-      local bufnr = vim.api.nvim_get_current_buf()
-      local filetype = vim.bo[bufnr].filetype
-      local formatters = require("conform").formatters_by_ft
-      local opts = {
-        lsp_fallback = true,
-        async = true,
-        timeout_ms = 1000,
-      }
-
-      if formatters[filetype] then
-        require("conform").format(opts)
-      else
-        require("conform").format(vim.tbl_extend("force", opts, { formatters = { "prettier" } }))
-      end
-    end, { desc = "Format buffer" })
+    -- vim.keymap.set("n", "<leader>fm", function()
+    --   local bufnr = vim.api.nvim_get_current_buf()
+    --   local filetype = vim.bo[bufnr].filetype
+    --   local formatters = require("conform").formatters_by_ft
+    --   local opts = {
+    --     lsp_fallback = true,
+    --     async = true,
+    --     timeout_ms = 1000,
+    --   }
+    --
+    --   if formatters[filetype] then
+    --     require("conform").format(opts)
+    --   else
+    --     require("conform").format(vim.tbl_extend("force", opts, { formatters = { "prettier" } }))
+    --   end
+    -- end, { desc = "Format buffer" })
   end,
 }
