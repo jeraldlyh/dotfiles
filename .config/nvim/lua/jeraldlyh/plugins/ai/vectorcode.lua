@@ -3,4 +3,5 @@ return {
   version = "*",
   build = "uv tool upgrade vectorcode",
   dependencies = { "nvim-lua/plenary.nvim" },
+  enabled = false,
 }

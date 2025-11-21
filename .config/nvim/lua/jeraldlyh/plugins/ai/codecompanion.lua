@@ -96,7 +96,9 @@ return {
         },
       },
       extensions = {
-        vectorcode = {},
+        vectorcode = {
+          enabled = false,
+        },
         history = {
           enabled = true,
           opts = {
@@ -119,6 +121,7 @@ return {
             enable_logging = false,
           },
           memory = {
+            enabled = false,
             auto_create_memories_on_summary_generation = true,
             vectorcode_exe = "vectorcode",
             tool_opts = {
