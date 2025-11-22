@@ -8,8 +8,7 @@ while IFS=" " read -r monitor_id display_id; do
 done < <(aerospace list-monitors --format '%{monitor-id} %{monitor-appkit-nsscreen-screens-id}')
 
 
-# for monitor in $(aerospace list-monitors | awk '{print $1}'); do
-for monitor in "${monitors[@]}"; do
+for monitor in "${!monitors[@]}"; do
   for sid in $(aerospace list-workspaces --monitor $monitor); do
     apps=$(aerospace list-windows --workspace $sid | awk -F '|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
@@ -29,13 +28,14 @@ for monitor in "${monitors[@]}"; do
       icon_strip="—"
     fi
 
+    display_id="${monitors[$monitor]}"
     space=(
       space=$sid
       icon=$sid
       icon.highlight_color=$RED
       icon.padding_left=10
       icon.padding_right=10
-      display=$monitor
+      display=$display_id
       padding_left=2
       padding_right=2
       label="$icon_strip"
