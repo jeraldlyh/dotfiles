@@ -10,7 +10,6 @@ print_usage() {
 }
 
 function daily() {
-
   if [ -z "$1" ]; then
     >&2 echo "File name is required."
     print_usage
@@ -66,4 +65,8 @@ function weekly() {
     return 1
   fi
   nvim "$weekly_folder/$file_name"
+}
+
+function vault() {
+  nvim "$OBSIDIAN_FILE_PATH"
 }
