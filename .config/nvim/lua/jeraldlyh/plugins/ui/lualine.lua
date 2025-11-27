@@ -55,8 +55,15 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_b = { "branch" },
         lualine_c = {
+          {
+            "codecompanion",
+            icon = "",
+            color = { fg = "#7e9cd8" },
+            spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+            done_symbol = "✓",
+          },
           {
             "harpoon2",
             icon = "󰀱 ",
@@ -69,20 +76,13 @@ return {
         },
         lualine_x = {
           { "filename", path = 0 },
-          {
-            "codecompanion",
-            icon = "",
-            color = { fg = "#7e9cd8" },
-            spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
-            done_symbol = "✓",
-          },
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
-          },
-          { "encoding" },
-          { "filetype" },
+          -- {
+          --   lazy_status.updates,
+          --   cond = lazy_status.has_updates,
+          --   color = { fg = "#ff9e64" },
+          -- },
+          -- { "encoding" },
+          -- { "filetype" },
           {
             "lsp_status",
             icon = "",
