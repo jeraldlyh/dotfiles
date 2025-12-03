@@ -3,4 +3,13 @@ vim.env.NODE_TLS_REJECT_UNAUTHORIZED = vim.env.COPILOT_PROXY_SERVER and "0" or "
 
 return {
   "github/copilot.vim",
+  config = function()
+    vim.g.copilot_no_tab_map = true
+    vim.keymap.set(
+      "i",
+      "<M-Enter>",
+      "copilot#Accept('<CR>')",
+      { noremap = true, silent = true, expr = true, replace_keycodes = false }
+    )
+  end,
 }
