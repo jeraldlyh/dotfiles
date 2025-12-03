@@ -44,15 +44,15 @@ keymap.set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace word in buffer" }
 )
-keymap.set("n", "<leader>rf", function()
-  if vim.g.disable_autoformat then
-    vim.g.disable_autoformat = false
-  else
-    vim.g.disable_autoformat = true
-  end
-end, { desc = "Toggle save on format" })
+-- keymap.set("n", "<leader>rf", function()
+--   if vim.g.disable_autoformat then
+--     vim.g.disable_autoformat = false
+--   else
+--     vim.g.disable_autoformat = true
+--   end
+-- end, { desc = "Toggle save on format" })
 
-vim.keymap.set("n", "pi", function()
+keymap.set("n", "pi", function()
   local char = vim.fn.getcharstr()
   local motion = "i" .. char
 

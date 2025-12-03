@@ -40,3 +40,6 @@ opt.splitbelow = true
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- for grug-far
+vim.g.maplocalleader = " "
