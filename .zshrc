@@ -13,7 +13,8 @@ export NVM_DIR="$HOME/.nvm"
 export TEX_DIR="/Library/TeX/texbin"
 export LOCAL_BIN_DIR="$HOME/.local/bin"
 export DOTFILE_DIR="$HOME/dotfiles/scripts"
-export PATH=${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:${VSCODE_DIR}:${LOCAL_BIN_DIR}:${DOTFILE_DIR}:$PATH
+export OPT_DIR="/opt"
+export PATH="${HOMEBREW_DIR}:${MVN_DIR}:${TEX_DIR}:${CONDA_DIR}:${VSCODE_DIR}:${LOCAL_BIN_DIR}:${DOTFILE_DIR}:${OPT_DIR}:$PATH"
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -58,3 +59,7 @@ alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
 alias ls="eza --color=always --long --git --icons=always --time=modified"
 alias cp="cp --interactive"
 
+if [[ "$(uname -s)" == "Linux" ]]; then
+  export NVIM_DIR="/opt/nvim-linux-x86_64/bin"
+  export PATH="${NVIM_DIR}:$PATH"
+fi
