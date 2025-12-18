@@ -11,5 +11,44 @@ return {
       "copilot#Accept('<CR>')",
       { noremap = true, silent = true, expr = true, replace_keycodes = false }
     )
+
+    local disabled_filetypes = {}
+    local disabled_name_patterns = {
+      "homelab.md",
+      ".env",
+    }
+
+    local function should_disable_copilot(bufnr)
+      local ft = vim.bo[bufnr].filetype
+      if disabled_filetypes[ft] then
+        return true
+      end
+
+      local full = vim.api.nvim_buf_get_name(bufnr)
+      if full == "" then
+        return false
+      end
+
+      local fname = vim.fn.fnamemodify(full, ":t")
+      for _, pat in ipairs(disabled_name_patterns) do
+        if vim.fn.match(fname, pat) ~= -1 then
+          return true
+        end
+      end
+
+      return false
+    end
+
+    local group = vim.api.nvim_create_augroup("CopilotFilter", { clear = true })
+    vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+      group = group,
+      pattern = "*",
+      callback = function(args)
+        if should_disable_copilot(args.buf) then
+          vim.b[args.buf].copilot_enabled = false
+          vim.notify("Copilot disabled for: " .. vim.api.nvim_buf_get_name(args.buf))
+        end
+      end,
+    })
   end,
 }
