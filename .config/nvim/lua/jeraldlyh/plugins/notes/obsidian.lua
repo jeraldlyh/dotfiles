@@ -16,7 +16,7 @@ return {
 
     obsidian.setup({
       workspaces = {
-        { name = "personal", path = "~/iCloud/Vault" },
+        { name = "personal", path = vim.fn.expand("$HOME/Documents/Personal/Vault") },
       },
       completion = { nvim_cmp = true, min_chars = 2, default = true },
       daily_notes = {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OBSIDIAN_FILE_PATH="$HOME/iCloud/Vault"
+OBSIDIAN_FILE_PATH="$HOME/Documents/Personal/Vault"
 
 function weekly() {
   current_date=$(date +%Y-%m-%d)

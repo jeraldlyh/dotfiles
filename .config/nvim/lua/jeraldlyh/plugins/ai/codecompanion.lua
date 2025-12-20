@@ -117,7 +117,7 @@ return {
             },
             continue_last_chat = false,
             delete_on_clearing_chat = false,
-            dir_to_save = vim.fn.expand("~/iCloud/ai/codecompanion-chat"),
+            dir_to_save = vim.fn.expand("$HOME/Documents/Personal/ai/codecompanion-chat"),
             enable_logging = false,
           },
           memory = {
