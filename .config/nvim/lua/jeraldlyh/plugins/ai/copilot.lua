@@ -14,7 +14,7 @@ return {
 
     local disabled_filetypes = {}
     local disabled_name_patterns = {
-      "homelab.md",
+      "Credentials.md",
       ".env",
     }
 
