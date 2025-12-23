@@ -23,12 +23,12 @@ key-mapping.preset = 'qwerty'
 accordion-padding = 20
 
 [gaps]
-inner.horizontal = 5
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        [{ monitor."^dell|HP E27d G4$" = 45 }, 45]
-outer.right =      5
+inner.horizontal = 3
+inner.vertical =   3
+outer.left =       3
+outer.bottom =     3
+outer.top =        [{ monitor."^dell|HP E27d G4$" = 45 }, 5]
+outer.right =      3
 
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
