@@ -29,7 +29,7 @@ return {
     picker = {
       enabled = true,
       matcher = {
-        recency = true,
+        frecency = true,
       },
       win = {
         input = {
