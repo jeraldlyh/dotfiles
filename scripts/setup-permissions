@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+files=$(find . -type f)
+num_of_files=$(echo "$files" | wc -l)
+find . -type f -exec chmod 644 {} +      
+
+directories=$(find . -type d)
+num_of_directories=$(echo "$directories" | wc -l)
+find . -type d -exec chmod 755 {} +
+
+echo "Number of files processed: $num_of_files"
+echo "Number of directories processed: $num_of_directories"
