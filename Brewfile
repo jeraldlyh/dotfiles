@@ -21,6 +21,7 @@ brew "imagemagick" # For neovim image preview
 brew "websocat" # For websockets
 
 # Development
+brew "antigen"
 brew "zsh"
 brew "autojump"
 brew "neovim"
