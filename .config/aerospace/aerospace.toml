@@ -54,12 +54,14 @@ ctrl-alt-cmd-t = 'workspace T' # Terminal
 ctrl-alt-cmd-m = 'workspace M' # Music
 ctrl-alt-cmd-w = 'workspace W' # Main Monitor
 ctrl-alt-cmd-s = 'workspace S' # Second Monitor
+ctrl-alt-cmd-e = 'workspace E' # Third Monitor
 
 ctrl-alt-cmd-shift-b = 'move-node-to-workspace B'
 ctrl-alt-cmd-shift-t = 'move-node-to-workspace T'
 ctrl-alt-cmd-shift-m = 'move-node-to-workspace M'
 ctrl-alt-cmd-shift-w = 'move-node-to-workspace W'
 ctrl-alt-cmd-shift-s = 'move-node-to-workspace S'
+ctrl-alt-cmd-shift-e = 'move-node-to-workspace E'
 
 # alt-tab = 'workspace-back-and-forth'
 # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -123,4 +125,5 @@ if.app-name-regex-substring = 'Karabiner|Vial'
 run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
-S = ['secondary']
+S = ['HP E27d G4', 'DELL U3419W', 'secondary']
+E = ['HP E27q G4']
