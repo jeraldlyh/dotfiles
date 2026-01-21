@@ -2,7 +2,7 @@
  
 source "$CONFIG_DIR/colors.sh"
 
-AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused --format '%{monitor-appkit-nsscreen-screens-id}')
+AEROSPACE_FOCUSED_MONITOR=$(aerospace list-monitors --focused --format '%{monitor-id}')
 AEROSAPCE_WORKSPACE_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
 AEROSPACE_EMPTY_WORKESPACE=$(aerospace list-workspaces --monitor focused --empty)
 

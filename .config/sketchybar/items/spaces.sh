@@ -5,7 +5,7 @@ sketchybar --add event aerospace_workspace_change
 declare -A monitors
 while IFS=" " read -r monitor_id display_id; do
   monitors["$monitor_id"]="$display_id"
-done < <(aerospace list-monitors --format '%{monitor-id} %{monitor-appkit-nsscreen-screens-id}')
+done < <(aerospace list-monitors --format '%{monitor-id} %{monitor-id}')
 
 
 for monitor in "${!monitors[@]}"; do
