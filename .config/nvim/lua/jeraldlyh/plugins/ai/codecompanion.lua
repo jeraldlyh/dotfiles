@@ -42,8 +42,24 @@ return {
       },
       display = {
         chat = {
+          floating_window = {
+            width = function()
+              return vim.o.columns - 5
+            end,
+            height = function()
+              return vim.o.lines - 5
+            end,
+            row = "center",
+            col = "center",
+            relative = "editor",
+            opts = {
+              wrap = false,
+              number = false,
+              relativenumber = false,
+            },
+          },
           window = {
-            width = 0.3,
+            layout = "float",
           },
         },
         diff = {
