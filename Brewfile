@@ -60,6 +60,7 @@ cask "karabiner-elements" # Keyboard remapper
 cask "vial" # Keyboard GUI firmware
 cask "maccy" # Clipboard manager
 cask "obsidian"
+cask "skim" # PDF reader
 
 # Homelab
 cask "netbird-ui"
