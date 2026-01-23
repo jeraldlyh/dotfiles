@@ -103,3 +103,19 @@ alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
 
 alias ls="eza --color=always --long --git --icons=always --time=modified"
 alias cp="cp --interactive"
+
+function _tmux_rename_from_pwd() {
+  [[ -n "$TMUX" ]] || return
+
+  local repo name
+  repo=$(command git -C "$PWD" rev-parse --show-toplevel 2>/dev/null) || repo=""
+  if [[ -n "$repo" ]]; then
+    name=${repo:t}
+  else
+    name=${PWD:t}
+  fi
+
+  tmux rename-window -- "$name"
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _tmux_rename_from_pwd
