@@ -64,6 +64,10 @@ if command -v brew >/dev/null 2>&1; then
   fi
 fi
 
+if [[ -s "/usr/share/zsh-antigen/antigen.zsh" ]]; then
+  . /usr/share/zsh-antigen/antigen.zsh
+fi
+
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
 source "$HOME/dotfiles/.config/nvim/config.sh"
