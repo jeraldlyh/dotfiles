@@ -7,6 +7,7 @@ return {
     "neovim/nvim-lspconfig",
     "ravitemer/codecompanion-history.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
+    "franco-ruggeri/codecompanion-spinner.nvim",
   },
   config = function()
     local codecompanion = require("codecompanion")
@@ -24,9 +25,9 @@ return {
         },
       },
       strategies = {
-        chat = { adapter = "copilot", model = "gpt-4o" },
+        chat = { adapter = "openai", model = "gpt-4o" },
         inline = {
-          adapter = "copilot",
+          adapter = "openai",
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
@@ -112,6 +113,7 @@ return {
         },
       },
       extensions = {
+        spinner = {},
         vectorcode = {
           enabled = false,
         },
