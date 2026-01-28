@@ -68,6 +68,10 @@ if [[ -s "/usr/share/zsh-antigen/antigen.zsh" ]]; then
   . /usr/share/zsh-antigen/antigen.zsh
 fi
 
+if [[ -s "$HOME/.secrets" ]]; then
+  . "$HOME/.secrets"
+fi
+
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
 source "$HOME/dotfiles/.config/nvim/config.sh"
