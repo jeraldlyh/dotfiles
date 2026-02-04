@@ -20,7 +20,7 @@ return {
     lazygit = {
       enabled = true,
     },
-    gitbrowser = {
+    gitbrowse = {
       enabled = true,
     },
     scratch = {
