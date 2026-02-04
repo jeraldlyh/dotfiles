@@ -13,6 +13,7 @@ return {
     local codecompanion = require("codecompanion")
     local keymap = vim.keymap
     local providers = require("codecompanion.providers")
+    local default_provider = "openai"
 
     codecompanion.setup({
       adapters = {
@@ -25,9 +26,9 @@ return {
         },
       },
       strategies = {
-        chat = { adapter = "openai", model = "gpt-4o" },
+        chat = { adapter = default_provider, model = "gpt-4o" },
         inline = {
-          adapter = "openai",
+          adapter = default_provider,
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
@@ -43,24 +44,25 @@ return {
       },
       display = {
         chat = {
-          floating_window = {
-            width = function()
-              return vim.o.columns - 5
-            end,
-            height = function()
-              return vim.o.lines - 5
-            end,
-            row = "center",
-            col = "center",
-            relative = "editor",
-            opts = {
-              wrap = false,
-              number = false,
-              relativenumber = false,
-            },
-          },
+          -- floating_window = {
+          --   width = function()
+          --     return vim.o.columns - 5
+          --   end,
+          --   height = function()
+          --     return vim.o.lines - 5
+          --   end,
+          --   row = "center",
+          --   col = "center",
+          --   relative = "editor",
+          --   opts = {
+          --     wrap = false,
+          --     number = false,
+          --     relativenumber = false,
+          --   },
+          -- },
           window = {
-            layout = "float",
+            width = 0.3,
+            -- layout = "float",
           },
         },
         diff = {
@@ -128,7 +130,7 @@ return {
             chat_filter = nil,
             auto_generate_title = true,
             title_generation_opts = {
-              adapter = "copilot",
+              adapter = default_provider,
               model = "gpt-4o",
               refresh_every_n_prompts = 0,
               max_refreshes = 3,
