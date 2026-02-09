@@ -102,6 +102,7 @@ return {
         "tailwindcss",
         "vtsls",
         "yamlls",
+        "kotlin_language_server",
       },
     })
 
@@ -122,6 +123,7 @@ return {
       "ruff",
       "vtsls",
       "yamlls",
+      "kotlin_language_server",
     })
   end,
 }

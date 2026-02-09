@@ -43,6 +43,7 @@ export const %s = () => {
   end)
 end
 
+---@type vim.lsp.Config
 return {
   on_attach = function(_, bufnr)
     local function organize_imports()
