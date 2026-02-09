@@ -178,6 +178,7 @@ return {
         })
       end,
       desc = "Git copy URL",
+      mode = { "x", "n" },
     },
     {
       "<leader>go",
