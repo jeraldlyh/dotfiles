@@ -42,14 +42,13 @@ if [[ -s "$NVM_DIR/nvm.sh" ]]; then
 fi
 
 # pyenv 
-if command -v pyenv >/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
+ export PYENV_ROOT="$HOME/.pyenv"
 
-  if [[ -d $PYENV_ROOT/shims ]]; then
-    path_prepend "$PYENV_ROOT/bin"
-  fi
-  
-  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+if [[ -d "$PYENV_ROOT/bin" ]]; then
+  path_prepend "$PYENV_ROOT/bin"
+fi
+
+if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init -)"
 fi
