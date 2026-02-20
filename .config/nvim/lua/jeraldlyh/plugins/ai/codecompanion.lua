@@ -13,7 +13,7 @@ return {
     local codecompanion = require("codecompanion")
     local keymap = vim.keymap
     local providers = require("codecompanion.providers")
-    local default_provider = "openai"
+    local default_provider = "copilot"
 
     codecompanion.setup({
       adapters = {
@@ -23,6 +23,27 @@ return {
             proxy = vim.env.COPILOT_PROXY_SERVER or nil,
             show_model_choices = true,
           },
+          openrouter = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://openrouter.ai/api",
+                api_key = "OPENROUTER_API_KEY",
+                chat_url = "/v1/chat/completions",
+              },
+              schema = {
+                model = {
+                  default = "openai/gpt-4o-mini",
+                  choices = {
+                    ["x-ai/grok-code-fast-1"] = {},
+                    ["qwen/qwen3-coder-30b-a3b-instruct"] = {},
+                    ["anthropic/claude-3.7-sonnet"] = {},
+                    ["anthropic/claude-3.5-sonnet"] = {},
+                    ["openai/gpt-4o-mini"] = {},
+                  },
+                },
+              },
+            })
+          end,
         },
       },
       strategies = {
