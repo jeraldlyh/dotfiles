@@ -191,13 +191,6 @@ return {
       desc = "Find smart",
     },
     {
-      "<leader>fm",
-      function()
-        Snacks.picker.command_history()
-      end,
-      desc = "Find command history",
-    },
-    {
       "<leader>sp",
       function()
         Snacks.scratch()

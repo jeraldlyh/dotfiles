@@ -36,14 +36,9 @@ keymap.set("n", "g2", function()
 end, { desc = "Next problem" })
 
 -- utils
+keymap.set("n", "<leader>fm", "<cmd>messages<cr>", { desc = "Find messages" })
 keymap.set("n", "<leader>sa", "gg<S-v>G", { desc = "Select all" })
 keymap.set("n", "<leader>rl", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
-keymap.set(
-  "n",
-  "<leader>rb",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word in buffer" }
-)
 -- keymap.set("n", "<leader>rf", function()
 --   if vim.g.disable_autoformat then
 --     vim.g.disable_autoformat = false
