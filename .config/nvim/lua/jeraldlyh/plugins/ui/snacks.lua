@@ -31,6 +31,49 @@ return {
       matcher = {
         frecency = true,
       },
+      actions = {
+        diff_commit = function(picker, item)
+          local sha = item and (item.commit or item.hash or item.sha or item.value)
+          if type(sha) ~= "string" then
+            sha = item and item.text or ""
+          end
+          sha = sha:match("%x%x%x%x%x%x%x+")
+          if not sha then
+            return
+          end
+
+          picker:close()
+          vim.cmd(("CodeDiff %s^ %s"):format(sha, sha))
+        end,
+
+        diff_branch = function(picker, item)
+          local function current_branch()
+            local out = vim.fn.systemlist({ "git", "branch", "--show-current" })
+            return (out and out[1] ~= "" and out[1]) or "HEAD"
+          end
+
+          local branch = item and (item.branch or item.name or item.text)
+          if not branch then
+            return
+          end
+          branch = branch:gsub("^%*%s*", ""):gsub("^%s+", "")
+
+          local base = current_branch()
+          picker:close()
+          vim.schedule(function()
+            vim.cmd(("CodeDiff %s...%s"):format(branch, base))
+          end)
+        end,
+      },
+      sources = {
+        git_log = {
+          confirm = "diff_commit",
+        },
+        git_branches = {
+          confirm = "diff_branch",
+          all = true,
+        },
+      },
       win = {
         input = {
           keys = {
@@ -125,6 +168,14 @@ return {
       end,
       desc = "Find buffers",
     },
+    {
+      "<leader>fB",
+      function()
+        Snacks.picker.git_branches()
+      end,
+      desc = "Find branches",
+    },
+
     {
       "<leader>fS",
       function()

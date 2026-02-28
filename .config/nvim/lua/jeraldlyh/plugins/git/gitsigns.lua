@@ -9,8 +9,8 @@ return {
 
     keymap.set("n", "g3", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Next hunk" })
     keymap.set("n", "g4", "<cmd>Gitsigns next_hunk<cr>", { desc = "Previous hunk" })
-    keymap.set("n", "<leader>gd", "<cmd>Gitsign diffthis<cr>", { desc = "View diff" })
-    keymap.set("n", "<leader>gD", "<cmd>Gitsign diffthis ~<cr>", { desc = "View diff (~)" })
+    -- keymap.set("n", "<leader>gd", "<cmd>Gitsign diffthis<cr>", { desc = "View diff" })
+    -- keymap.set("n", "<leader>gD", "<cmd>Gitsign diffthis ~<cr>", { desc = "View diff (~)" })
     keymap.set("n", "<leader>gB", "<cmd>Gitsign toggle_current_line_blame<cr>", { desc = "Toggle blame" })
     keymap.set("n", "<leader>gb", "<cmd>Gitsign blame_line {full = true}<cr>", { desc = "Blame line" })
     keymap.set("n", "<leader>gs", "<cmd>Gitsign stage hunk<cr>", { desc = "Stage hunk" })
