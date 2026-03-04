@@ -7,7 +7,6 @@ return {
     "neovim/nvim-lspconfig",
     "ravitemer/codecompanion-history.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
-    "franco-ruggeri/codecompanion-spinner.nvim",
   },
   config = function()
     local codecompanion = require("codecompanion")
@@ -136,7 +135,6 @@ return {
         },
       },
       extensions = {
-        spinner = {},
         vectorcode = {
           enabled = false,
         },
