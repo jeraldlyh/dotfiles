@@ -69,6 +69,9 @@ return {
         git_log = {
           confirm = "diff_commit",
         },
+        git_log_file = {
+          confirm = "diff_commit",
+        },
         git_branches = {
           confirm = "diff_branch",
           all = true,
