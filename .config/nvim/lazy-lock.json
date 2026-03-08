@@ -10,7 +10,7 @@
   "codecompanion-history.nvim": { "branch": "main", "commit": "8c6ca9f998aeef89f3543343070f8562bf911fb4" },
   "codecompanion-lualine.nvim": { "branch": "main", "commit": "b264433444715bf07ee9f7d5015086b927ccf7f1" },
   "codecompanion.nvim": { "branch": "main", "commit": "bb571be895f715c6e3ce3c42cdb2059408725246" },
-  "codediff.nvim": { "branch": "main", "commit": "5e6915233e71503795d365d5ce6aec651461a434" },
+  "codediff.nvim": { "branch": "main", "commit": "d21a9a3ec5b46c92b38f4ad2e950b76b152151d5" },
   "comment-divider.nvim": { "branch": "main", "commit": "d1c658cba8e0abf76ddc15de3c44f972e2ef90ff" },
   "conform.nvim": { "branch": "master", "commit": "5f5152fae39a57e3a04cbce09fb21e10c49c9d95" },
   "copilot.vim": { "branch": "release", "commit": "f89e977c87180519ba3b942200e3d05b17b1e2fc" },
@@ -63,7 +63,6 @@
   "venv-selector.nvim": { "branch": "main", "commit": "58bae72c84b9f7f864c879ec1896e384296f9ffb" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },
   "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" },
-  "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
   "vimtex": { "branch": "master", "commit": "f707368022cdb851716be0d2970b90599c84a6a6" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
