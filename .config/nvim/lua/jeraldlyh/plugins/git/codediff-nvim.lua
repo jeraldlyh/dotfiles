@@ -51,8 +51,8 @@ return {
         folder_closed = "",
         folder_open = "",
       },
-      view_mode = "list",
-      flatten_dirs = true,
+      view_mode = "tree",
+      flatten_dirs = false,
       file_filter = {
         ignore = { ".git/**" },
       },
@@ -73,12 +73,12 @@ return {
     keymaps = {
       view = {
         quit = "q",
-        toggle_explorer = "<leader>b",
-        focus_explorer = "<leader>e",
+        toggle_explorer = "<leader>e",
+        focus_explorer = "<leader>b",
         next_hunk = "J",
         prev_hunk = "K",
-        next_file = "]f",
-        prev_file = "[f",
+        next_file = "<Right>",
+        prev_file = "<Left>",
         diff_get = "do",
         diff_put = "dp",
         open_in_prev_tab = "gf",
