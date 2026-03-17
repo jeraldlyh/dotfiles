@@ -26,12 +26,15 @@ return {
     keymap.set({ "n", "x" }, "<leader>s", function()
       multicursor.matchSkipCursor(1)
     end, { desc = "Skip next cursor by matching word/selection" })
-    keymap.set({ "n", "x" }, "<leader>N", function()
-      multicursor.matchAddCursor(-1)
-    end, { desc = "Add previous cursor by matching word/selection" })
-    keymap.set({ "n", "x" }, "<leader>S", function()
-      multicursor.matchSkipCursor(-1)
-    end, { desc = "Skip previous cursor by matching word/selection" })
+
+    keymap.set(
+      { "n", "x" },
+      "<leader>N",
+      multicursor.matchAllAddCursors,
+      { desc = "Add cursors to all matches of word/selection" }
+    )
+    keymap.set("x", "I", multicursor.insertVisual, { desc = "Insert at the beginning of each cursor line" })
+    keymap.set("x", "A", multicursor.appendVisual, { desc = "Append at the end of each cursor line" })
 
     keymap.set("n", "<c-leftmouse>", multicursor.handleMouse)
     keymap.set("n", "<c-leftdrag>", multicursor.handleMouseDrag)
