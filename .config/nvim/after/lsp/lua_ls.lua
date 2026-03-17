@@ -22,7 +22,6 @@ return {
       codeLens = { enable = true },
       hint = { enable = true, semicolon = "Disable" },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = {
           "vim",
           "require",

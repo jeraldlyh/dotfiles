@@ -97,31 +97,7 @@ return {
       },
     })
 
-    mason_lspconfig.setup({
-      automatic_installation = true,
-      automatic_enable = false,
-      ensure_installed = {
-        "bashls",
-        "cssls",
-        "dockerls",
-        "docker_compose_language_service",
-        "eslint",
-        "jdtls",
-        "helm_ls",
-        "html",
-        "lua_ls",
-        "ruff",
-        "basedpyright",
-        "stylua",
-        "tailwindcss",
-        "vtsls",
-        "yamlls",
-        "kotlin_language_server",
-      },
-    })
-
-    vim.lsp.enable({
-      "ts_ls",
+    local lsp = {
       "bashls",
       "cssls",
       "dockerls",
@@ -131,20 +107,24 @@ return {
       "helm_ls",
       "html",
       "lua_ls",
+      "ruff",
       "basedpyright",
       "stylua",
       "tailwindcss",
-      "ruff",
       "vtsls",
       "yamlls",
       "kotlin_language_server",
+    }
+
+    mason_lspconfig.setup({
+      automatic_installation = true,
+      automatic_enable = false,
+      ensure_installed = lsp,
     })
 
-    local lspconfig = require("lspconfig")
-    for server, server_opts in pairs(opts.servers or {}) do
-      server_opts = server_opts or {}
-      server_opts.capabilities = require("blink.cmp").get_lsp_capabilities(server_opts.capabilities)
-      lspconfig[server].setup(server_opts)
-    end
+    vim.lsp.enable(lsp)
+    vim.lsp.config("*", {
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
+    })
   end,
 }
