@@ -3,9 +3,14 @@ return {
   cmd = "CodeDiff",
   keys = {
     {
-      "<leader>gd",
+      "<leader>gD",
       "<cmd>CodeDiff main<cr>",
       desc = "View diff with main",
+    },
+    {
+      "<leader>gd",
+      "<cmd>CodeDiff HEAD<cr>",
+      desc = "View diff with HEAD",
     },
   },
   opts = {
