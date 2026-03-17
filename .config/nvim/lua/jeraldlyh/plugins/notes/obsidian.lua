@@ -18,7 +18,7 @@ return {
       workspaces = {
         { name = "personal", path = vim.fn.expand("$HOME/Documents/Personal/Vault") },
       },
-      completion = { nvim_cmp = true, min_chars = 2, default = true },
+      completion = { blink = true, min_chars = 2, default = true },
       daily_notes = {
         folder = "dailies",
         date_format = "%Y-%m-%d",

@@ -2,12 +2,12 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     "folke/snacks.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
     "williamboman/mason.nvim",
   },
-  config = function()
+  config = function(_, opts)
     local mason_lspconfig = require("mason-lspconfig")
     local snacks = require("snacks")
     local keymap = vim.keymap
@@ -15,48 +15,48 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        local opts = { buffer = ev.buf, silent = true }
+        local custom_opts = { buffer = ev.buf, silent = true }
 
-        opts.desc = "Show LSP references"
+        custom_opts.desc = "Show LSP references"
         keymap.set("n", "gR", function()
           snacks.picker.lsp_references()
-        end, opts)
+        end, custom_opts)
 
-        opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        custom_opts.desc = "Go to declaration"
+        keymap.set("n", "gD", vim.lsp.buf.declaration, custom_opts)
 
-        opts.desc = "Show LSP definitions"
+        custom_opts.desc = "Show LSP definitions"
         keymap.set("n", "gd", function()
           snacks.picker.lsp_definitions()
-        end, opts)
+        end, custom_opts)
 
-        opts.desc = "Show LSP implementations"
+        custom_opts.desc = "Show LSP implementations"
         keymap.set("n", "gi", function()
           snacks.picker.lsp_implementations()
-        end, opts)
+        end, custom_opts)
 
-        opts.desc = "Show LSP type definitions"
+        custom_opts.desc = "Show LSP type definitions"
         keymap.set("n", "gt", function()
           snacks.picker.lsp_type_definitions()
-        end, opts)
+        end, custom_opts)
 
-        opts.desc = "See available code actions"
-        keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        custom_opts.desc = "See available code actions"
+        keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, custom_opts)
 
-        opts.desc = "Rename symbol"
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        custom_opts.desc = "Rename symbol"
+        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, custom_opts)
 
-        opts.desc = "Go to previous problem"
-        keymap.set("n", "g1", vim.diagnostic.goto_prev, opts)
+        custom_opts.desc = "Go to previous problem"
+        keymap.set("n", "g1", vim.diagnostic.goto_prev, custom_opts)
 
-        opts.desc = "Go to next problem"
-        keymap.set("n", "g2", vim.diagnostic.goto_next, opts)
+        custom_opts.desc = "Go to next problem"
+        keymap.set("n", "g2", vim.diagnostic.goto_next, custom_opts)
 
-        opts.desc = "Show documentation for what is under cursor"
-        keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        custom_opts.desc = "Show documentation for what is under cursor"
+        keymap.set("n", "K", vim.lsp.buf.hover, custom_opts)
 
-        opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+        custom_opts.desc = "Restart LSP"
+        keymap.set("n", "<leader>rs", ":LspRestart<CR>", custom_opts)
       end,
     })
 
@@ -139,5 +139,12 @@ return {
       "yamlls",
       "kotlin_language_server",
     })
+
+    local lspconfig = require("lspconfig")
+    for server, server_opts in pairs(opts.servers or {}) do
+      server_opts = server_opts or {}
+      server_opts.capabilities = require("blink.cmp").get_lsp_capabilities(server_opts.capabilities)
+      lspconfig[server].setup(server_opts)
+    end
   end,
 }
