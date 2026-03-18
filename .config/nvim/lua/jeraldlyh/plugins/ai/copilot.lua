@@ -10,8 +10,8 @@ return {
     )
 
     if vim.env.COPILOT_PROXY_SERVER then
-      vim.g.copilot_proxy_server = vim.env.COPILOT_PROXY_SERVER
-      vim.g.copilot_proxy_strict_ssl = true
+      vim.g.copilot_proxy = vim.env.COPILOT_PROXY_SERVER
+      vim.g.copilot_proxy_strict_ssl = false
     end
 
     local disabled_filetypes = {}
