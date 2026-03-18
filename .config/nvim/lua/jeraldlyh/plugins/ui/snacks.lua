@@ -118,63 +118,78 @@ return {
     {
       "<leader>ff",
       function()
-        Snacks.picker.files()
+        require("snacks").picker.files()
       end,
       desc = "Find files",
     },
     {
       "<leader>fr",
       function()
-        Snacks.picker.recent()
+        require("snacks").picker.recent()
       end,
       desc = "Find recent files",
     },
     {
       "<leader>fs",
       function()
-        Snacks.picker.grep()
+        require("snacks").picker.grep()
       end,
       desc = "Find string",
     },
     {
       "<leader>fw",
       function()
-        Snacks.picker.grep_word()
+        require("snacks").picker.grep_word()
       end,
       desc = "Find word under cursor",
+      mode = { "n" },
+    },
+    {
+      "<leader>fw",
+      function()
+        local text = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+        local escaped = vim.fn.escape(text, [[\.^$*+?()[]{}|/-]])
+
+        require("snacks").picker.grep({
+          search = escaped,
+          hidden = true,
+        })
+      end,
+      desc = "Find word under cursor",
+      mode = { "x" },
     },
     {
       "<leader>fc",
       function()
-        Snacks.picker.git_log()
+        require("snacks").picker.git_log()
       end,
       desc = "Find commits (repo)",
     },
     {
       "<leader>fC",
       function()
-        Snacks.picker.git_log_file()
+        require("snacks").picker.git_log_file()
       end,
       desc = "Find commits (file)",
     },
     {
       "<leader>fl",
       function()
-        Snacks.picker.git_log_line()
+        require("snacks").picker.git_log_line()
       end,
       desc = "Find commits (line)",
     },
     {
       "<leader>fb",
       function()
-        Snacks.picker.buffers()
+        require("snacks").picker.buffers()
       end,
       desc = "Find buffers",
     },
     {
       "<leader>fB",
       function()
-        Snacks.picker.git_branches()
+        require("snacks").picker.git_branches()
       end,
       desc = "Find branches",
     },
@@ -182,42 +197,42 @@ return {
     {
       "<leader>fS",
       function()
-        Snacks.picker.git_status()
+        require("snacks").picker.git_status()
       end,
       desc = "Find git status",
     },
     {
       "<leader>fz",
       function()
-        Snacks.picker.smart()
+        require("snacks").picker.smart()
       end,
       desc = "Find smart",
     },
     {
       "<leader>sp",
       function()
-        Snacks.scratch()
+        require("snacks").scratch()
       end,
       desc = "Open scratch buffer",
     },
     {
       "<leader>ss",
       function()
-        Snacks.scratch.select()
+        require("snacks").scratch.select()
       end,
       desc = "Select scratch buffer",
     },
     {
       "<leader>gg",
       function()
-        Snacks.lazygit.open()
+        require("snacks").lazygit.open()
       end,
       desc = "Open Lazy git",
     },
     {
       "<leader>gy",
       function()
-        Snacks.gitbrowse({
+        require("snacks").gitbrowse({
           open = function(url)
             vim.fn.setreg("+", url)
           end,
@@ -230,7 +245,7 @@ return {
     {
       "<leader>go",
       function()
-        Snacks.gitbrowse.open()
+        require("snacks").gitbrowse.open()
       end,
       desc = "Git open in browser",
     },
