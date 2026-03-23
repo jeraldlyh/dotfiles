@@ -111,6 +111,8 @@ alias gprune="$HOME/dotfiles/scripts/git-prune.sh"
 alias ls="eza --color=always --long --git --icons=always --time=modified"
 alias cp="cp --interactive"
 
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
 function _tmux_rename_from_pwd() {
   [[ -n "$TMUX" ]] || return
 
