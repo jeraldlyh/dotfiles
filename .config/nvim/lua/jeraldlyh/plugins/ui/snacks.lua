@@ -130,6 +130,13 @@ return {
       desc = "Find recent files",
     },
     {
+      "<leader>fR",
+      function()
+        require("snacks").picker.resume()
+      end,
+      desc = "Find resume previous search",
+    },
+    {
       "<leader>fs",
       function()
         require("snacks").picker.grep()
@@ -147,7 +154,20 @@ return {
     {
       "<leader>fw",
       function()
-        local text = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+        local mode = vim.fn.mode()
+        local start_pos = vim.fn.getpos("v")
+        local end_pos = vim.fn.getpos(".")
+        local lines
+
+        if mode == "V" then
+          local start_line = math.min(start_pos[2], end_pos[2])
+          local end_line = math.max(start_pos[2], end_pos[2])
+          lines = vim.fn.getline(start_line, end_line)
+        else
+          lines = vim.fn.getregion(start_pos, end_pos)
+        end
+
+        local text = table.concat(lines, "\n")
         local escaped = vim.fn.escape(text, [[\.^$*+?()[]{}|/-]])
 
         require("snacks").picker.grep({
@@ -207,6 +227,31 @@ return {
         require("snacks").picker.smart()
       end,
       desc = "Find smart",
+    },
+    {
+      "<leader>fd",
+      function()
+        require("snacks").picker.smart({
+          hidden = true,
+          confirm = function(picker, item)
+            picker:close()
+            vim.schedule(function()
+              local current = vim.api.nvim_buf_get_name(0)
+              if current == "" or not item then
+                return
+              end
+
+              vim.cmd(
+                ("CodeDiff file %s %s"):format(
+                  vim.fn.fnameescape(current),
+                  vim.fn.fnameescape(item.file or item.path or item.value or "")
+                )
+              )
+            end)
+          end,
+        })
+      end,
+      desc = "Find file to diff",
     },
     {
       "<leader>sp",

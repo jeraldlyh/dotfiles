@@ -56,7 +56,7 @@ return {
       file_filter = {
         ignore = { ".git/**" },
       },
-      focus_on_select = false,
+      focus_on_select = true,
       visible_groups = {
         staged = true,
         unstaged = true,

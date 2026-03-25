@@ -7,7 +7,7 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     "williamboman/mason.nvim",
   },
-  config = function(_, opts)
+  config = function()
     local mason_lspconfig = require("mason-lspconfig")
     local snacks = require("snacks")
     local keymap = vim.keymap
