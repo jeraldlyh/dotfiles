@@ -54,7 +54,21 @@ return {
         theme = custom_theme,
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = {
+          "mode",
+          {
+            "macro",
+            fmt = function()
+              local reg = vim.fn.reg_recording()
+              if reg == "" then
+                return ""
+              end
+              return "Recording @" .. reg
+            end,
+            color = { fg = colors.recording, gui = "bold" },
+            draw_empty = false,
+          },
+        },
         lualine_b = { "branch" },
         lualine_c = {
           {
