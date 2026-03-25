@@ -104,7 +104,6 @@ return {
       "docker_compose_language_service",
       "eslint",
       "jdtls",
-      "helm_ls",
       "html",
       "lua_ls",
       "ruff",
