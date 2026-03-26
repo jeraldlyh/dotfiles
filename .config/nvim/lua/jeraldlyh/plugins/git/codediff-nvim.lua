@@ -12,6 +12,11 @@ return {
       "<cmd>CodeDiff HEAD<cr>",
       desc = "View diff with HEAD",
     },
+    {
+      "<leader>gh",
+      "<cmd>CodeDiff history<cr>",
+      desc = "View git history",
+    },
   },
   opts = {
     highlights = {
