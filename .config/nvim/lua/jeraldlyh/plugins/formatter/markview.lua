@@ -4,6 +4,7 @@ return {
   dependencies = { "saghen/blink.cmp" },
   opts = {
     preview = {
+      enable = false,
       filetypes = { "markdown", "codecompanion" },
       ignore_buftypes = {},
     },
