@@ -24,7 +24,7 @@ brew "websocat" # For websockets
 brew "antigen"
 brew "zsh"
 brew "autojump"
-brew "neovim"
+# brew "neovim"
 brew "nvm"
 brew "pyenv"
 brew "pyenv-virtualenv"
@@ -39,6 +39,7 @@ brew "ffmpeg"
 brew "gh"
 brew "stripe-cli"
 brew "firebase-cli"
+brew "libpq"
 cask "ngrok"
 
 # MacOS

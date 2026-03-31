@@ -48,6 +48,10 @@ if [[ -d "$PYENV_ROOT/bin" ]]; then
   path_prepend "$PYENV_ROOT/bin"
 fi
 
+if [[ -d "$(brew --prefix)/opt/libpq/bin" ]]; then
+  path_prepend "$(brew --prefix)/opt/libpq/bin"
+fi
+
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init -)"
