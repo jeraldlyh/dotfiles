@@ -50,6 +50,8 @@ return {
       desc = "Organize Imports",
     })
 
+    -- vim.keymap.set("n", "<leader>oi", ":LspPyrightOrganizeImports<cr>", { desc = "Organize imports", buffer = bufnr })
+
     vim.api.nvim_buf_create_user_command(bufnr, "LspPyrightSetPythonPath", set_python_path, {
       desc = "Reconfigure basedpyright with the provided python path",
       nargs = 1,
