@@ -180,5 +180,6 @@ return {
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
     end, { desc = "Add visual selected to chat" })
     keymap.set({ "n", "v" }, "<leader>ci", ":CodeCompanion<cr>", { desc = "Inline chat" })
+    keymap.set("n", "<leader>cn", codecompanion.chat, { desc = "New chat" })
   end,
 }
