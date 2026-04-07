@@ -6,6 +6,14 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<cr>", { desc = "Clear search highlights" })
 keymap.set("n", "<C-q>", ":q<cr>", { desc = "Quit" })
 
+-- black hole registers
+keymap.set({ "n", "v" }, "x", '"_x')
+keymap.set({ "n", "v" }, "X", '"_X')
+keymap.set({ "n", "v" }, "d", '"_d')
+keymap.set({ "n", "v" }, "D", '"_D')
+keymap.set({ "n", "v" }, "c", '"_c')
+keymap.set({ "n", "v" }, "C", '"_C')
+
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>sH", "<C-w>s", { desc = "Split window horizontally" })
