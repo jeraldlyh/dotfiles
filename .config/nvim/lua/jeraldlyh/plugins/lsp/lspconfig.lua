@@ -110,6 +110,7 @@ return {
       "basedpyright",
       "stylua",
       "tailwindcss",
+      "terraformls",
       "vtsls",
       "yamlls",
       "kotlin_language_server",
