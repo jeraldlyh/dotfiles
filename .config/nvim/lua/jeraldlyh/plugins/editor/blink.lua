@@ -101,6 +101,12 @@ return {
       fuzzy = {
         implementation = "prefer_rust_with_warning",
       },
+      signature = {
+        enabled = true,
+        window = {
+          show_documentation = true,
+        },
+      },
     }
   end,
   opts_extend = { "sources.default" },
