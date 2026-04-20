@@ -13,6 +13,7 @@ keymap.set({ "n", "v" }, "d", '"_d')
 keymap.set({ "n", "v" }, "D", '"_D')
 keymap.set({ "n", "v" }, "c", '"_c')
 keymap.set({ "n", "v" }, "C", '"_C')
+keymap.set("x", "p", '"_dP') -- paste without overwriting the default register
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
