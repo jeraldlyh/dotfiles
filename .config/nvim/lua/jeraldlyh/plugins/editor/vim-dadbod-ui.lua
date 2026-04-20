@@ -4,7 +4,7 @@ return {
     { "tpope/vim-dadbod", lazy = true },
     { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
   },
-  enabled = false,
+  enabled = true,
   cmd = {
     "DBUI",
     "DBUIToggle",
