@@ -16,7 +16,6 @@ function weekly() {
   file_name="$week_start_date.md"
 
   if [ -f "$weekly_folder/$file_name" ]; then
-    nvim "$weekly_folder/$file_name"
     return 0
   fi
 
@@ -26,7 +25,6 @@ function weekly() {
     >&2 echo "Failed to create file: $weekly_folder/$file_name"
     return 1
   fi
-  nvim "$weekly_folder/$file_name"
 }
 
 function vault() {
