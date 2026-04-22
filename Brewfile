@@ -41,6 +41,7 @@ brew "gh"
 brew "stripe-cli"
 brew "firebase-cli"
 brew "libpq"
+cask "copilot-cli"
 cask "ngrok"
 
 # MacOS
