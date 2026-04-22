@@ -24,6 +24,8 @@ keymap.set("n", "<leader>sl", "<cmd>vertical resize -5<cr>", { desc = "Decrease 
 keymap.set("n", "<leader>sh", "<cmd>vertical resize +5<cr>", { desc = "Increase width" })
 keymap.set("n", "<leader>sj", "<cmd>resize +5<cr>", { desc = "Increase height" })
 keymap.set("n", "<leader>sk", "<cmd>resize -5<cr>", { desc = "Decrease height" })
+keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
 
 -- tabs
 keymap.set("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "Open new tab" })
