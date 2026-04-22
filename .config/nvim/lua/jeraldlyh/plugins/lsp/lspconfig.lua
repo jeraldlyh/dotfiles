@@ -60,20 +60,6 @@ return {
       end,
     })
 
-    -- NOTE: Workaround for keymaps not restoring after closing diff view
-    --      https://github.com/esmuellert/codediff.nvim/issues/289
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "CodeDiffClose",
-      callback = function(event)
-        vim.keymap.set(
-          "n",
-          "K",
-          vim.lsp.buf.hover,
-          { buffer = event.buf, silent = true, desc = "Show documentation for what is under cursor" }
-        )
-      end,
-    })
-
     vim.diagnostic.config({
       virtual_text = true,
       update_in_insert = false,

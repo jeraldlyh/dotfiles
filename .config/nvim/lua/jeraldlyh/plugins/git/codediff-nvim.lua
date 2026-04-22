@@ -34,7 +34,7 @@ return {
         prev_hunk = "K",
         next_file = "<Right>",
         prev_file = "<Left>",
-        toggle_stage = "-",
+        toggle_stage = "a",
       },
       history = {
         select = "<CR>",
@@ -42,4 +42,21 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("codediff").setup(opts)
+
+    -- NOTE: Workaround for keymaps not restoring after closing diff view
+    --      https://github.com/esmuellert/codediff.nvim/issues/289
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "CodeDiffClose",
+      callback = function(event)
+        vim.keymap.set(
+          "n",
+          "K",
+          vim.lsp.buf.hover,
+          { buffer = event.buf, silent = true, desc = "Show documentation for what is under cursor" }
+        )
+      end,
+    })
+  end,
 }
