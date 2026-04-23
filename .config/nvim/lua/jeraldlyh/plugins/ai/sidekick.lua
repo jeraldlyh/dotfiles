@@ -77,7 +77,7 @@ return {
 
         vim.defer_fn(function()
           require("sidekick.cli").close()
-        end, 6000)
+        end, 300)
       end,
       desc = "Close and save chat",
     },
