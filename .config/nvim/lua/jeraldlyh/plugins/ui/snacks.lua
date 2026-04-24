@@ -16,6 +16,7 @@ return {
     },
     notifier = {
       enabled = true,
+      top_down = false,
     },
     lazygit = {
       enabled = true,
