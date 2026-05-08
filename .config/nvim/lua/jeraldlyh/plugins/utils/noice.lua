@@ -39,6 +39,7 @@ return {
             },
           },
         },
+        lsp_doc_border = true,
       },
     })
 
