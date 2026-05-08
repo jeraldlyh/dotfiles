@@ -1,72 +1,70 @@
 return {
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = "kevinhwang91/promise-async",
-    event = "BufReadPost",
-    init = function()
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-      -- vim.o.foldcolumn = "1"
-      vim.o.foldlevel = 99
-      vim.o.foldenable = true
-      vim.o.foldlevelstart = 99
-    end,
-    config = function(_, opts)
-      local ufo = require("ufo")
-      local keymap = vim.keymap
+  "kevinhwang91/nvim-ufo",
+  dependencies = "kevinhwang91/promise-async",
+  event = "BufReadPost",
+  init = function()
+    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    -- vim.o.foldcolumn = "1"
+    vim.o.foldlevel = 99
+    vim.o.foldenable = true
+    vim.o.foldlevelstart = 99
+  end,
+  config = function(_, opts)
+    local ufo = require("ufo")
+    local keymap = vim.keymap
 
-      -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1514537245
-      local handler = function(virtText, lnum, endLnum, width, truncate)
-        local newVirtText = {}
-        local totalLines = vim.api.nvim_buf_line_count(0)
-        local foldedLines = endLnum - lnum
-        local suffix = (" ↙ %d %d%%"):format(foldedLines, foldedLines / totalLines * 100)
-        local sufWidth = vim.fn.strdisplaywidth(suffix)
-        local targetWidth = width - sufWidth
-        local curWidth = 0
-        for _, chunk in ipairs(virtText) do
-          local chunkText = chunk[1]
-          local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-          if targetWidth > curWidth + chunkWidth then
-            table.insert(newVirtText, chunk)
-          else
-            chunkText = truncate(chunkText, targetWidth - curWidth)
-            local hlGroup = chunk[2]
-            table.insert(newVirtText, { chunkText, hlGroup })
-            chunkWidth = vim.fn.strdisplaywidth(chunkText)
-            -- str width returned from truncate() may less than 2nd argument, need padding
-            if curWidth + chunkWidth < targetWidth then
-              suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-            end
-            break
+    -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1514537245
+    local handler = function(virtText, lnum, endLnum, width, truncate)
+      local newVirtText = {}
+      local totalLines = vim.api.nvim_buf_line_count(0)
+      local foldedLines = endLnum - lnum
+      local suffix = (" ↙ %d %d%%"):format(foldedLines, foldedLines / totalLines * 100)
+      local sufWidth = vim.fn.strdisplaywidth(suffix)
+      local targetWidth = width - sufWidth
+      local curWidth = 0
+      for _, chunk in ipairs(virtText) do
+        local chunkText = chunk[1]
+        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+        if targetWidth > curWidth + chunkWidth then
+          table.insert(newVirtText, chunk)
+        else
+          chunkText = truncate(chunkText, targetWidth - curWidth)
+          local hlGroup = chunk[2]
+          table.insert(newVirtText, { chunkText, hlGroup })
+          chunkWidth = vim.fn.strdisplaywidth(chunkText)
+          -- str width returned from truncate() may less than 2nd argument, need padding
+          if curWidth + chunkWidth < targetWidth then
+            suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
           end
-          curWidth = curWidth + chunkWidth
+          break
         end
-        local rAlignAppndx = math.max(math.min(vim.opt.textwidth["_value"], width - 1) - curWidth - sufWidth, 0)
-        suffix = (" "):rep(rAlignAppndx) .. suffix
-        table.insert(newVirtText, { suffix, "MoreMsg" })
-        return newVirtText
+        curWidth = curWidth + chunkWidth
       end
+      local rAlignAppndx = math.max(math.min(vim.opt.textwidth["_value"], width - 1) - curWidth - sufWidth, 0)
+      suffix = (" "):rep(rAlignAppndx) .. suffix
+      table.insert(newVirtText, { suffix, "MoreMsg" })
+      return newVirtText
+    end
 
-      opts["fold_virt_text_handler"] = handler
-      opts["provide_selector"] = function(bufner, filetype, buftype)
-        return { "lsp", "indent" }
+    opts["fold_virt_text_handler"] = handler
+    opts["provide_selector"] = function(bufner, filetype, buftype)
+      return { "lsp", "indent" }
+    end
+
+    ufo.setup(opts)
+
+    keymap.set("n", "zR", function()
+      ufo.openAllFolds()
+    end, { desc = "Open all folds" })
+    keymap.set("n", "zM", function()
+      ufo.closeAllFolds()
+    end, { desc = "Close all folds" })
+    keymap.set("n", "zK", function()
+      local winId = ufo.peekFoldedLinesUnderCursor()
+
+      if not winId then
+        vim.lsp.buf.hover()
       end
-
-      ufo.setup(opts)
-
-      keymap.set("n", "zR", function()
-        ufo.openAllFolds()
-      end, { desc = "Open all folds" })
-      keymap.set("n", "zM", function()
-        ufo.closeAllFolds()
-      end, { desc = "Close all folds" })
-      keymap.set("n", "zK", function()
-        local winId = ufo.peekFoldedLinesUnderCursor()
-
-        if not winId then
-          vim.lsp.buf.hover()
-        end
-      end, { desc = "Peek fold" })
-    end,
-  },
+    end, { desc = "Peek fold" })
+  end,
 }

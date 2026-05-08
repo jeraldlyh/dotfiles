@@ -1,5 +1,8 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local opt = vim.opt
 
 -- line numbers
@@ -41,6 +44,9 @@ opt.splitbelow = true
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- keep sessions leaner for faster restore
+opt.sessionoptions:remove({ "folds", "options", "help", "terminal" })
 
 -- for grug-far
 vim.g.maplocalleader = " "
