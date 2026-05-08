@@ -9,6 +9,11 @@ return {
     local keymap = vim.keymap
 
     require("noice").setup({
+      lsp = {
+        signature = {
+          enabled = false,
+        },
+      },
       routes = {
         {
           filter = {

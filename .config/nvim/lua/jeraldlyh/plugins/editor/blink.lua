@@ -105,6 +105,7 @@ return {
         enabled = true,
         window = {
           show_documentation = true,
+          border = "rounded",
         },
       },
     }
