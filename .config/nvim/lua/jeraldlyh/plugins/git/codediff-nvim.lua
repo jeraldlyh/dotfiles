@@ -35,6 +35,8 @@ return {
         next_file = "<Right>",
         prev_file = "<Left>",
         toggle_stage = "a",
+        stage_hunk = "<leader>gs",
+        unstage_hunk = "<leader>gu",
       },
       history = {
         select = "<CR>",
