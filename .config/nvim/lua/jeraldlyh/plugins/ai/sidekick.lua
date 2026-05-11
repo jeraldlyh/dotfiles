@@ -47,6 +47,15 @@ return {
         backend = "tmux",
         enabled = true,
       },
+      tools = {
+        copilot = {
+          env = {
+            HTTPS_PROXY = vim.env.HTTPS_PROXY or vim.env.https_proxy or nil,
+            HTTP_PROXY = vim.env.HTTP_PROXY or vim.env.http_proxy or nil,
+            NO_PROXY = vim.env.NO_PROXY or vim.env.no_proxy or nil,
+          },
+        },
+      },
     },
   },
   keys = {
