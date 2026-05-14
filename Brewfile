@@ -41,8 +41,11 @@ brew "gh"
 brew "stripe-cli"
 brew "firebase-cli"
 brew "libpq"
-cask "copilot-cli"
 cask "ngrok"
+
+# AI
+brew "anomalyco/tap/opencode"
+cask "copilot-cli"
 
 # MacOS
 brew "sketchybar"
