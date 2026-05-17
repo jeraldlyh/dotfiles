@@ -10,3 +10,4 @@ ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ln -s ~/dotfiles/.config/karabiner ~/.config/karabiner
 ln -s ~/dotfiles/.config/agents ~/.agents
 ln -s ~/dotfiles/.config/opencode/agents ~/.config/opencode/agents
+ln -s ~/dotfiles/.config/opencode/opencode.json ~/.config/opencode/opencode.json
