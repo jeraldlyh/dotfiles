@@ -26,9 +26,13 @@ return {
   opts = {
     explorer = {
       view_mode = "tree",
+      hidden = true,
+      initial_focus = "modified",
     },
     keymaps = {
       view = {
+        toggle_explorer = "<leader>e",
+        focus_explorer = "<leader>E",
         quit = "q",
         next_hunk = "J",
         prev_hunk = "K",
@@ -37,6 +41,9 @@ return {
         toggle_stage = "a",
         stage_hunk = "<leader>gs",
         unstage_hunk = "<leader>gu",
+      },
+      explorer = {
+        restore = "d",
       },
       history = {
         select = "<CR>",
