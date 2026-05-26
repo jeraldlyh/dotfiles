@@ -1,7 +1,8 @@
 ---
 mode: primary
-model: github-copilot/claude-sonnet-4.5
+model: github-copilot/claude-sonnet-4.6
 description: Primary engineering orchestrator that plans work and delegates to specialists.
+reasoningEffort: high
 permission:
   edit: deny
 ---
