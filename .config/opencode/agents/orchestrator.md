@@ -5,6 +5,7 @@ description: Primary engineering orchestrator that plans work and delegates to s
 reasoningEffort: high
 permission:
   edit: deny
+  github*: ask
 ---
 
 ## Prompt Defense Baseline
