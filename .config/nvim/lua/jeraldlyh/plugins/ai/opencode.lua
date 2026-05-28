@@ -1,6 +1,5 @@
 return {
   "nickjvandyke/opencode.nvim",
-  version = "v0.8.2",
   dependencies = {
     {
       ---@module "snacks"
@@ -70,20 +69,38 @@ return {
       require("opencode").command("session.new")
     end
 
+    local implement_issue = function()
+      vim.ui.input({ prompt = "GitHub/GitLab issue URL: " }, function(url)
+        if not url or url == "" then
+          return
+        end
+        require("opencode").prompt(
+          "Refer to the following issue and implement the solution in the current repository.\n\n"
+            .. "1. Read the issue description, comments, and any proposed solution in full.\n"
+            .. "2. Explore the current repository to understand the relevant code, architecture, and conventions.\n"
+            .. "3. Evaluate the proposed solution (if any):\n"
+            .. "   - If a clearly better or improved solution exists, describe it concisely, explain why it is better, and wait for confirmation before writing any code.\n"
+            .. "   - If the proposed solution is already sound, implement it directly without prompting.\n"
+            .. "4. Follow the existing code style and conventions in this repository.\n\n"
+            .. url,
+          { submit = false }
+        )
+      end)
+    end
+
     keymap.set({ "n", "x" }, "<leader>ca", function()
       require("opencode").ask("@this: ", { submit = true })
     end, { desc = "Ask opencode" })
-
     keymap.set({ "n", "x" }, "<leader>cp", function()
       require("opencode").select()
-    end, { desc = "Execute opencode action" })
+    end, { desc = "Find opencode actions" })
     keymap.set({ "n" }, "<leader>co", function()
       require("opencode").toggle()
     end, { desc = "Toggle opencode" })
     keymap.set({ "n", "x" }, "<leader>ca", function()
       return require("opencode").operator("@this ")
     end, { desc = "Add range to opencode", expr = true })
-
+    keymap.set({ "n", "x" }, "<leader>ci", implement_issue, { desc = "Implement GitHub/GitLab issue" })
     keymap.set({ "n", "x" }, "<leader>cn", function()
       save_chat()
       vim.defer_fn(start_new_chat, 500)
