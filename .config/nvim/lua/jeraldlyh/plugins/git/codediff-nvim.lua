@@ -26,7 +26,6 @@ return {
   opts = {
     explorer = {
       view_mode = "tree",
-      hidden = true,
       initial_focus = "modified",
     },
     keymaps = {
