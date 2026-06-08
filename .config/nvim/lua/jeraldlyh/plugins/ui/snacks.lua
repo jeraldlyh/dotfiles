@@ -27,6 +27,19 @@ return {
     scratch = {
       enabled = true,
     },
+    terminal = {
+      enabled = true,
+      bo = {
+        filetype = "snacks_terminal",
+      },
+      wo = {},
+      keys = {
+        q = "hide",
+      },
+      win = {
+        border = "rounded",
+      },
+    },
     picker = {
       enabled = true,
       matcher = {
@@ -294,6 +307,13 @@ return {
         require("snacks").gitbrowse.open()
       end,
       desc = "Git open in browser",
+    },
+    {
+      "<leader>tt",
+      function()
+        require("snacks").terminal.toggle()
+      end,
+      desc = "Toggle terminal",
     },
   },
 }
