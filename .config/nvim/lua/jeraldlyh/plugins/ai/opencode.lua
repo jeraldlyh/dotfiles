@@ -19,8 +19,21 @@ return {
   config = function()
     local keymap = vim.keymap
 
-    ---@type opencode.Opts
-    vim.g.opencode_opts = {}
+    local opencode_cmd = "opencode --port"
+    local snacks_terminal_opts = {
+      win = {
+        position = "right",
+        enter = false,
+      },
+    }
+
+    vim.g.opencode_opts = {
+      server = {
+        start = function()
+          require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
+        end,
+      },
+    }
     vim.o.autoread = true
 
     local save_chat = function()
@@ -72,30 +85,31 @@ return {
     local implement_issue = function()
       vim.ui.input({ prompt = "GitHub/GitLab issue URL: " }, function(url)
         if not url or url == "" then
+          vim.notify("No URL provided", vim.log.levels.WARN, { title = "opencode" })
           return
         end
         require("opencode").prompt(
-          "Refer to the following issue and implement the solution in the current repository.\n\n"
+          "Use gh cli and refer to the following issue and implement the solution in the current repository.\n\n"
             .. "1. Read the issue description, comments, and any proposed solution in full.\n"
             .. "2. Explore the current repository to understand the relevant code, architecture, and conventions.\n"
             .. "3. Evaluate the proposed solution (if any):\n"
             .. "   - If a clearly better or improved solution exists, describe it concisely, explain why it is better, and wait for confirmation before writing any code.\n"
             .. "   - If the proposed solution is already sound, implement it directly without prompting.\n"
             .. "4. Follow the existing code style and conventions in this repository.\n\n"
-            .. url,
-          { submit = false }
+            .. url
+            .. " "
         )
       end)
     end
 
     keymap.set({ "n", "x" }, "<leader>ca", function()
-      require("opencode").ask("@this: ", { submit = true })
+      require("opencode").ask("@this: ")
     end, { desc = "Ask opencode" })
     keymap.set({ "n", "x" }, "<leader>cp", function()
       require("opencode").select()
     end, { desc = "Find opencode actions" })
-    keymap.set({ "n" }, "<leader>co", function()
-      require("opencode").toggle()
+    vim.keymap.set({ "n" }, "<leader>co", function()
+      require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
     end, { desc = "Toggle opencode" })
     keymap.set({ "n", "x" }, "<leader>ca", function()
       return require("opencode").operator("@this ")

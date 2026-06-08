@@ -311,7 +311,7 @@ return {
     {
       "<leader>tt",
       function()
-        require("snacks").terminal.toggle()
+        require("snacks").terminal.toggle("zsh")
       end,
       desc = "Toggle terminal",
     },
