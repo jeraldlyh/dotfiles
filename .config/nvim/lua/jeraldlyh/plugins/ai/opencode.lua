@@ -119,12 +119,17 @@ return {
       save_chat()
       vim.defer_fn(start_new_chat, 500)
     end, { desc = "Save and start new opencode chat" })
-
     keymap.set({ "n", "x" }, "<leader>cc", function()
       save_chat()
       vim.defer_fn(function()
         require("opencode").toggle()
       end, 500)
     end, { desc = "Save and close opencode chat" })
+    keymap.set({ "n" }, "<C-S-u>", function()
+      require("opencode").command("session.half.page.up")
+    end, { desc = "Scroll opencode up" })
+    keymap.set({ "n" }, "<C-S-d>", function()
+      require("opencode").command("session.half.page.down")
+    end, { desc = "Scroll opencode down" })
   end,
 }
