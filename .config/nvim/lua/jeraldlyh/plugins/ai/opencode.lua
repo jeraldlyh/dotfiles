@@ -89,7 +89,7 @@ return {
           return
         end
         require("opencode").prompt(
-          "Use gh cli and refer to the following issue and implement the solution in the current repository.\n\n"
+          "Use 'gh' or 'glab' cli and refer to the following issue and implement the solution in the current repository.\n\n"
             .. "1. Read the issue description, comments, and any proposed solution in full.\n"
             .. "2. Explore the current repository to understand the relevant code, architecture, and conventions.\n"
             .. "3. Evaluate the proposed solution (if any):\n"
@@ -131,5 +131,13 @@ return {
     keymap.set({ "n" }, "<C-S-d>", function()
       require("opencode").command("session.half.page.down")
     end, { desc = "Scroll opencode down" })
+
+    -- Windows keybinds
+    -- keymap.set({ "n" }, "<leader>cu", function()
+    --   require("opencode").command("session.half.page.up")
+    -- end, { desc = "Scroll opencode up" })
+    -- keymap.set({ "n" }, "<leader>cd", function()
+    --   require("opencode").command("session.half.page.down")
+    -- end, { desc = "Scroll opencode down" })
   end,
 }
