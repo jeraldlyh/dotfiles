@@ -138,23 +138,6 @@ These MUST be flagged — they can cause real damage:
 - **Insecure dependencies** — Known vulnerable packages
 - **Exposed secrets in logs** — Logging sensitive data (tokens, passwords, PII)
 
-```typescript
-// BAD: SQL injection via string concatenation
-const query = `SELECT * FROM users WHERE id = ${userId}`;
-
-// GOOD: Parameterized query
-const query = `SELECT * FROM users WHERE id = $1`;
-const result = await db.query(query, [userId]);
-```
-
-```typescript
-// BAD: Rendering raw user HTML without sanitization
-// Always sanitize user content with DOMPurify.sanitize() or equivalent
-
-// GOOD: Use text content or sanitize
-<div>{userComment}</div>
-```
-
 ### Code Quality (HIGH)
 
 - **Large functions** (>50 lines) — Split into smaller, focused functions
@@ -228,7 +211,7 @@ useEffect(() => {
 }
 ```
 
-### Node.js/Backend Patterns (HIGH)
+### Backend Patterns (HIGH)
 
 When reviewing backend code:
 
@@ -239,24 +222,6 @@ When reviewing backend code:
 - **Missing timeouts** — External HTTP calls without timeout configuration
 - **Error message leakage** — Sending internal error details to clients
 - **Missing CORS configuration** — APIs accessible from unintended origins
-
-```typescript
-// BAD: N+1 query pattern
-const users = await db.query("SELECT * FROM users");
-for (const user of users) {
-  user.posts = await db.query("SELECT * FROM posts WHERE user_id = $1", [
-    user.id,
-  ]);
-}
-
-// GOOD: Single query with JOIN or batch
-const usersWithPosts = await db.query(`
-  SELECT u.*, json_agg(p.*) as posts
-  FROM users u
-  LEFT JOIN posts p ON p.user_id = u.id
-  GROUP BY u.id
-`);
-```
 
 ### Performance (MEDIUM)
 
@@ -327,17 +292,3 @@ When available, also check project-specific conventions from `CLAUDE.md` or proj
 - State management conventions (Zustand, Redux, Context)
 
 Adapt your review to the project's established patterns. When in doubt, match what the rest of the codebase does.
-
-## v1.8 AI-Generated Code Review Addendum
-
-When reviewing AI-generated changes, prioritize:
-
-1. Behavioral regressions and edge-case handling
-2. Security assumptions and trust boundaries
-3. Hidden coupling or accidental architecture drift
-4. Unnecessary model-cost-inducing complexity
-
-Cost-awareness check:
-
-- Flag workflows that escalate to higher-cost models without clear reasoning need.
-- Recommend defaulting to lower-cost tiers for deterministic refactors.
