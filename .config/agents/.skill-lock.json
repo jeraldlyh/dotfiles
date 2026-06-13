@@ -28,24 +28,20 @@
       "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
       "installedAt": "2026-05-17T04:55:17.269Z",
       "updatedAt": "2026-05-17T04:55:17.269Z"
+    },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "skillFolderHash": "a6d128e53b4ec0238baee751dde33bf707adb5ec",
+      "installedAt": "2026-06-13T13:59:50.284Z",
+      "updatedAt": "2026-06-13T13:59:50.284Z"
     }
   },
   "dismissed": {
     "findSkillsPrompt": true
   },
-  "lastSelectedAgents": [
-    "amp",
-    "antigravity",
-    "cline",
-    "codex",
-    "cursor",
-    "deepagents",
-    "dexto",
-    "firebender",
-    "gemini-cli",
-    "github-copilot",
-    "kimi-cli",
-    "opencode",
-    "warp"
-  ]
+  "lastSelectedAgents": ["github-copilot", "opencode"]
 }
+
