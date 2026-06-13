@@ -40,10 +40,10 @@ return {
       local save_dir = vim.fn.expand("$HOME/Documents/Personal/ai/opencode-chat")
       vim.fn.mkdir(save_dir, "p")
 
-      require("opencode.server")
+      require("opencode.server.discovery")
         .get()
         :next(function(server)
-          server:get_sessions(function(sessions)
+          server:get_sessions():next(function(sessions)
             if not sessions or #sessions == 0 then
               vim.notify("No opencode sessions found", vim.log.levels.WARN, { title = "opencode" })
               return
@@ -89,7 +89,7 @@ return {
           return
         end
         require("opencode").prompt(
-          "Use 'gh' or 'glab' cli and refer to the following issue and implement the solution in the current repository.\n\n"
+          "Use 'gh' or 'glab' cli and refer to the following issue and implement the solution in the current repository. Do not commit any code using the CLI.\n\n"
             .. "1. Read the issue description, comments, and any proposed solution in full.\n"
             .. "2. Explore the current repository to understand the relevant code, architecture, and conventions.\n"
             .. "3. Evaluate the proposed solution (if any):\n"
