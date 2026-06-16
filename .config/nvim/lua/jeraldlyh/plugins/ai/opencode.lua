@@ -125,19 +125,11 @@ return {
         require("opencode").toggle()
       end, 500)
     end, { desc = "Save and close opencode chat" })
-    keymap.set({ "n" }, "<C-S-u>", function()
+    keymap.set({ "n" }, "<leader>cu", function()
       require("opencode").command("session.half.page.up")
     end, { desc = "Scroll opencode up" })
-    keymap.set({ "n" }, "<C-S-d>", function()
+    keymap.set({ "n" }, "<leader>cd", function()
       require("opencode").command("session.half.page.down")
     end, { desc = "Scroll opencode down" })
-
-    -- Windows keybinds
-    -- keymap.set({ "n" }, "<leader>cu", function()
-    --   require("opencode").command("session.half.page.up")
-    -- end, { desc = "Scroll opencode up" })
-    -- keymap.set({ "n" }, "<leader>cd", function()
-    --   require("opencode").command("session.half.page.down")
-    -- end, { desc = "Scroll opencode down" })
   end,
 }
