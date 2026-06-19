@@ -39,6 +39,8 @@ path_prepend "$PNPM_HOME"
 # nvm
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
   . "$NVM_DIR/nvm.sh"
+elif [[ -s "$(brew --prefix nvm)/nvm.sh" ]]; then
+  . $(brew --prefix nvm)/nvm.sh
 fi
 
 # pyenv 
