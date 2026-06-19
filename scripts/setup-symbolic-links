@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.config/nvim ~/.config/nvim
-ln -s ~/dotfiles/.config/tmux ~/.config/tmux
-ln -s ~/dotfiles/.config/aerospace/aerospace.toml ~/.aerospace.toml
-ln -s ~/dotfiles/.config/bat ~/.config/bat
-ln -s ~/dotfiles/.config/kitty ~/.config/kitty
-ln -s ~/dotfiles/.config/karabiner ~/.config/karabiner
-ln -s ~/dotfiles/.config/agents ~/.agents
-ln -s ~/dotfiles/.config/opencode/agents ~/.config/opencode/agents
-ln -s ~/dotfiles/.config/opencode/opencode.json ~/.config/opencode/opencode.json
+HOME_DIR=${HOME}
+
+mkdir -p ${HOME_DIR}/.config/{nvim,tmux,bat,kitty,karabiner,opencode}
+mkdir -p ${HOME_DIR}/.config/opencode/agents
+
+ln -s ${HOME_DIR}/dotfiles/.zshrc ${HOME_DIR}/.zshrc
+ln -s ${HOME_DIR}/dotfiles/.gitconfig ${HOME_DIR}/.gitconfig
+ln -s ${HOME_DIR}/dotfiles/.config/nvim ${HOME_DIR}/.config/nvim
+ln -s ${HOME_DIR}/dotfiles/.config/tmux ${HOME_DIR}/.config/tmux
+ln -s ${HOME_DIR}/dotfiles/.config/aerospace/aerospace.toml ${HOME_DIR}/.aerospace.toml
+ln -s ${HOME_DIR}/dotfiles/.config/bat ${HOME_DIR}/.config/bat
+ln -s ${HOME_DIR}/dotfiles/.config/kitty ${HOME_DIR}/.config/kitty
+ln -s ${HOME_DIR}/dotfiles/.config/karabiner ${HOME_DIR}/.config/karabiner
+ln -s ${HOME_DIR}/dotfiles/.config/agents ${HOME_DIR}/.agents
+ln -s ${HOME_DIR}/dotfiles/.config/opencode/agents ${HOME_DIR}/.config/opencode/agents
+ln -s ${HOME_DIR}/dotfiles/.config/opencode/opencode.json ${HOME_DIR}/.config/opencode/opencode.json
