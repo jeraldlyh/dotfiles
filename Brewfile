@@ -4,6 +4,7 @@ tap "qmk/qmk"
 tap "nikitabobko/tap"
 tap "FelixKratz/formulae"
 tap "netbirdio/tap"
+tap "anomalyco/tap"
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -44,7 +45,7 @@ brew "libpq"
 cask "ngrok"
 
 # AI
-brew "anomalyco/tap/opencode"
+brew "opencode"
 cask "copilot-cli"
 
 # MacOS
