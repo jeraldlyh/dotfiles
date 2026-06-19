@@ -1,5 +1,4 @@
 # Taps
-tap "neovim/neovim"
 tap "qmk/qmk"
 tap "nikitabobko/tap"
 tap "FelixKratz/formulae"
@@ -25,7 +24,7 @@ brew "websocat" # For websockets
 brew "antigen"
 brew "zsh"
 brew "autojump"
-# brew "neovim"
+brew "bob"
 brew "nvm"
 brew "pyenv"
 brew "pyenv-virtualenv"

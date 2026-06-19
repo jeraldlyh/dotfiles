@@ -77,6 +77,10 @@ if [[ -s "$HOME/.secrets" ]]; then
   . "$HOME/.secrets"
 fi
 
+if [[ -d "$HOME/.local/share/bob/nvim-bin" ]]; then
+  path_prepend "$HOME/.local/share/bob/nvim-bin"
+fi
+
 autoload -U +X compinit && compinit
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
