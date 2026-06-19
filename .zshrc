@@ -75,6 +75,7 @@ if [[ -s "$HOME/.secrets" ]]; then
   . "$HOME/.secrets"
 fi
 
+autoload -U +X compinit && compinit
 source "$HOME/dotfiles/.config/fzf/config.sh"
 source "$HOME/dotfiles/.config/obsidian/config.sh"
 source "$HOME/dotfiles/.config/nvim/config.sh"
