@@ -96,7 +96,6 @@ return {
       "lua_ls",
       "ruff",
       "basedpyright",
-      "stylua",
       "tailwindcss",
       "terraformls",
       "vtsls",

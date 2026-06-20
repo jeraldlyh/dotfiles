@@ -22,7 +22,7 @@ return {
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
-        return { timeout_ms = 1000, async = false, lsp_fallback = true }
+        return { timeout_ms = 1000, async = false, lsp_format = "fallback" }
       end,
     })
 

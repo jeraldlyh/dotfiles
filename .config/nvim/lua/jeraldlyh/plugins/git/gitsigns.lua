@@ -7,8 +7,8 @@ return {
 
     gitsigns.setup()
 
-    keymap.set("n", "<", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Next hunk" })
-    keymap.set("n", ">", "<cmd>Gitsigns next_hunk<cr>", { desc = "Previous hunk" })
+    keymap.set("n", "<", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
+    keymap.set("n", ">", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
     keymap.set("n", "<leader>gB", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle blame" })
     keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line {full = true}<cr>", { desc = "Blame line" })
     keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })

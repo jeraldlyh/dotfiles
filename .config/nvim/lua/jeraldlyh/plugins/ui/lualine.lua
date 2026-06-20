@@ -1,6 +1,12 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons", "franco-ruggeri/codecompanion-lualine.nvim" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    {
+      "franco-ruggeri/codecompanion-lualine.nvim",
+      enabled = false,
+    },
+  },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
@@ -71,13 +77,13 @@ return {
         },
         lualine_b = { "branch" },
         lualine_c = {
-          {
-            "codecompanion",
-            icon = "",
-            color = { fg = "#7e9cd8" },
-            spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
-            done_symbol = "✓",
-          },
+          -- {
+          --   "codecompanion",
+          --   icon = "",
+          --   color = { fg = "#7e9cd8" },
+          --   spinner_symbols = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+          --   done_symbol = "✓",
+          -- },
           {
             "harpoon2",
             icon = "󰀱 ",

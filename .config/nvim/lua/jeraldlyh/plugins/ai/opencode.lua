@@ -102,9 +102,6 @@ return {
       end)
     end
 
-    keymap.set({ "n", "x" }, "<leader>ca", function()
-      require("opencode").ask("@this: ")
-    end, { desc = "Ask opencode" })
     keymap.set({ "n", "x" }, "<leader>cp", function()
       require("opencode").select()
     end, { desc = "Find opencode actions" })

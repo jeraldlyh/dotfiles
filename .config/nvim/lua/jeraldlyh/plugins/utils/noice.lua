@@ -43,10 +43,9 @@ return {
       },
     })
 
-    local snacks = require("snacks")
     keymap.set("n", "<leader>nc", "<cmd>Noice dismiss<cr>", { desc = "Close all notifications" })
     keymap.set("n", "<leader>fn", function()
-      snacks.picker.notifications()
+      require("snacks").picker.notifications()
     end, { desc = "Find notifications" })
   end,
 }
