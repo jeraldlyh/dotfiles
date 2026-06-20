@@ -28,13 +28,16 @@ return {
       view_mode = "tree",
       initial_focus = "modified",
     },
+    diff = {
+      cycle_hunks_across_files = true,
+    },
     keymaps = {
       view = {
         toggle_explorer = "<leader>e",
         focus_explorer = "<leader>E",
         quit = "q",
-        next_hunk = "J",
-        prev_hunk = "K",
+        next_hunk = ">",
+        prev_hunk = "<",
         next_file = "<Right>",
         prev_file = "<Left>",
         toggle_stage = "a",
