@@ -3,6 +3,7 @@
   "default_agent": "orchestrator",
   "enabled_providers": ["opencode", "openrouter"],
   "lsp": true,
+  "small_model": "opencode/deepseek-v4-flash-free",
   "mcp": {
     "github": {
       "enabled": false,
