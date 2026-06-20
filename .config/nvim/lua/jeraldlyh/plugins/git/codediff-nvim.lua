@@ -43,6 +43,8 @@ return {
         toggle_stage = "a",
         stage_hunk = "<leader>gs",
         unstage_hunk = "<leader>gu",
+        open_in_prev_tab = "gf",
+        close_on_open_in_prev_tab = true,
       },
       explorer = {
         restore = "d",
