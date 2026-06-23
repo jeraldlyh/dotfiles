@@ -2,11 +2,11 @@ return {
   "OXY2DEV/markview.nvim",
   lazy = true,
   dependencies = { "saghen/blink.cmp" },
-  ft = { "markdown", "codecompanion" },
+  ft = { "markdown", "codecompanion", "opencode_output" },
   opts = {
     preview = {
       enable = false,
-      filetypes = { "markdown", "codecompanion" },
+      filetypes = { "markdown", "codecompanion", "opencode_output" },
       ignore_buftypes = {},
     },
   },
