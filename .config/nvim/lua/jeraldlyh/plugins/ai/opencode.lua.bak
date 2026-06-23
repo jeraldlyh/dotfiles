@@ -1,5 +1,6 @@
 return {
   "nickjvandyke/opencode.nvim",
+  enabled = false,
   dependencies = {
     {
       ---@module "snacks"

@@ -9,7 +9,9 @@ return {
       preferred_picker = "snacks",
       default_global_keymaps = false,
       ui = {
-        position = "right",
+        icons = {
+          position = "right",
+        },
       },
       context = {
         enabled = true,
@@ -39,6 +41,29 @@ return {
         },
         git_diff = {
           enabled = false,
+        },
+      },
+      keymap = {
+        editor = {
+          ["<leader>co"] = { "toggle", desc = "Toggle opencode" },
+          ["<leader>cf"] = { "timeline", desc = "Show timeline" },
+          ["<leader>cs"] = { "select_session", desc = "Select session" },
+          ["<leader>cp"] = { "configure_provider", desc = "Configure provider" },
+          ["<leader>cv"] = { "configure_variant", desc = "Configure variant" },
+          ["<leader>ca"] = { "add_visual_selection", mode = { "v" }, desc = "Add visual selection" },
+        },
+        input_window = {
+          ["<esc>"] = { "close", defer_to_completion = true },
+          ["<C-c>"] = { "cancel", defer_to_completion = true },
+          ["~"] = { "mention_file", mode = "i" },
+          ["@"] = { "mention", mode = "i" },
+          ["/"] = { "slash_commands", mode = "i" },
+          ["#"] = { "context_items", mode = "i" },
+          ["<C-v>"] = { "paste_image", mode = "i" },
+          ["<up>"] = { "prev_prompt_history", mode = { "n", "i" }, defer_to_completion = true },
+          ["<down>"] = { "next_prompt_history", mode = { "n", "i" }, defer_to_completion = true },
+          ["<right>"] = { "cycle_variant", mode = { "n", "i" } },
+          ["<tab>"] = { "switch_mode" },
         },
       },
     })
@@ -101,15 +126,6 @@ return {
 
     local keymap = vim.keymap
 
-    keymap.set({ "n", "x" }, "<leader>cs", function()
-      require("opencode.api").select_session()
-    end, { desc = "Select opencode session" })
-    keymap.set({ "n" }, "<leader>co", function()
-      require("opencode.api").toggle()
-    end, { desc = "Toggle opencode" })
-    keymap.set({ "x" }, "<leader>ca", function()
-      require("opencode.api").add_visual_selection()
-    end, { desc = "Add selection to opencode context" })
     keymap.set({ "n", "x" }, "<leader>ci", implement_issue, { desc = "Implement GitHub/GitLab issue" })
     keymap.set({ "n", "x" }, "<leader>cn", function()
       save_chat()
