@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "folke/snacks.nvim",
-    "OXY2DEV/markview.nvim",
   },
   config = function()
     require("opencode").setup({

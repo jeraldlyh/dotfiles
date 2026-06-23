@@ -7,7 +7,6 @@ return {
     "folke/snacks.nvim",
     "neovim/nvim-lspconfig",
     "ravitemer/codecompanion-history.nvim",
-    "OXY2DEV/markview.nvim",
   },
   config = function()
     local codecompanion = require("codecompanion")
