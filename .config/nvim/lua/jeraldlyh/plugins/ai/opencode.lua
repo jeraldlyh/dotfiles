@@ -12,6 +12,11 @@ return {
         icons = {
           position = "right",
         },
+        output = {
+          tools = {
+            use_folds = false,
+          },
+        },
       },
       context = {
         enabled = true,
@@ -26,7 +31,7 @@ return {
           only_closest = false,
         },
         current_file = {
-          enabled = true,
+          enabled = false,
           show_full_path = true,
         },
         files = {
