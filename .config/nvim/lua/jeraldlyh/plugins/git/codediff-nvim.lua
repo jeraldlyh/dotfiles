@@ -36,8 +36,6 @@ return {
         toggle_explorer = "<leader>e",
         focus_explorer = "<leader>E",
         quit = "q",
-        next_hunk = ">",
-        prev_hunk = "<",
         next_file = "<Right>",
         prev_file = "<Left>",
         toggle_stage = "a",
