@@ -16,3 +16,4 @@ ln -s ${HOME_DIR}/dotfiles/.config/karabiner ${HOME_DIR}/.config/karabiner
 ln -s ${HOME_DIR}/dotfiles/.config/agents ${HOME_DIR}/.agents
 ln -s ${HOME_DIR}/dotfiles/.config/opencode/agents ${HOME_DIR}/.config/opencode/agents
 ln -s ${HOME_DIR}/dotfiles/.config/opencode/opencode.json ${HOME_DIR}/.config/opencode/opencode.json
+ln -s ${HOME_DIR}/dotfiles/.config/herdr ${HOME_DIR}/.config/herdr
