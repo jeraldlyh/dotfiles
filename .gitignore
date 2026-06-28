@@ -3,3 +3,5 @@
 .config/karabiner/karabiner.json
 .config/sketchybar/helper/helper
 **/.DS_Store
+.config/herdr/*.log
+.config/herdr/*.json

@@ -1,0 +1,78 @@
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[terminal]
+default_shell = "/bin/zsh"
+
+[keys]
+prefix = "ctrl+b"
+
+settings = "prefix+s"
+detach = "prefix+d"
+reload_config = "prefix+shift+r"
+workspace_picker = "prefix+w"
+goto = "prefix+g"
+new_workspace = "prefix+shift+n"
+close_workspace = "prefix+shift+x"
+rename_workspace = "prefix+,"
+next_workspace = "prefix+down"
+previous_workspace = "prefix+up"
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+last_pane = "prefix+b"
+split_vertical = "prefix+%"
+split_horizontal = 'prefix+"'
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+r"
+toggle_sidebar = "prefix+e"
+edit_scrollback = "prefix+o"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "herdr-nav left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "herdr-nav down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "herdr-nav up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "herdr-nav right"
+
+[ui]
+pane_borders = false
+pane_gaps = false
+prompt_new_tab_name = false
+
+[ui.toast]
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-right"
+
+[session]
+
+[remote]
+
+[experimental]
+kitty_graphics = true
+pane_history = false
+
+[advanced]
