@@ -31,7 +31,6 @@ close_pane = "prefix+x"
 zoom = "prefix+z"
 resize_mode = "prefix+r"
 toggle_sidebar = "prefix+e"
-edit_scrollback = "prefix+o"
 
 [[keys.command]]
 key = "ctrl+h"
@@ -52,6 +51,11 @@ command = "herdr-nav up"
 key = "ctrl+l"
 type = "shell"
 command = "herdr-nav right"
+
+[[keys.command]]
+key = "prefix+o"
+type = "shell"
+command = "herdr-capture"
 
 [ui]
 pane_borders = false

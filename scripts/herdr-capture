@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+info=$(herdr pane process-info --current)
+pane_id=$(jq -r '.result.process_info.pane_id' <<< "$info")
+
+tmpfile=$(mktemp /tmp/herdr-buffer-XXXXXX)
+
+herdr pane read "$pane_id" --source recent-unwrapped --format text > "$tmpfile"
+
+split=$(herdr pane split "$pane_id" --direction right --focus)
+
+new_pane_id=$(jq -r '.result.pane.pane_id' <<< "$split")
+herdr pane send-text "$new_pane_id" "nvim $tmpfile"
+herdr pane send-keys "$new_pane_id" "enter"
