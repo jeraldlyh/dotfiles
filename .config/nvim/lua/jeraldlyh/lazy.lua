@@ -32,3 +32,4 @@ require("lazy").setup({
     notify = false,
   },
 })
+require("jeraldlyh.plugins.custom.herdr-navigator")
