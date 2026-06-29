@@ -5,3 +5,4 @@
 **/.DS_Store
 .config/herdr/*.log
 .config/herdr/*.json
+.config/herdr/plugins/github/

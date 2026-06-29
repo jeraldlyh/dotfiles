@@ -1,0 +1,14 @@
+name = "dotfiles"
+working_dir = "$HOME/dotfiles/"
+
+[[tabs]]
+name = "neovim"
+command = "nvim"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "opencode"
+command = "opencode"

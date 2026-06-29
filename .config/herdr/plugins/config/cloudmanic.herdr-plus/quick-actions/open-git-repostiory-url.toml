@@ -1,0 +1,4 @@
+name = "Open repo on GitHub/GitLab"
+description = "Open the current repo's GitHub/GitLab page"
+type = "command"
+command = "open \"$(git -C {{.WorkDir}} remote get-url origin | sed -E 's#git@([^:]+):#https://\\1/#; s#\\.git$##')\""

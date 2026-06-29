@@ -1,0 +1,18 @@
+name = "ci"
+working_dir = "/projects/ci"
+
+[[tabs]]
+name = "neovim"
+command = "nvim"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "opencode"
+command = "opencode"
+
+[[tabs]]
+name = "glab"
+command = "glab ci status --live"

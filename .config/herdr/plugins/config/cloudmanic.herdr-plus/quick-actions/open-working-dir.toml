@@ -16,7 +16,7 @@
 # The same values are also exported to the command's environment as
 # HERDR_PLUS_WORKDIR, HERDR_PLUS_SESSION_TITLE, and so on.
 
-name = "Reveal Working Dir"
+name = "Reveal working dir"
 description = "Open the launch directory in Finder"
 type = "command"
 command = "open {{.WorkDir}}"
