@@ -1,6 +1,7 @@
 return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
+  tag = "v6.11.0",
   opts = {
     global_keymaps = true,
     global_keymaps_prefix = "<leader>R",
