@@ -1,0 +1,14 @@
+name = "syllogi"
+working_dir = "$HOME/Desktop/Github/syllogi/"
+
+[[tabs]]
+name = "neovim"
+command = "nvim"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
+
+[[tabs]]
+name = "opencode"
+command = "opencode"

@@ -36,26 +36,43 @@ toggle_sidebar = "prefix+e"
 key = "ctrl+h"
 type = "shell"
 command = "herdr-nav left"
+description = "Navigate left"
 
 [[keys.command]]
 key = "ctrl+j"
 type = "shell"
 command = "herdr-nav down"
+description = "Navigate down"
 
 [[keys.command]]
 key = "ctrl+k"
 type = "shell"
 command = "herdr-nav up"
+description = "Navigate up"
 
 [[keys.command]]
 key = "ctrl+l"
 type = "shell"
 command = "herdr-nav right"
+description = "Navigate right"
 
 [[keys.command]]
 key = "prefix+o"
 type = "shell"
 command = "herdr-capture"
+description = "Open current buffer in neovim"
+
+[[keys.command]]
+key = "prefix+Q"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "Open quick actions"
+
+[[keys.command]]
+key = "prefix+P"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "Open projects"
 
 [ui]
 pane_borders = false
