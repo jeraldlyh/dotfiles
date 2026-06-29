@@ -21,6 +21,7 @@ return {
         "dockerfile",
         "helm",
         "html",
+        "http",
         "javascript",
         "json",
         "markdown",
