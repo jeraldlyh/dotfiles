@@ -3,11 +3,11 @@ return {
   dependencies = { "saghen/blink.cmp" },
   lazy = true,
   enabled = true,
-  ft = { "markdown", "codecompanion", "opencode_output" },
+  ft = { "markdown", "codecompanion", "opencode_output", "kulala_ui" },
   opts = {
     preview = {
       enable = false,
-      filetypes = { "markdown", "codecompanion", "opencode_output" },
+      filetypes = { "markdown", "codecompanion", "opencode_output", "kulala_ui" },
       ignore_buftypes = {},
     },
   },
