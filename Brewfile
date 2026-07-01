@@ -43,6 +43,7 @@ brew "gh"
 brew "stripe-cli"
 brew "firebase-cli"
 brew "libpq"
+brew "tree-sitter-cli"
 cask "ngrok"
 
 # AI
