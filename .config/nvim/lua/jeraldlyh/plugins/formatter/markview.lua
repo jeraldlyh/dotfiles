@@ -4,13 +4,6 @@ return {
   lazy = true,
   enabled = true,
   ft = { "markdown", "codecompanion", "opencode_output", "kulala_ui" },
-  opts = {
-    preview = {
-      enable = false,
-      filetypes = { "markdown", "codecompanion", "opencode_output", "kulala_ui" },
-      ignore_buftypes = {},
-    },
-  },
   keys = {
     {
       "<leader>mt",
@@ -23,4 +16,18 @@ return {
       desc = "Toggle markdown preview in split",
     },
   },
+  config = function()
+    require("markview").setup({
+      preview = {
+        enable = false,
+        filetypes = { "markdown", "codecompanion", "opencode_output", "kulala_ui" },
+        ignore_buftypes = {},
+      },
+      renderers = {
+        markdown_table = function(buffer, item)
+          require("markview-smart-tables").render(buffer, item)
+        end,
+      },
+    })
+  end,
 }
