@@ -4,6 +4,8 @@ tap "nikitabobko/tap"
 tap "FelixKratz/formulae"
 tap "netbirdio/tap"
 tap "anomalyco/tap"
+tap "henrygd/beszel"
+
 
 # Binaries
 brew "coreutils" # Those that come with macOS are outdated
@@ -44,6 +46,7 @@ brew "stripe-cli"
 brew "firebase-cli"
 brew "libpq"
 brew "tree-sitter-cli"
+brew "beszel-agent"
 cask "ngrok"
 
 # AI
