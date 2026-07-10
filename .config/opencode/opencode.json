@@ -12,6 +12,11 @@
       "headers": {
         "Authorization": "Bearer {env:GITHUB_PAT_TOKEN}"
       }
+    },
+    "canva": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.canva.com/mcp"
     }
   }
 }
