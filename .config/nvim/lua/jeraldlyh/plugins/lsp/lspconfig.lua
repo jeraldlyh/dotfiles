@@ -56,7 +56,7 @@ return {
         keymap.set("n", "K", vim.lsp.buf.hover, custom_opts)
 
         custom_opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", custom_opts)
+        keymap.set("n", "<leader>rs", "<cmd>lsp restart<CR>", custom_opts)
       end,
     })
 
