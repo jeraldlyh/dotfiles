@@ -5,6 +5,11 @@
   "lsp": true,
   "small_model": "opencode/deepseek-v4-flash-free",
   "mcp": {
+    "chrome-devtools": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    },
     "github": {
       "enabled": false,
       "type": "remote",
