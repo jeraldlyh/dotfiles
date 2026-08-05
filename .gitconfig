@@ -9,3 +9,5 @@
 [user]
 	name = Jerald Lim
 	email = jeraldssw@gmail.com
+[pull]
+  rebase = true
