@@ -53,6 +53,7 @@ cask "ngrok"
 brew "opencode"
 cask "copilot-cli"
 cask "claude-code"
+brew "rtk"
 
 # MacOS
 brew "sketchybar"
