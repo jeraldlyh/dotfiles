@@ -2,7 +2,7 @@
 mode: subagent
 model: opencode/deepseek-v4-flash-free
 description: Implementation specialist that makes scoped code changes requested by the orchestrator.
-reasoningEffort: medium
+reasoningEffort: max
 permission:
   edit: allow
   skill:
