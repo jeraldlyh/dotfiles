@@ -1,17 +1,11 @@
 ---
 mode: subagent
-model: vercel/xiaomi/mimo-v2.5
+model: openrouter/xiaomi/mimo-v2.5
 description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code. MUST BE USED for all code changes.
-reasoningEffort: xhigh
+reasoningEffort: high
 permission:
   edit: deny
-  bash:
-    {
-      "*": "deny",
-      "grep *": "allow",
-      "git diff *": "allow",
-      "git log *": "allow",
-    }
+  bash: { "*": "deny", "rtk *": "allow" }
   skill:
     caveman*: allow
 ---
