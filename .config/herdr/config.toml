@@ -76,7 +76,7 @@ command = "cloudmanic.herdr-plus.projects"
 description = "Open projects"
 
 [ui]
-pane_borders = false
+pane_borders = true
 pane_gaps = false
 prompt_new_tab_name = false
 

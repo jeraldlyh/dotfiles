@@ -7,7 +7,7 @@ pane_id=$(jq -r '.result.process_info.pane_id' <<< "$info")
 
 tmpfile=$(mktemp /tmp/herdr-buffer-XXXXXX)
 
-herdr pane read "$pane_id" --source recent-unwrapped --format text > "$tmpfile"
+herdr pane read "$pane_id" --source recent-unwrapped --format text --lines 1000000 > "$tmpfile"
 
 split=$(herdr pane split "$pane_id" --direction right --focus)
 
