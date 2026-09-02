@@ -2,6 +2,22 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "orchestrator",
   "enabled_providers": ["opencode", "openrouter", "vercel"],
+  "provider": {
+    "openrouter": {
+      "models": {
+        "deepseek/deepseek-v4-flash-0731": {
+          "options": {
+            "preset": "@preset/deepseek"
+          }
+        },
+        "xiaomi/mimo-v2.5": {
+          "options": {
+            "preset": "@preset/xiaomi"
+          }
+        }
+      }
+    }
+  },
   "lsp": true,
   "small_model": "opencode/deepseek-v4-flash-free",
   "mcp": {
