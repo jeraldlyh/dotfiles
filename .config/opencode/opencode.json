@@ -15,6 +15,11 @@
           "options": {
             "preset": "@preset/xiaomi"
           }
+        },
+        "z-ai/glm-5.3": {
+          "options": {
+            "preset": "@preset/z-ai"
+          }
         }
       }
     }
