@@ -44,6 +44,15 @@
       "enabled": false,
       "type": "remote",
       "url": "https://mcp.canva.com/mcp"
+    },
+    "ios-simulator": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "ios-simulator-mcp"],
+      "env": {
+        "IOS_SIMULATOR_MCP_DEFAULT_OUTPUT_DIR": "/tmp",
+        "IOS_SIMULATOR_MCP_IDB_PATH": "{env:IDB_PATH}"
+      }
     }
   }
 }

@@ -26,6 +26,7 @@ export DOTFILE_DIR="$HOME/dotfiles/scripts"
 export OPT_DIR="/opt"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 export PNPM_HOME="$HOME/Library/pnpm"
+export IDB_PATH="$(which idb)"
 
 path_prepend "$HOMEBREW_DIR"
 path_prepend "$MVN_DIR"
