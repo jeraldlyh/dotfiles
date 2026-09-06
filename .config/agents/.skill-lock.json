@@ -77,9 +77,19 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-08-08T05:11:42.201Z",
       "updatedAt": "2026-08-08T05:11:42.201Z"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/pbakaus/impeccable.git",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "skillFolderHash": "5ce3dae1fac276def50a3361af9c9ce335d0ce15",
+      "installedAt": "2026-09-06T03:18:47.896Z",
+      "updatedAt": "2026-09-06T03:18:47.896Z"
     }
   },
   "dismissed": {
     "findSkillsPrompt": true
   }
 }
+
