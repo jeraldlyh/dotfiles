@@ -2,7 +2,7 @@
 mode: subagent
 model: openrouter/xiaomi/mimo-v2.5
 description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code. MUST BE USED for all code changes.
-reasoningEffort: high
+variant: high
 permission:
   edit: deny
   bash: { "*": "deny", "rtk *": "allow" }

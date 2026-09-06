@@ -2,7 +2,7 @@
 mode: subagent
 model: openrouter/deepseek/deepseek-v4-flash-0731
 description: Implementation specialist that makes scoped code changes requested by the orchestrator.
-reasoningEffort: max
+variant: max
 permission:
   edit: allow
   skill:

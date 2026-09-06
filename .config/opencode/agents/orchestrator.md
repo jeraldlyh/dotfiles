@@ -2,7 +2,7 @@
 mode: primary
 model: openrouter/z-ai/glm-5.3-flash
 description: Primary engineering orchestrator that plans work and delegates to specialists.
-reasoningEffort: high
+variant: high
 permission:
   edit: deny
   bash: { "git commit*": "deny" }
