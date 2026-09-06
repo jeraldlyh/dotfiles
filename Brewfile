@@ -48,6 +48,7 @@ brew "libpq"
 brew "tree-sitter-cli"
 brew "beszel-agent"
 cask "ngrok"
+brew "idb-companion" # For ios-simulator mcp
 
 # AI
 brew "opencode"
