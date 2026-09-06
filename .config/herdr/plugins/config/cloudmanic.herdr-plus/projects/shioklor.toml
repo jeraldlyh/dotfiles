@@ -1,0 +1,30 @@
+name = "shioklor"
+working_dir = "$HOME/Desktop/Github/shioklor/"
+
+[[tabs]]
+name = "neovim"
+
+[[tabs.panes]]
+split = "left"
+command = "nvim"
+ratio = 0.3
+
+[[tabs.panes]]
+command = "opencode"
+split = "right"
+
+[[tabs.panes]]
+command = "claude"
+split = "down"
+
+[[tabs]]
+name = "docker"
+
+[[tabs.panes]]
+name = "pnpm"
+command = "pnpm ios"
+split = "left"
+
+[[tabs.panes]]
+command = "dcu"
+split = "right"
